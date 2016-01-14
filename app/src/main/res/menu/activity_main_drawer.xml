@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_self_help"
+            android:icon="@android:drawable/ic_menu_help"
+            android:title="@string/menu_self_help" />
+        <item
+            android:id="@+id/nav_resources"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_resources" />
+    </group>
+
+</menu>
