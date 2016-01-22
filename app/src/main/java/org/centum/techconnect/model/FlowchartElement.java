@@ -27,7 +27,7 @@ public class FlowchartElement {
         el.details = obj.getString("detauls");
         el.attachment = obj.getString("attachment");
         JSONArray opts = obj.getJSONArray("options");
-        JSONArray next = obj.getJSONArray("next_questions");
+        JSONArray next = obj.getJSONArray("next_question");
         el.options = new String[opts.length()];
         el.nextElemIDs = new String[next.length()];
         if (el.options.length != el.nextElemIDs.length) {
@@ -45,32 +45,16 @@ public class FlowchartElement {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getQuestion() {
         return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
     }
 
     public String getDetails() {
         return details;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
-    }
-
     public String getAttachment() {
         return attachment;
-    }
-
-    public void setAttachment(String attachment) {
-        this.attachment = attachment;
     }
 
     public int getNumOptions() {
@@ -81,4 +65,11 @@ public class FlowchartElement {
         return attachment != null;
     }
 
+    public String[] getOptions() {
+        return options;
+    }
+
+    public String[] getNextElemIDs() {
+        return nextElemIDs;
+    }
 }
