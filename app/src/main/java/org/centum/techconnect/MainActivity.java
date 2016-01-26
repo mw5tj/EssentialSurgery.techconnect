@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import org.centum.techconnect.fragments.SelfHelpFragment;
+
 import butterknife.Bind;
 
 public class MainActivity extends AppCompatActivity
@@ -19,7 +21,7 @@ public class MainActivity extends AppCompatActivity
     private static final int FRAGMENT_SELF_HELP = 0;
     @Bind(R.id.nav_view)
     NavigationView navigationView;
-    private Fragment[] fragments = new Fragment[]{};
+    private Fragment[] fragments = new Fragment[]{new SelfHelpFragment()};
     private String[] fragmentTitles;
 
     @Override

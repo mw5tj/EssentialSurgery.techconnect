@@ -10,11 +10,13 @@ import org.json.JSONObject;
 public class Device {
 
     private String name;
+    private String imageURL;
     private DeviceProblem problems[];
 
     public static Device fromJSON(JSONObject obj) throws JSONException {
         Device device = new Device();
         device.name = obj.getString("name");
+        device.imageURL = obj.has("image") ? obj.getString("image") : null;
         JSONArray problemids = obj.getJSONArray("problemids");
         device.problems = new DeviceProblem[problemids.length()];
         for (int i = 0; i < problemids.length(); i++) {
@@ -26,5 +28,13 @@ public class Device {
 
     public DeviceProblem[] getProblems() {
         return problems;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getImageURL() {
+        return imageURL;
     }
 }
