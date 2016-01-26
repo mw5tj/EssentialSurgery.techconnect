@@ -1,51 +1,58 @@
 package org.centum.techconnect.model;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
- * A flowchart for a problem.
+ * Created by Phani on 1/23/2016.
  */
 public class Flowchart {
 
-    private String name;
-    private String description;
-    private Map<String, FlowchartElement> elements = new HashMap<>();
-    private Map<String, FlowchartElement> nextOpts;
-    private FlowchartElement currentElement;
+    private String question;
+    private String details;
+    private String attachment;
+    private Map<String, Flowchart> children;
 
-    public static Flowchart fromJSON(JSONObject json, JSONArray elements) throws JSONException {
-        Flowchart flowchart = new Flowchart();
-        flowchart.name = json.getString("name");
-        flowchart.description = json.getString("description");
-        for (int i = 0; i < elements.length(); i++) {
-            FlowchartElement el = FlowchartElement.fromJSON(elements.getJSONObject(i));
-            flowchart.elements.put(el.getId(), el);
-        }
-        flowchart.gotoElement(flowchart.elements.get(json.getString("entry_id")));
+    public Flowchart(String question, String details, String attachment) {
+        this.question = question;
+        this.details = details;
+        this.attachment = attachment;
+    }
+
+    public static Flowchart fromJSON(JSONObject object) throws JSONException {
+        Flowchart flowchart = new Flowchart(object.getString("question"),
+                object.getString("details"),
+                object.getString("attachment"));
         return flowchart;
     }
 
-    public FlowchartElement getCurrentElement() {
-        return currentElement;
+    public void addChild(String option, Flowchart child) {
+        children.put(option, child);
     }
 
-    public void gotoElement(FlowchartElement element) {
-        this.currentElement = element;
-        Map<String, FlowchartElement> opts = new HashMap<>();
-        String nextElemIDs[] = element.getNextElemIDs();
-        String nextOpts[] = element.getOptions();
-        for (int i = 0; i < nextOpts.length; i++) {
-            opts.put(nextOpts[i], elements.get(nextElemIDs[i]));
-        }
+    public int getNumChildren() {
+        return children.size();
     }
 
-    public Map<String, FlowchartElement> getNextOptions() {
-        return nextOpts;
+    public String[] getOptions() {
+        return children.keySet().toArray(new String[getNumChildren()]);
     }
 
+    public Flowchart getChild(String option) {
+        return children.get(option);
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public String getAttachment() {
+        return attachment;
+    }
 }
