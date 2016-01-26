@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fragment_titles">
+        <item>Self Help</item>
+    </string-array>
+</resources>
