@@ -39,7 +39,8 @@
         android:layout_alignStart="@+id/question_textView"
         android:layout_below="@+id/question_textView"
         android:layout_marginTop="8dp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/attachment_imageView"
@@ -63,7 +64,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/attachment_imageView"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/attachment_imageView"
         android:layout_marginTop="16dp"
         android:fillViewport="false"
         android:minHeight="100dp">
@@ -78,18 +79,4 @@
         </LinearLayout>
     </ScrollView>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/attachment_imageView"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="Options"
-        android:textSize="16sp"
-        android:textStyle="bold" />
 </org.centum.techconnect.views.SelfHelpFlowView>
