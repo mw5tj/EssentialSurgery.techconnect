@@ -37,11 +37,8 @@ public class SelfHelpFragment extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_self_help, container, true);
+        View view = inflater.inflate(R.layout.fragment_self_help, container, false);
         ButterKnife.bind(this, view);
-        introView = (SelfHelpIntroView) inflater.inflate(R.layout.self_help_intro_view, mainContainer, false);
-        introView.setDevices(DeviceManager.get().getDevices());
-        introView.setSessionCreatedListener(this);
         updateViews();
         return view;
     }
@@ -49,6 +46,11 @@ public class SelfHelpFragment extends Fragment implements View.OnClickListener {
     private void updateViews() {
         if (currentSession == null) {
             slidingView.setVisibility(View.GONE);
+            if (introView == null) {
+                introView = (SelfHelpIntroView) getLayoutInflater(null).inflate(R.layout.self_help_intro_view, mainContainer, false);
+                introView.setDevices(DeviceManager.get().getDevices());
+                introView.setSessionCreatedListener(this);
+            }
             mainContainer.removeAllViews();
             mainContainer.addView(introView);
         } else {

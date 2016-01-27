@@ -34,12 +34,12 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
-        DeviceManager.get(this);
         setContentView(R.layout.activity_main);
+
+        DeviceManager.get(this);
+        ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        fragmentTitles = getResources().getStringArray(R.array.fragment_titles);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -47,9 +47,8 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        fragmentTitles = getResources().getStringArray(R.array.fragment_titles);
         navigationView.setNavigationItemSelectedListener(this);
-        setFragment(FRAGMENT_SELF_HELP);
-
         loadDevices();
     }
 
@@ -63,11 +62,18 @@ public class MainActivity extends AppCompatActivity
                 dialog = new ProgressDialog(MainActivity.this);
                 dialog.setIndeterminate(true);
                 dialog.setTitle("Loading resources");
+                dialog.setCancelable(false);
                 dialog.show();
             }
 
             @Override
             protected void onPostExecute(Void aVoid) {
+                dialog.dismiss();
+                setFragment(FRAGMENT_SELF_HELP);
+            }
+
+            @Override
+            protected Void doInBackground(Void... voids) {
                 try {
                     DeviceManager.get().loadDevices();
                 } catch (IOException e) {
@@ -75,11 +81,6 @@ public class MainActivity extends AppCompatActivity
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            }
-
-            @Override
-            protected Void doInBackground(Void... voids) {
-                dialog.dismiss();
                 return null;
             }
         }.execute();
@@ -115,7 +116,6 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.main_fragment_container, fragments[frag])
-                .addToBackStack(null)
                 .commit();
         setTitle(fragmentTitles[frag]);
         navigationView.getMenu().getItem(FRAGMENT_SELF_HELP).setChecked(true);

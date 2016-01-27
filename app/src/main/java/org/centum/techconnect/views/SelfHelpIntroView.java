@@ -80,13 +80,19 @@ public class SelfHelpIntroView extends ScrollView implements View.OnClickListene
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, deviceNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         deviceSpinner.setAdapter(adapter);
-        deviceSpinner.setOnItemClickListener(null);
         deviceSpinner.setSelection(0);
-        deviceSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        deviceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 selectedDevice = devices[i];
                 updateProblemSpinner();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                selectedDevice = null;
+                selectedDeviceProblem = null;
+                problemSpinner.setAdapter(null);
             }
         });
     }
@@ -103,11 +109,16 @@ public class SelfHelpIntroView extends ScrollView implements View.OnClickListene
         problemSpinner.setAdapter(adapter);
         problemSpinner.setOnItemClickListener(null);
         problemSpinner.setSelection(0);
-        problemSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        problemSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 selectedDeviceProblem = problems[i];
                 descriptionTextView.setText(selectedDeviceProblem.getDescription());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                selectedDeviceProblem = null;
             }
         });
     }
@@ -125,10 +136,15 @@ public class SelfHelpIntroView extends ScrollView implements View.OnClickListene
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, levels);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         urgencySpinner.setAdapter(adapter);
-        urgencySpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        urgencySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 selectedUrgency = Session.Urgency.valueOf(levels[i]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                selectedUrgency = null;
             }
         });
     }
