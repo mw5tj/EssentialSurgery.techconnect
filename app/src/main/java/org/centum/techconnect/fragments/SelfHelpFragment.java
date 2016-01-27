@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
@@ -34,6 +35,8 @@ public class SelfHelpFragment extends Fragment implements View.OnClickListener {
     FrameLayout mainContainer;
     @Bind(R.id.self_help_sliding)
     SelfHelpSlidingView slidingView;
+    @Bind(R.id.intercept_button)
+    Button interceptButton;
 
     private SelfHelpIntroView introView;
     private SelfHelpFlowView flowView;
@@ -46,6 +49,38 @@ public class SelfHelpFragment extends Fragment implements View.OnClickListener {
         ButterKnife.bind(this, view);
         updateViews();
         slidingView.setOnEndSessionListener(this);
+        interceptButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                slidingUpPanelLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
+            }
+        });
+        slidingUpPanelLayout.setPanelSlideListener(new SlidingUpPanelLayout.PanelSlideListener() {
+            @Override
+            public void onPanelSlide(View panel, float slideOffset) {
+
+            }
+
+            @Override
+            public void onPanelCollapsed(View panel) {
+                interceptButton.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onPanelExpanded(View panel) {
+                interceptButton.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onPanelAnchored(View panel) {
+                interceptButton.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onPanelHidden(View panel) {
+                interceptButton.setVisibility(View.GONE);
+            }
+        });
         return view;
     }
 
