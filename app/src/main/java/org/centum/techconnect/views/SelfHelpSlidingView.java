@@ -2,6 +2,8 @@ package org.centum.techconnect.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -38,8 +40,11 @@ public class SelfHelpSlidingView extends RelativeLayout {
     TextView urgencyTextView;
     @Bind(R.id.notes_textView)
     TextView notesTextView;
+    @Bind(R.id.end_session_button)
+    Button endSessionButton;
 
     private Session session;
+    private OnClickListener endListener;
 
     public SelfHelpSlidingView(Context context) {
         super(context);
@@ -64,6 +69,10 @@ public class SelfHelpSlidingView extends RelativeLayout {
         update();
     }
 
+    public void setOnEndSessionListener(OnClickListener listener) {
+        endListener = listener;
+    }
+
     private void update() {
         if (session == null) {
             Picasso.with(getContext())
@@ -71,6 +80,7 @@ public class SelfHelpSlidingView extends RelativeLayout {
                     .into(deviceImageView);
             deviceTextView.setText("");
             problemTextView.setText("");
+            endSessionButton.setOnClickListener(null);
         } else {
             if (session.getDevice().getImageURL() == null) {
                 Picasso.with(getContext())
@@ -88,6 +98,14 @@ public class SelfHelpSlidingView extends RelativeLayout {
             departmentTextView.setText(session.getDepartment());
             notesTextView.setText(session.getNotes());
             urgencyTextView.setText(session.getUrgency().name());
+            endSessionButton.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (endListener != null) {
+                        endListener.onClick(SelfHelpSlidingView.this);
+                    }
+                }
+            });
         }
     }
 }

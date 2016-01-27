@@ -1,5 +1,7 @@
 package org.centum.techconnect.fragments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -40,6 +42,7 @@ public class SelfHelpFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_self_help, container, false);
         ButterKnife.bind(this, view);
         updateViews();
+        slidingView.setOnEndSessionListener(this);
         return view;
     }
 
@@ -65,6 +68,24 @@ public class SelfHelpFragment extends Fragment implements View.OnClickListener {
         if (view == introView) {
             currentSession = introView.getSession();
             updateViews();
+        } else if (view == slidingView) {
+            new AlertDialog.Builder(getContext())
+                    .setTitle("End Session")
+                    .setMessage("Are you sure you want to end the session?")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                            currentSession = null;
+                            updateViews();
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    }).show();
         }
     }
 }
