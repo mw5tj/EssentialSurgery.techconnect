@@ -11,6 +11,7 @@ public class Session {
     private Urgency urgency;
     private DeviceProblem deviceProblem;
     private String notes;
+    private Flowchart currentFlowchart;
 
     public long getCreatedDate() {
         return createdDate;
@@ -50,6 +51,7 @@ public class Session {
 
     public void setDeviceProblem(DeviceProblem deviceProblem) {
         this.deviceProblem = deviceProblem;
+        this.currentFlowchart = deviceProblem.getFlowchart();
     }
 
     public String getNotes() {
@@ -58,6 +60,14 @@ public class Session {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public Flowchart getCurrentFlowchart() {
+        return currentFlowchart;
+    }
+
+    public void setCurrentFlowchart(Flowchart currentFlowchart) {
+        this.currentFlowchart = currentFlowchart;
     }
 
     public enum Urgency {
