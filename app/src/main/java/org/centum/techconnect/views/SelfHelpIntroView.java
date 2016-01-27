@@ -59,13 +59,17 @@ public class SelfHelpIntroView extends ScrollView implements View.OnClickListene
         super(context, attrs, defStyleAttr);
     }
 
-    public void setOnClickListener(OnClickListener listener) {
+    public void setSessionCreatedListener(OnClickListener listener) {
         this.clickListener = listener;
     }
 
     public void setDevices(Device[] devices) {
         this.devices = devices;
         updateDeviceSpinner();
+    }
+
+    public Session getSession() {
+        return session;
     }
 
     private void updateDeviceSpinner() {
