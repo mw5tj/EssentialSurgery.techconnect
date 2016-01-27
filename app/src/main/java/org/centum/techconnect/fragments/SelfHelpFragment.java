@@ -15,6 +15,8 @@ import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import org.centum.techconnect.R;
 import org.centum.techconnect.model.DeviceManager;
 import org.centum.techconnect.model.Session;
+import org.centum.techconnect.model.SessionCompleteListener;
+import org.centum.techconnect.views.SelfHelpFlowView;
 import org.centum.techconnect.views.SelfHelpIntroView;
 import org.centum.techconnect.views.SelfHelpSlidingView;
 
@@ -34,6 +36,7 @@ public class SelfHelpFragment extends Fragment implements View.OnClickListener {
     SelfHelpSlidingView slidingView;
 
     private SelfHelpIntroView introView;
+    private SelfHelpFlowView flowView;
     private Session currentSession = null;
 
     @Nullable
@@ -60,6 +63,15 @@ public class SelfHelpFragment extends Fragment implements View.OnClickListener {
             slidingUpPanelLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
             slidingView.setSession(currentSession);
             mainContainer.removeAllViews();
+            flowView = (SelfHelpFlowView) getLayoutInflater(null).inflate(R.layout.self_help_flow_view, mainContainer, false);
+            flowView.setSession(currentSession, new SessionCompleteListener() {
+                @Override
+                public void onSessionComplete() {
+                    currentSession = null;
+                    updateViews();
+                }
+            });
+            mainContainer.addView(flowView);
         }
     }
 

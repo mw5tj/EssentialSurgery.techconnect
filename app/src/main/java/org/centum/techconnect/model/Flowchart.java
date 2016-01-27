@@ -26,12 +26,13 @@ public class Flowchart {
     public static Flowchart fromJSON(JSONObject object) throws JSONException {
         Flowchart flowchart = new Flowchart(object.getString("question"),
                 object.getString("details"),
-                object.getString("attachment"));
+                object.isNull("attachment") ? null : object.getString("attachment"));
         return flowchart;
     }
 
     public void addChild(String option, Flowchart child) {
-        child.setParent(child);
+        if (child != null)
+            child.setParent(this);
         children.put(option, child);
     }
 
