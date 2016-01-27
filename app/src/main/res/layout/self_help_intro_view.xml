@@ -107,6 +107,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/urgency_spinner"
+            android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Alarm does not sound when probe is disconnected or when readings abnormal"
             android:textSize="16sp"

@@ -3,6 +3,7 @@ package org.centum.techconnect.model;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -13,7 +14,7 @@ public class Flowchart {
     private String question;
     private String details;
     private String attachment;
-    private Map<String, Flowchart> children;
+    private Map<String, Flowchart> children = new HashMap<>();
 
     public Flowchart(String question, String details, String attachment) {
         this.question = question;

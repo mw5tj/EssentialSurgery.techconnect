@@ -43,7 +43,7 @@ public class NetworkHelper {
         for (Device device : deviceList) {
             for (DeviceProblem deviceProblem : device.getProblems()) {
                 Map<String, JSONObject> elementMap = loadElements(URL, deviceProblem.getJsonFile());
-                deviceProblem.setFlowchart(loadFlowchart(elementMap, URL, deviceProblem.getJsonFile()));
+                deviceProblem.setFlowchart(loadFlowchart(elementMap, URL, ENTRY_ID));
             }
         }
         return deviceList.toArray(new Device[deviceList.size()]);
@@ -61,7 +61,7 @@ public class NetworkHelper {
         Flowchart flowchart = Flowchart.fromJSON(element);
 
         for (int i = 0; i < children.length(); i++) {
-            if (children.get(i) != null) {
+            if (!children.isNull(i)) {
                 String nextID = children.getString(i);
                 flowchart.addChild(opts.getString(i), loadFlowchart(elementMap, path, nextID));
             } else {

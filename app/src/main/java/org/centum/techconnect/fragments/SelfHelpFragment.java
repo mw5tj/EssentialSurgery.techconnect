@@ -45,7 +45,7 @@ public class SelfHelpFragment extends Fragment implements View.OnClickListener {
 
     private void updateViews() {
         if (currentSession == null) {
-            slidingView.setVisibility(View.GONE);
+            slidingUpPanelLayout.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN);
             if (introView == null) {
                 introView = (SelfHelpIntroView) getLayoutInflater(null).inflate(R.layout.self_help_intro_view, mainContainer, false);
                 introView.setDevices(DeviceManager.get().getDevices());
@@ -54,7 +54,7 @@ public class SelfHelpFragment extends Fragment implements View.OnClickListener {
             mainContainer.removeAllViews();
             mainContainer.addView(introView);
         } else {
-            slidingView.setVisibility(View.VISIBLE);
+            slidingUpPanelLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
             slidingView.setSession(currentSession);
             mainContainer.removeAllViews();
         }

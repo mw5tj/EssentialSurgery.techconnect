@@ -99,7 +99,6 @@ public class SelfHelpIntroView extends ScrollView implements View.OnClickListene
 
     private void updateProblemSpinner() {
         final DeviceProblem problems[] = selectedDevice.getProblems();
-        problemSpinner.setOnItemClickListener(null);
         String problemNames[] = new String[problems.length];
         for (int i = 0; i < problems.length; i++) {
             problemNames[i] = problems[i].getName();
@@ -107,7 +106,6 @@ public class SelfHelpIntroView extends ScrollView implements View.OnClickListene
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, problemNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         problemSpinner.setAdapter(adapter);
-        problemSpinner.setOnItemClickListener(null);
         problemSpinner.setSelection(0);
         problemSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
