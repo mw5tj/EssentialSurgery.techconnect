@@ -2,6 +2,11 @@ package org.centum.techconnect.model;
 
 import android.content.Context;
 
+import org.centum.techconnect.network.NetworkHelper;
+import org.json.JSONException;
+
+import java.io.IOException;
+
 /**
  * Created by Phani on 1/26/2016.
  */
@@ -25,6 +30,10 @@ public class DeviceManager {
             instance = new DeviceManager(context);
         }
         return instance;
+    }
+
+    public void loadDevices() throws IOException, JSONException {
+        devices = new NetworkHelper().loadDevices();
     }
 
     public Device[] getDevices() {

@@ -1,5 +1,7 @@
 package org.centum.techconnect;
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -12,6 +14,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import org.centum.techconnect.fragments.SelfHelpFragment;
+import org.centum.techconnect.model.DeviceManager;
+import org.json.JSONException;
+
+import java.io.IOException;
 
 import butterknife.Bind;
 
@@ -27,6 +33,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        DeviceManager.get(this);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -40,7 +47,42 @@ public class MainActivity extends AppCompatActivity
 
         navigationView.setNavigationItemSelectedListener(this);
         setFragment(FRAGMENT_SELF_HELP);
+
+        loadDevices();
     }
+
+    private void loadDevices() {
+        new AsyncTask<Void, Void, Void>() {
+
+            ProgressDialog dialog;
+
+            @Override
+            protected void onPreExecute() {
+                dialog = new ProgressDialog(MainActivity.this);
+                dialog.setIndeterminate(true);
+                dialog.setTitle("Loading resources");
+                dialog.show();
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                try {
+                    DeviceManager.get().loadDevices();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                dialog.dismiss();
+                return null;
+            }
+        }.execute();
+    }
+
 
     @Override
     public void onBackPressed() {

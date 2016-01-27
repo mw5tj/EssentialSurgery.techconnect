@@ -29,6 +29,7 @@ public class NetworkHelper {
     public static final String ENTRY_ID = "q1";
     private static final String URL = "https://dl.dropboxusercontent.com/u/2767282/TechConnect/";
     private static final String INDEX_FILE = "index.json";
+    private boolean useCached = false;
 
     public Device[] loadDevices() throws IOException, JSONException {
         //Load the devices first
@@ -100,18 +101,26 @@ public class NetworkHelper {
     }
 
     private String downloadFile(String urlS) throws IOException {
-        java.net.URL url = new URL(urlS);
-        URLConnection conection = url.openConnection();
-        conection.connect();
-        InputStream input = new BufferedInputStream(url.openStream(), 8192);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-        StringBuilder builder = new StringBuilder();
-        String line;
-        while ((line = reader.readLine()) != null) {
-            builder.append(line).append('\n');
+        if (useCached) {
+            return getCachedFile(urlS);
+        } else {
+            java.net.URL url = new URL(urlS);
+            URLConnection conection = url.openConnection();
+            conection.connect();
+            InputStream input = new BufferedInputStream(url.openStream(), 8192);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+            StringBuilder builder = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                builder.append(line).append('\n');
+            }
+            input.close();
+            return builder.toString();
         }
-        input.close();
-        return builder.toString();
+    }
+
+    private String getCachedFile(String urlS) {
+        return null;
     }
 
 }
