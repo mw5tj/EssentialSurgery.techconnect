@@ -64,7 +64,7 @@ public class Flowchart {
     }
 
     private void setParent(Flowchart flowchart) throws IllegalStateException {
-        if (hasParent()) {
+        if (hasParent() && getParent() != flowchart) {
             throw new IllegalStateException("This object already has a parent!");
         }
         parent = flowchart;
