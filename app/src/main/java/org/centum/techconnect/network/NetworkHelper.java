@@ -1,5 +1,7 @@
 package org.centum.techconnect.network;
 
+import android.support.annotation.NonNull;
+
 import org.centum.techconnect.model.Device;
 import org.centum.techconnect.model.DeviceProblem;
 import org.centum.techconnect.model.Flowchart;
@@ -16,10 +18,12 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
 
 /**
  * Created by Phani on 1/14/2016.
@@ -42,61 +46,114 @@ public class NetworkHelper {
         //Now load all of the flowcharts for the device/deviceproblems
         for (Device device : deviceList) {
             for (DeviceProblem deviceProblem : device.getProblems()) {
-                Map<String, JSONObject> elementMap = loadElements(URL, deviceProblem.getJsonFile());
-                deviceProblem.setFlowchart(loadFlowchart(elementMap, URL, ENTRY_ID));
+                deviceProblem.setFlowchart(loadFlowchart(URL, deviceProblem.getJsonFile(), ENTRY_ID));
             }
         }
         return deviceList.toArray(new Device[deviceList.size()]);
     }
 
-    private Flowchart loadFlowchart(Map<String, JSONObject> elementMap, String path, String id) throws JSONException, IOException {
-        if (id.endsWith(".json")) {
-            //Go into a new JSON file
-            elementMap = loadElements(path, id);
-            id = ENTRY_ID;
+    private Flowchart loadFlowchart(String path, String filename, String entry) throws JSONException {
+        Map<String, JSONObject> elements = deepLoadElements(path, filename);
+        Map<JSONObject, Flowchart> flowchartsByJSON = new HashMap<>();
+        Map<String, Flowchart> flowchartsByID = new HashMap<>();
+        //Create maps
+        for (String key : elements.keySet()) {
+            JSONObject obj = elements.get(key);
+            Flowchart chart = Flowchart.fromJSON(obj);
+            flowchartsByJSON.put(obj, chart);
+            flowchartsByID.put(key, chart);
         }
-        JSONObject element = elementMap.get(id);
-        JSONArray children = element.getJSONArray("next_question");
-        JSONArray opts = element.getJSONArray("options");
-        Flowchart flowchart = Flowchart.fromJSON(element);
 
-        for (int i = 0; i < children.length(); i++) {
-            if (!children.isNull(i)) {
-                String nextID = children.getString(i);
-                flowchart.addChild(opts.getString(i), loadFlowchart(elementMap, path, nextID));
-            } else {
-                flowchart.addChild(opts.getString(i), null);
+        //Create links
+        for (String key : flowchartsByID.keySet()) {
+            Flowchart chart = flowchartsByID.get(key);
+            JSONObject obj = elements.get(key);
+            JSONArray opts = obj.getJSONArray("options");
+            JSONArray next = obj.getJSONArray("next_question");
+            for (int i = 0; i < next.length(); i++) {
+                Flowchart child = flowchartsByID.get(next.getString(i));
+                chart.addChild(opts.getString(i), child);
             }
         }
-        return flowchart;
+
+        return flowchartsByID.get(filename + "/" + entry);
     }
 
-    /**
-     * Loads all of the elements from a JSON file and child JSON files
-     *
-     * @param path
-     * @param name
-     * @return
-     * @throws JSONException
-     */
-    private Map<String, JSONObject> loadElements(String path, String name) throws JSONException, IOException {
-        Queue<String> toLoad = new LinkedList<>();
-        Map<String, JSONObject> elements = new HashMap<>();
+    @NonNull
+    private Map<String, JSONObject> deepLoadElements(String path, String filename) throws JSONException {
+        //Map of jsonname/id to JSONObject
+        Map<String, JSONObject> loadedElements = new HashMap<>();
+        Set<String> loadedJSONs = new HashSet<>();
+        Queue<String> toLoadJSON = new LinkedList<>();
+        toLoadJSON.add(filename);
 
-        toLoad.add(name);
+        while (toLoadJSON.size() > 0) {
+            String jsonFile = toLoadJSON.poll();
+            Map<String, JSONObject> elements = loadElements(path, jsonFile);
+            extendIDs(jsonFile, elements);
+            Set<String> referencedJSONs = getReferencedJSONs(elements);
+            loadedJSONs.add(jsonFile);
+            loadedElements.putAll(elements);
 
-        while (toLoad.size() > 0) {
-            String jsonName = toLoad.poll();
-            String abspath = path + File.separator + jsonName;
-            String json = downloadFile(abspath);
-            JSONArray obj = new JSONArray(json);
-            //Load the elements
-            for (int i = 0; i < obj.length(); i++) {
-                JSONObject el = obj.getJSONObject(i);
-                elements.put(el.getString("id"), el);
+            for (String json : referencedJSONs) {
+                if (!loadedJSONs.contains(json)) {
+                    toLoadJSON.add(json);
+                }
             }
         }
+        return loadedElements;
+    }
 
+    private Set<String> getReferencedJSONs(Map<String, JSONObject> elements) throws JSONException {
+        Set<String> jsons = new HashSet<>();
+        for (String id : elements.keySet()) {
+            JSONObject obj = elements.get(id);
+            JSONArray nextQuestions = obj.getJSONArray("next_question");
+            for (int i = 0; i < nextQuestions.length(); i++) {
+                String nextID = nextQuestions.getString(i);
+                jsons.add(nextID.substring(0, nextID.indexOf("/")));
+            }
+        }
+        return jsons;
+    }
+
+    private void extendIDs(String jsonFile, Map<String, JSONObject> elements) throws JSONException {
+        //convert next_question into extended id
+        for (String id : elements.keySet()) {
+            JSONObject obj = elements.get(id);
+            JSONArray nextQuestions = obj.getJSONArray("next_question");
+            JSONArray newNextQuestions = new JSONArray();
+            for (int i = 0; i < nextQuestions.length(); i++) {
+                String oldNextID = nextQuestions.getString(i);
+                String newNextID = oldNextID;
+                if (oldNextID.endsWith(".json")) {
+                    //implied entry id
+                    newNextID = oldNextID + "/" + ENTRY_ID;
+                } else if (!oldNextID.contains(".json")) {
+                    //implied json file
+                    newNextID = jsonFile + "/" + nextQuestions.getString(i);
+                }
+                newNextQuestions.put(newNextID);
+            }
+            obj.put("next_question", newNextQuestions);
+        }
+    }
+
+    private Map<String, JSONObject> loadElements(String path, String jsonName) throws JSONException {
+        Map<String, JSONObject> elements = new HashMap<>();
+        String abspath = path + File.separator + jsonName;
+        String json = null;
+        try {
+            json = downloadFile(abspath);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return elements;
+        }
+        JSONArray obj = new JSONArray(json);
+        for (int i = 0; i < obj.length(); i++) {
+            JSONObject el = obj.getJSONObject(i);
+            elements.put(jsonName + "/" + el.getString("id"), el);
+        }
         return elements;
     }
 

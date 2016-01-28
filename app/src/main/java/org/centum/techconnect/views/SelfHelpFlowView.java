@@ -24,8 +24,6 @@ import butterknife.ButterKnife;
  */
 public class SelfHelpFlowView extends RelativeLayout {
 
-    @Bind(R.id.back_button)
-    Button backButton;
     @Bind(R.id.question_textView)
     TextView questionTextView;
     @Bind(R.id.details_textView)
@@ -54,12 +52,6 @@ public class SelfHelpFlowView extends RelativeLayout {
         this.listener = listener;
         this.session = session;
         updateViews();
-        backButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                backFlow();
-            }
-        });
     }
 
     private void updateViews() {
@@ -91,7 +83,6 @@ public class SelfHelpFlowView extends RelativeLayout {
             });
             optionsLinearLayout.addView(button);
         }
-        backButton.setVisibility(flow.hasParent() ? VISIBLE : GONE);
     }
 
     private void advanceFlow(String option) {
@@ -101,13 +92,6 @@ public class SelfHelpFlowView extends RelativeLayout {
             }
         } else {
             session.setCurrentFlowchart(session.getCurrentFlowchart().getChild(option));
-            updateViews();
-        }
-    }
-
-    private void backFlow() {
-        if (session.getCurrentFlowchart().hasParent()) {
-            session.setCurrentFlowchart(session.getCurrentFlowchart().getParent());
             updateViews();
         }
     }

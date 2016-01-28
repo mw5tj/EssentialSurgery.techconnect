@@ -14,7 +14,6 @@ public class Flowchart {
     private String question;
     private String details;
     private String attachment;
-    private Flowchart parent = null;
     private Map<String, Flowchart> children = new HashMap<>();
 
     public Flowchart(String question, String details, String attachment) {
@@ -31,8 +30,6 @@ public class Flowchart {
     }
 
     public void addChild(String option, Flowchart child) {
-        if (child != null)
-            child.setParent(this);
         children.put(option, child);
     }
 
@@ -58,20 +55,5 @@ public class Flowchart {
 
     public String getAttachment() {
         return attachment;
-    }
-
-    public Flowchart getParent() {
-        return parent;
-    }
-
-    private void setParent(Flowchart flowchart) throws IllegalStateException {
-        if (hasParent() && getParent() != flowchart) {
-            throw new IllegalStateException("This object already has a parent!");
-        }
-        parent = flowchart;
-    }
-
-    public boolean hasParent() {
-        return parent != null;
     }
 }
