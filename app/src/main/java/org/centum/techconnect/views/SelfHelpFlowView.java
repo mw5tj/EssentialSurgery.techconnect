@@ -1,15 +1,17 @@
 package org.centum.techconnect.views;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Typeface;
+import android.net.Uri;
 import android.util.AttributeSet;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.squareup.picasso.Picasso;
 
 import org.centum.techconnect.R;
 import org.centum.techconnect.model.Flowchart;
@@ -28,8 +30,6 @@ public class SelfHelpFlowView extends RelativeLayout {
     TextView questionTextView;
     @Bind(R.id.details_textView)
     TextView detailsTextView;
-    @Bind(R.id.attachment_imageView)
-    ImageView attachmentImageView;
     @Bind(R.id.options_linearLayout)
     LinearLayout optionsLinearLayout;
 
@@ -58,14 +58,6 @@ public class SelfHelpFlowView extends RelativeLayout {
         Flowchart flow = session.getCurrentFlowchart();
         questionTextView.setText(flow.getQuestion());
         detailsTextView.setText(flow.getDetails());
-        if (flow.getAttachment() == null || "".equals(flow.getAttachment())) {
-            attachmentImageView.setVisibility(GONE);
-        } else {
-            attachmentImageView.setVisibility(VISIBLE);
-            Picasso.with(getContext())
-                    .load(flow.getAttachment())
-                    .into(attachmentImageView);
-        }
         for (int i = 0; i < optionsLinearLayout.getChildCount(); i++) {
             optionsLinearLayout.getChildAt(i).setOnClickListener(null);
         }
@@ -83,6 +75,35 @@ public class SelfHelpFlowView extends RelativeLayout {
             });
             optionsLinearLayout.addView(button);
         }
+        final String[] attachments = flow.getAttachments();
+        if (attachments.length > 0) {
+            TextView tv = new TextView(getContext());
+            tv.setText("Attachments");
+            tv.setTypeface(Typeface.DEFAULT_BOLD);
+            tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+            tv.setGravity(Gravity.CENTER);
+            int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics());
+            tv.setPadding(px, px, px, px);
+            optionsLinearLayout.addView(tv);
+        }
+        for (int i = 0; i < attachments.length; i++) {
+            final String att = attachments[i];
+            String name = att.substring(att.lastIndexOf("/") + 1);
+            Button button = new Button(getContext());
+            button.setText(name);
+            button.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    openAttachment(att);
+                }
+            });
+            optionsLinearLayout.addView(button);
+        }
+    }
+
+    private void openAttachment(String att) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(att));
+        getContext().startActivity(browserIntent);
     }
 
     private void advanceFlow(String option) {
