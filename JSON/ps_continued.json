@@ -1,0 +1,210 @@
+[
+	{
+	"id":"q1",
+	"question":"Inspect the cable from AC input feeding power into the device. Check for any deformities or exposed wires in the cable. Is the cable in good condition?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_1","no_1"]
+	},
+	{
+	"id":"yes_1",
+	"question":"Carefully open up the device.  Use a voltmeter to check that voltage has made it into the device.  Do this by following the power cord into the device, and immediately checking the voltage at the point where the cord does not pass through any circuit components. Does voltage make it into the device?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_2","no_1"]
+	},
+	{
+	"id":"no_1",
+	"question":"Repair or replace the cable.  The cable can be resoldered, taped, and assembled such that the cable is functional and safe.  Otherwise, replace the cable.",
+	"details":"",
+	"attachment":["broken_wires_within_cables.pdf","broken_cable_housing.pdf","fabricating_power_cords.pdf"],
+	"options":["Yes"],
+	"next_question":["yes_1"]
+	},
+	{
+	"id":"yes_2",
+	"question":"Check the switching capabilities by testing the input voltage to the rest of the device when in on/off states of the device's power switch.  The device should yield the appropriate voltage when switched on and no voltage when switched off. Does the device switch properly?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_3","no_2"]
+	},
+	{
+	"id":"yes_3",
+	"question":"Does the device utilize a fuse?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_3","no_2"]
+	},
+	{
+	"id":"yes_4",
+	"question":"Use a multimeter to assess whether or not the fuse shorts. A shortage indicates a functioning fuse. Does the fuse short?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_5","no_5"]
+	},
+	{
+	"id":"yes_5",
+	"question":"Is the device working properly?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":[null,"no_3"]
+	},
+	{
+	"id":"yes_12",
+	"question":"Is the device working properly?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":[null,"no_9"]
+	},
+	{
+	"id":"no_3",
+	"question":"Would you like to access resources, contact another technician, or continue with power supply troubleshooting?",
+	"details":"To access resources, click on the document links. To contact another technician, use the call button. Press 'continue...' for more guided troubleshooting.",
+	"attachment":["power_supply_troubleshooting.pdf"],
+	"options":["Continue troubleshooting"],
+	"next_question":["no_2"]
+	},
+	{
+	"id":"no_9",
+	"question":"Would you like to access resources or contact another technician?",
+	"details":"To access resources, click on the document links. To contact another technician, use the call button.",
+	"attachment":["power_supply_troubleshooting.pdf"],
+	"options":["Exit"],
+	"next_question":[null]
+	},
+	{
+	"id":"no_2",
+	"question":"Inspect the condition of components within the power supply. Check for puffy capacitors, any melted or burnt components melted or burnt, and any signs of rust or corrosion.  Do any components need replacing?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_6","no_4"]
+	},
+	{
+	"id":"no_4",
+	"question":"Does the device utilize a bulky internal transformer?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_7","no_6"]
+	},
+	{
+	"id":"yes_6",
+	"question":"Replace leaking or corroded with exact replacements if possible. If exact replacements are not available, it may be possible to harvest components from old, dysfunctional equipment. Otherwise, the power supply will need replacing.",
+	"details":"",
+	"attachment":"soldering.pdf",
+	"options":["No"],
+	"next_question":["no_4"]
+	},
+	{
+	"id":"no_6",
+	"question":"This means that the device uses a switching power supply. Use a voltmeter to check for shorts within any components. Using the connection mode on the voltmeter, methodically move through each component of the power supply to determine if there are any shorts to ground. Were any shorts detected?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_8","ok_2"]
+	},
+	{
+	"id":"yes_8",
+	"question":"Replace shorted components with exact replacements if possible using a solder and soldering iron. If exact or equivalent replacements cannot be made, the power supply will need to be replaced.",
+	"details":"",
+	"attachment":"soldering.pdf",
+	"options":["Ok"],
+	"next_question":["ok_2"]
+	},
+	{
+	"id":"ok_2",
+	"question":"Using a voltmeter, check for the presence of DC voltage after rectification and before the small internal transformer. Do this by using the voltage mode on the voltmeter, moving methodically through each component of the power supply to determine if the appropriate DC voltage is being conducted. Is voltage present in all components?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_9","no_8"]
+	},
+	{
+	"id":"yes_9",
+	"question":"Does the power supply turn on?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_12","no_7"]
+	},
+	{
+	"id":"no_7",
+	"question":"Replace the power supply.",
+	"details":"",
+	"attachment":null,
+	"options":["Ok"],
+	"next_question":["yes_12"]
+	},
+	{
+	"id":"no_5",
+	"question":"Replace the fuse. Identify the fuse amperage, voltage, and type, which should be printed on the fuse or the device. If not, make an educated guess by comparing with fuses of known specifications, and use the knowledge of the device to estimate which fuse is best.",
+	"details":"",
+	"attachment":["identifying_blown_fuse.pdf","fuse_substitution.pdf"],
+	"options":["Ok"],
+	"next_question":["ok_1"]
+	},
+	{
+	"id":"ok_1",
+	"question":"After the fuse is replaced, ensure that the input voltage is being inserted into the proper side of the terminal and that the transformer outputs the proper voltage. Is the device working properly?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":[null,"no_3"]
+	},
+	{
+	"id":"yes_10",
+	"question":"Troubleshoot the voltage regulator.  Pull out the 3-pin regulator to determine if the regulator has failed. Does the short go away in the overall circuit?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_11","no_8"]
+	},
+	{
+	"id":"yes_11",
+	"question":"Replace the voltage regulator.",
+	"details":"",
+	"attachment":null,
+	"options":["Ok"],
+	"next_question":["ok_4"]
+	},
+	{
+	"id":"ok_4",
+	"question":"Remove the voltage regulator for troubleshooting. Does the short go away in the overall circuit?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["no_3","no_8"]
+	},
+	{
+	"id":"ok_3",
+	"question":"Use a voltmeter to check for shorts within any components. Using the connection mode on the voltmeter, methodically move through each component of the power supply to determine if there are any shorts to ground. Do any connections short to ground?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_10","yes_9"]
+	},
+	{
+	"id":"no_8",
+	"question":"Replace shorted components with exact replacements if possible using a solder and soldering iron. If exact or equivalent replacements cannot be made, the power supply will need to be replaced. Once replaced, ensure that no connections short to ground.",
+	"details":"",
+	"attachment":null,
+	"options":["Ok"],
+	"next_question":["yes_9"]
+	},
+	{
+	"id":"yes_7",
+	"question":"This means that the device uses a linear power supply. Troubleshoot the transformer to ensure that it is working properly.", 
+	"details":"",
+	"attachment":null,
+	"options":["Transformer troubleshooting"],
+	"next_question":["transformer.json"]
+	}
+]
