@@ -28,7 +28,11 @@
 	"question":"Is the outlet wired properly and grounded? Use a voltmeter to check for the output voltage and current. Ensure that the live, neutral, and ground wires are appropriate. Check the device plug.",
 	"details":"",
 <<<<<<< HEAD
+<<<<<<< HEAD
 	"attachment":["http://library.ewh.org/greenstone/collect/BMETLibraryLaunch/index/assoc/HASH0172.dir/PowerSupply-PlugCable-Grounding%20v11.pdf","http://library.ewh.org/greenstone/collect/BMETLibraryLaunch/index/assoc/HASH01cc.dir/PowerSupply-PlugCable-Outlets%20v6.pdf"],
+=======
+	"attachment":["https://www.dropbox.com/home/Techconnect%20Resources?preview=adding_proper_grounding.pdf","https://www.dropbox.com/home/Techconnect%20Resources?preview=outlet_and_plug_variations.pdf"],
+>>>>>>> parent of 78963bb... Update outlet_plug.json
 =======
 	"attachment":["https://www.dropbox.com/home/Techconnect%20Resources?preview=adding_proper_grounding.pdf","https://www.dropbox.com/home/Techconnect%20Resources?preview=outlet_and_plug_variations.pdf"],
 >>>>>>> parent of 78963bb... Update outlet_plug.json
@@ -72,7 +76,11 @@
 	"question":"Fix or replace the plug and cable. Tighten pins that wiggle. Straighten any bent pins with pliers. Remove rust with sandpaper.",
 	"details":"",
 <<<<<<< HEAD
+<<<<<<< HEAD
 	"attachment":["http://library.ewh.org/greenstone/collect/BMETLibraryLaunch/index/assoc/HASH01cd.dir/PowerSupply-PlugCable-Fabricating%20v10.pdf"],
+=======
+	"attachment":["https://www.dropbox.com/home/Techconnect%20Resources?preview=fabricating_power_cords.pdf"],
+>>>>>>> parent of 78963bb... Update outlet_plug.json
 =======
 	"attachment":["https://www.dropbox.com/home/Techconnect%20Resources?preview=fabricating_power_cords.pdf"],
 >>>>>>> parent of 78963bb... Update outlet_plug.json
@@ -84,7 +92,11 @@
 	"question":"Obtain appropriate plug type and replace, or obtain a pin type adapter.",
 	"details":"",
 <<<<<<< HEAD
+<<<<<<< HEAD
 	"attachment":["http://library.ewh.org/greenstone/collect/BMETLibraryLaunch/index/assoc/HASH01cc.dir/PowerSupply-PlugCable-Outlets%20v6.pdf"],
+=======
+	"attachment":["https://www.dropbox.com/home/Techconnect%20Resources?preview=outlet_and_plug_variations.pdf"],
+>>>>>>> parent of 78963bb... Update outlet_plug.json
 =======
 	"attachment":["https://www.dropbox.com/home/Techconnect%20Resources?preview=outlet_and_plug_variations.pdf"],
 >>>>>>> parent of 78963bb... Update outlet_plug.json
@@ -104,7 +116,11 @@
 	"question":"Carefully the rewire the outlet and add a ground connection if necessary. Disconnect the main power.",
 	"details":"",
 <<<<<<< HEAD
+<<<<<<< HEAD
 	"attachment":["http://library.ewh.org/greenstone/collect/BMETLibraryLaunch/index/assoc/HASH0172.dir/PowerSupply-PlugCable-Grounding%20v11.pdf"],
+=======
+	"attachment":["https://www.dropbox.com/home/Techconnect%20Resources?preview=adding_proper_grounding.pdf"],
+>>>>>>> parent of 78963bb... Update outlet_plug.json
 =======
 	"attachment":["https://www.dropbox.com/home/Techconnect%20Resources?preview=adding_proper_grounding.pdf"],
 >>>>>>> parent of 78963bb... Update outlet_plug.json
@@ -116,7 +132,11 @@
 	"question":"Would you like to access resources, contact another technician, or continue with power supply troubleshooting?",
 	"details":"To access resources, click on the document links. To contact another technician, use the call button. Press 'continue...' for more guided troubleshooting.",
 <<<<<<< HEAD
+<<<<<<< HEAD
 	"attachment":["http://library.ewh.org/greenstone/collect/BMETLibraryLaunch/index/assoc/HASH01bf/af091e80.dir/Power%20Supply%20%2528Outlet%20Plug%2529%20Repair%20and%20Troubleshooting.pdf","http://library.ewh.org/greenstone/collect/BMETLibraryLaunch/index/assoc/HASH017d/99253567.dir/Power%20Supply%20%2528Overall%2529%20Repair%20and%20Troubleshooting.pdf"],
+=======
+	"attachment":["https://www.dropbox.com/home/Techconnect%20Resources?preview=outlet_plug_troubleshooting.pdf","https://www.dropbox.com/home/Techconnect%20Resources?preview=power_supply_troubleshooting.pdf"],
+>>>>>>> parent of 78963bb... Update outlet_plug.json
 =======
 	"attachment":["https://www.dropbox.com/home/Techconnect%20Resources?preview=outlet_plug_troubleshooting.pdf","https://www.dropbox.com/home/Techconnect%20Resources?preview=power_supply_troubleshooting.pdf"],
 >>>>>>> parent of 78963bb... Update outlet_plug.json
