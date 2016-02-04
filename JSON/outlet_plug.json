@@ -1,0 +1,106 @@
+[
+	{
+	"id":"q1",
+	"question":"Carefully take off the outlet faceplate and inspect circuitry for any damage. Disconnect the main power while dismantling.",
+	"details":"",
+	"attachment":null,
+	"options":["Ok"],
+	"next_question":["ok_1"]
+	},
+	{
+	"id":"ok_1",
+	"question":"Are there any damaged parts, including anything disconnected or anything burned or melted?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_1","no_1"]
+	},
+	{
+	"id":"yes_1",
+	"question":"Carefully remove, replace, or reconnect any non-functioning parts.",
+	"details":"",
+	"attachment":null,
+	"options":["Ok"],
+	"next_question":["no_1"]
+	},
+	{
+	"id":"no_1",
+	"question":"Is the outlet wired properly and grounded? Use a voltmeter to check for the output voltage and current. Ensure that the live, neutral, and ground wires are appropriate. Check the device plug.",
+	"details":"",
+	"attachment":["https://www.dropbox.com/home/Techconnect%20Resources?preview=adding_proper_grounding.pdf","https://www.dropbox.com/home/Techconnect%20Resources?preview=outlet_and_plug_variations.pdf"],
+	"options":["Yes","No"],
+	"next_question":["yes_2","no_2"]
+	},
+	{
+	"id":"yes_2",
+	"question":"Is the machine set to accept the proper power?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_3","no_3"]
+	},
+	{
+	"id":"yes_3",
+	"question":"Is the plug of the appropriate pin type? The plug pin configuration should fit into the wall socket.",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_4","no_4"]
+	},
+	{
+	"id":"yes_4",
+	"question":"Is the plug in good condition? The pins shouldn’t wiggle, be bent or rusted.",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_5","no_5"]
+	},
+	{
+	"id":"yes_5",
+	"question":"Is the device working properly?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":[null,"no_6"]
+	},
+	{
+	"id":"no_5",
+	"question":"Fix or replace the plug and cable. Tighten pins that wiggle. Straighten any bent pins with pliers. Remove rust with sandpaper.",
+	"details":"",
+	"attachment":["https://www.dropbox.com/home/Techconnect%20Resources?preview=fabricating_power_cords.pdf"],
+	"options":["Ok"],
+	"next_question":["yes_5"]
+	},
+	{
+	"id":"no_4",
+	"question":"Obtain appropriate plug type and replace, or obtain a pin type adapter.",
+	"details":"",
+	"attachment":["https://www.dropbox.com/home/Techconnect%20Resources?preview=outlet_and_plug_variations.pdf"],
+	"options":["Ok"],
+	"next_question":["yes_4"]
+	},
+	{
+	"id":"no_3",
+	"question":"Alter the power of the device if possible. Otherwise, obtain the transformer of the appropriate input and output voltage.",
+	"details":"",
+	"attachment":null,
+	"options":["Ok"],
+	"next_question":["ok_6"]
+	},
+	{
+	"id":"no_2",
+	"question":"Carefully the rewire the outlet and add a ground connection if necessary. Disconnect the main power.",
+	"details":"",
+	"attachment":["https://www.dropbox.com/home/Techconnect%20Resources?preview=adding_proper_grounding.pdf"],
+	"options":["Ok"],
+	"next_question":["yes_2"]
+	},
+	{
+	"id":"no_6",
+	"question":"Would you like to access resources, contact another technician, or continue with power supply troubleshooting?",
+	"details":"To access resources, click on the document links. To contact another technician, use the call button. Press 'continue...' for more guided troubleshooting.",
+	"attachment":["https://www.dropbox.com/home/Techconnect%20Resources?preview=outlet_plug_troubleshooting.pdf","https://www.dropbox.com/home/Techconnect%20Resources?preview=power_supply_troubleshooting.pdf"],
+	"options":["Continue power supply troubleshooting"],
+	"next_question":["ps_continued.json"]
+	}
+]
