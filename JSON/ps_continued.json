@@ -19,7 +19,7 @@
 	"id":"no_1",
 	"question":"Repair or replace the cable.  The cable can be resoldered, taped, and assembled such that the cable is functional and safe.  Otherwise, replace the cable.",
 	"details":"",
-	"attachment":["broken_wires_within_cables.pdf","broken_cable_housing.pdf","fabricating_power_cords.pdf"],
+	"attachment":["http://library.ewh.org/greenstone/collect/BMETLibraryLaunch/index/assoc/HASHcac4.dir/Electrical-Connections-BrokenWiresInCables%20v8.pdf","http://library.ewh.org/greenstone/collect/BMETLibraryLaunch/index/assoc/HASHd686.dir/Electrical-Connectors-BrokenHousing%20v8.pdf","http://library.ewh.org/greenstone/collect/BMETLibraryLaunch/index/assoc/HASH01cd.dir/PowerSupply-PlugCable-Fabricating%20v10.pdf"],
 	"options":["Yes"],
 	"next_question":["yes_1"]
 	},
@@ -67,7 +67,7 @@
 	"id":"no_3",
 	"question":"Would you like to access resources, contact another technician, or continue with power supply troubleshooting?",
 	"details":"To access resources, click on the document links. To contact another technician, use the call button. Press 'continue...' for more guided troubleshooting.",
-	"attachment":["power_supply_troubleshooting.pdf"],
+	"attachment":["http://library.ewh.org/greenstone/collect/BMETLibraryLaunch/index/assoc/HASH017d/99253567.dir/Power%20Supply%20%2528Overall%2529%20Repair%20and%20Troubleshooting.pdf"],
 	"options":["Continue troubleshooting"],
 	"next_question":["no_2"]
 	},
@@ -75,7 +75,7 @@
 	"id":"no_9",
 	"question":"Would you like to access resources or contact another technician?",
 	"details":"To access resources, click on the document links. To contact another technician, use the call button.",
-	"attachment":["power_supply_troubleshooting.pdf"],
+	"attachment":["http://library.ewh.org/greenstone/collect/BMETLibraryLaunch/index/assoc/HASH017d/99253567.dir/Power%20Supply%20%2528Overall%2529%20Repair%20and%20Troubleshooting.pdf"],
 	"options":["Exit"],
 	"next_question":[null]
 	},
@@ -115,7 +115,7 @@
 	"id":"yes_8",
 	"question":"Replace shorted components with exact replacements if possible using a solder and soldering iron. If exact or equivalent replacements cannot be made, the power supply will need to be replaced.",
 	"details":"",
-	"attachment":"soldering.pdf",
+	"attachment":["http://library.ewh.org/greenstone/collect/BMETLibraryLaunch/index/assoc/HASH011f.dir/Electrical-Connections-Soldering%20v6.pdf"],
 	"options":["Ok"],
 	"next_question":["ok_2"]
 	},
@@ -147,7 +147,7 @@
 	"id":"no_5",
 	"question":"Replace the fuse. Identify the fuse amperage, voltage, and type, which should be printed on the fuse or the device. If not, make an educated guess by comparing with fuses of known specifications, and use the knowledge of the device to estimate which fuse is best.",
 	"details":"",
-	"attachment":["identifying_blown_fuse.pdf","fuse_substitution.pdf"],
+	"attachment":["http://library.ewh.org/greenstone/collect/BMETLibraryLaunch/index/assoc/HASH9181.dir/PowerSupply-Fuse-Identify%20v6.pdf","http://library.ewh.org/greenstone/collect/BMETLibraryLaunch/index/assoc/HASHa437.dir/PowerSupply-Fuse-Substitute%20v8.pdf"],
 	"options":["Ok"],
 	"next_question":["ok_1"]
 	},
