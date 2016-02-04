@@ -35,7 +35,7 @@
 	"id":"no_3",
 	"question":"Would you like to access resources, contact another technician, or continue with power supply troubleshooting?",
 	"details":"To access resources, click on the document links. To contact another technician, use the call button. Press 'continue...' for more guided troubleshooting.",
-	"attachment":["transformer_troubleshooting.pdf","power_supply_troubleshooting.pdf"],
+	"attachment":["https://www.dropbox.com/s/iboovbnmas4c7i9/transformer_troubleshooting.pdf?dl=0","https://www.dropbox.com/s/0qmrlbyv6e8cq6a/power_supply_troubleshooting.pdf?dl=0"],
 	"options":["Continue power supply troubleshooting"],
 	"next_question":["ps_continued.json"]
 	},
@@ -51,7 +51,7 @@
 	"id":"yes_4",
 	"question":"Troubleshoot the transformer fuse. Use a voltmeter to assess whether or not the fuse shorts. Does the transformer fuse short?",
 	"details":"",
-	"attachment":"identifying_blown_fuse.pdf",
+	"attachment":["https://www.dropbox.com/s/sxgr40jfyvxrryi/identifying_blown_fuse.pdf?dl=0"],
 	"options":["Yes","No"],
 	"next_question":["yes_5","no_6"]
 	},
@@ -59,7 +59,7 @@
 	"id":"no_5",
 	"question":"Assess proper resistance of the coils, between the coils, and between the coils and the frames. Complete this step only if recoiling is possible. Otherwise, replace the transformer.",
 	"details":"",
-	"attachment":"diagnosing_transformer_that_needs_rewinding.pdf",
+	"attachment":["https://www.dropbox.com/s/fo90ysqykibnt6v/diagnosing_transformer_that_needs_rewinding.pdf?dl=0"],
 	"options":["Ok","Help"],
 	"next_question":["ok_2"]
 	},
@@ -83,7 +83,7 @@
 	"id":"no_6",
 	"question":"Replace the fuse. Identify the fuse amperage, voltage, and type, which should be printed on the fuse or the device. If not, make an educated guess by comparing with fuses of known specifications, and use the knowledge of the device to estimate which fuse is best.",
 	"details":"",
-	"attachment":"fuse_substitution.pdf",
+	"attachment":["https://www.dropbox.com/s/01dw870fa1ryeba/fuse_substitution.pdf?dl=0"],
 	"options":["Ok"],
 	"next_question":["ok_1"]
 	},
