@@ -1,0 +1,50 @@
+[
+{
+  "id":"q1",
+  "question":"In which situation does the alarm not sound when it should?",
+  "details":"",
+  "attachment":null,
+  "options":["When the probe is disconnected", "When the heart rate or SpO2 levels are outside of the acceptable ranges", "Both"],
+  "next_question":["disconnected_probe","no_1", "no_1"]
+  },
+{
+  "id":"disconnected_probe",
+  "question":"Disconnect the probe. Clear any debris or dirt that may interfere with probe connection and reconnect the probe. Does the device work properly?",
+  "details":"",
+  "attachment":null,
+  "options":["Yes", "No"],
+  "next_question":[null,"ok"]
+  },
+	{
+	"id":"no_1",
+	"question":"Check the internal circuitry and speaker connections",
+	"details":"",
+	"attachment":null,
+	"options":["Ok","Help"],
+	"next_question":["ok","help"]
+	},
+	{
+	"id":"ok",
+	"question":"Does the device work properly?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":[null,"no_2"]
+	},
+  {
+	"id":"no_2",
+	"question":"Would you like to access resources or contact another technician?",
+	"details":"To access resources, click on the document links. To contact another technician, use the call button. Press 'continue...' for more guided troubleshooting.",
+	"attachment":["https://www.dropbox.com/s/34b2ujxqyarvchd/WHO_apnea_pulseoximeter_monitor_manual.pdf?dl=0","https://www.dropbox.com/s/44gwx6g3aynehpy/who_ps_pulseoximeter_manual.pdf?dl=0","https://www.dropbox.com/s/zzc36t2aea0g8g8/Nonin_pulseoximeter_manual.pdf?dl=0"],
+	"options":["Contact another technician"],
+	"next_question":["contact_tech_1"]
+	},
+	{
+	"id":"help",
+	"question":null,
+	"details":"",
+	"attachment":["https://www.dropbox.com/s/yn3asctop9xqffb/Electrical-Connectors-LooseConnectors%20v8.pdf?dl=0","https://www.dropbox.com/s/s1lmjqqt5jo1bu0/Electrical-Connectors-ReplacingPins.pdf?dl=0"],
+	"options":[null],
+	"next_question":[null],
+	}
+]
