@@ -2,9 +2,8 @@
   "deviceids":["pulseox"],
   "pulseox": {
     "name":"Pulse Oximeter",
-    "problemids":["pox_nodisplay", "pox_inaccurate", "pox_alarmno", "pox_alarmextra"]
-  },
-  "pox_nodisplay":{
+    "problemids":["pox_nodisplay", "pox_inaccurate", "pox_alarmno", "pox_alarmextra"],
+	"pox_nodisplay":{
     "name":"No Display",
     "description":"",
     "chart":"pulseox_nodisplay.json"
@@ -14,7 +13,7 @@
     "description":"",
     "chart":"pulseox_inaccuratereading.json"
   },
-  "pox_alarmnosound":{
+  "pox_alarmno":{
     "name":"Alarm does not sound",
     "description":"Alarm does not sound when probe is disconnected or when readings abnormal",
     "chart":"pulseox_alarmno.json"
@@ -23,6 +22,7 @@
     "name":"Alarm sounds too much",
     "description":"Alarm sounds when probe is connected and readings are normal",
     "chart":"pulseox_alarmextra.json"
+  }
   },
   "outlet_plug":{
     "name":"Outlet and Plug",
@@ -48,5 +48,5 @@
   "name":"Continued Power Supply",
   "description":"Continue troubleshooting the Power Supply",
   "chart":"ps_continued.json"
-},
+}
 }
