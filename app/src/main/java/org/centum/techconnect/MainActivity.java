@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import org.centum.techconnect.fragments.SelfHelpFragment;
 import org.centum.techconnect.model.DeviceManager;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView;
     private Fragment[] fragments = new Fragment[]{new SelfHelpFragment()};
     private String[] fragmentTitles;
+    private int fragment = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +51,21 @@ public class MainActivity extends AppCompatActivity
 
         fragmentTitles = getResources().getStringArray(R.array.fragment_titles);
         navigationView.setNavigationItemSelectedListener(this);
-        loadDevices();
+        navigationView.setVisibility(View.GONE);
+        if (savedInstanceState == null) {
+            loadDevices(FRAGMENT_SELF_HELP);
+        } else {
+            loadDevices(savedInstanceState.getInt("frag", FRAGMENT_SELF_HELP));
+        }
     }
 
-    private void loadDevices() {
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("frag", fragment);
+    }
+
+    private void loadDevices(final int fragToOpen) {
         new AsyncTask<Void, Void, Void>() {
 
             ProgressDialog dialog;
@@ -69,13 +82,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             protected void onPostExecute(Void aVoid) {
                 dialog.dismiss();
-                setFragment(FRAGMENT_SELF_HELP);
+                setFragment(fragToOpen);
             }
 
             @Override
             protected Void doInBackground(Void... voids) {
                 try {
-                    DeviceManager.get().loadDevices();
+                    if (DeviceManager.get().getDevices().length == 0) {
+                        DeviceManager.get().loadDevices();
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (JSONException e) {
@@ -113,11 +128,14 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void setFragment(int frag) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.main_fragment_container, fragments[frag])
-                .commit();
-        setTitle(fragmentTitles[frag]);
-        navigationView.getMenu().getItem(FRAGMENT_SELF_HELP).setChecked(true);
+        if (this.fragment != frag || this.fragment == -1) {
+            this.fragment = frag;
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.main_fragment_container, fragments[frag])
+                    .commit();
+            setTitle(fragmentTitles[frag]);
+            navigationView.getMenu().getItem(FRAGMENT_SELF_HELP).setChecked(true);
+        }
     }
 }
