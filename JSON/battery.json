@@ -142,7 +142,7 @@
 "attachment":["https://www.dropbox.com/s/cvek7thcw3n4yr8/BuildingCharger_with_Batteries%20v7.pdf?dl=0"],
 "options":["Continue"],
 "next_question":["finish"]
-}
+},
 {
 "id":"finish",
 "question":"Is the device working properly?",

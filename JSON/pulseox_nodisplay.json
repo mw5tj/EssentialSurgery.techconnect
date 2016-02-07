@@ -61,7 +61,7 @@
 	"details":"",
 	"attachment":null,
 	"options":["Yes","No"],
-	"next_question":[null,"bat_volt_ok",]
+	"next_question":[null,"bat_volt_ok"]
 	},
 	{
 	"id":"bat_notcharging",
