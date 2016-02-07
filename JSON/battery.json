@@ -45,10 +45,10 @@
 "details":"To access resources, click on the document links. To contact another technician, use the call button. Press 'continue...' for more guided troubleshooting.",
 "attachment":null,
 "options":["Learn how to replace the batteries with a wall transformer", "Continue power supply troubleshooting"],
-"next_question":["fc_replace_bat_walltransform.json", "ps_overall.json"]
+"next_question":["fc_replace_bat_walltransform", "ps_overall.json"]
 },
 {
-"id":"fc_replace_bat_walltransform.json",
+"id":"fc_replace_bat_walltransform",
 "question":"",
 "details":"",
 "attachment":["https://www.dropbox.com/s/77j9j8c0rt82uwh/Replacing_Batteries_with_WallTransformer%20v13.pdf?dl=0"],
