@@ -28,12 +28,12 @@
 	"question":"Would you like to access resources or contact another technician?",
 	"details":"To access resources, click on the document links. To contact another technician, use the call button. Press 'continue...' for more guided troubleshooting.",
 	"attachment":["https://www.dropbox.com/s/34b2ujxqyarvchd/WHO_apnea_pulseoximeter_monitor_manual.pdf?dl=0","https://www.dropbox.com/s/44gwx6g3aynehpy/who_ps_pulseoximeter_manual.pdf?dl=0","https://www.dropbox.com/s/zzc36t2aea0g8g8/Nonin_pulseoximeter_manual.pdf?dl=0"],
-	"options":["Contact another technician"],
-	"next_question":["contact_tech_1"]
+	"options":["Exit"],
+	"next_question":[null]
 	},
 	{
   "id":"no_probe_access",
-  "question":"Order another probe",
+  "question":"The device should not be used without a new probe. Contact your purchasing department to order another one.",
   "details":"",
   "attachment":null,
   "options":["Ok"],

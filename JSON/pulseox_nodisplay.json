@@ -69,15 +69,7 @@
 	"details":"",
 	"attachment":null,
 	"options":["Check the battery charging circuit.","Plug in the device.","Change the battery."],
-	"next_question":["battery.json","plugdevice", "changebat"]
-	},
-	{
-	"id":"plugdevice",
-	"question":"Is the device properly working?",
-	"details":"",
-	"attachment":null,
-	"options":["Yes","No. It looks like there is a problem with both the battery charging circuit as well as the power supply."],
-	"next_question":[null,"bat_volt_ok"]
+	"next_question":["battery.json","bat_volt_ok", "changebat"]
 	},
 	{
 	"id":"changebat",
@@ -107,8 +99,8 @@
 	"id":"bat_help",
 	"question": "1) Remove battery. 2) Place multimeter probes on the +/- terminal of the battery and read the output voltage.",
 	"details":"",
-	"attachment":null,
-	"options":[null],
-	"next_questions":[null]
+	"attachment":["https://www.dropbox.com/s/p2zvoft2soaqg7u/battery_troubleshooting.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":[null]
 	}
   ]

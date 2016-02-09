@@ -49,11 +49,11 @@
 },
 {
 "id":"fc_replace_bat_walltransform",
-"question":"",
+"question":"Is the device working properly?",
 "details":"",
 "attachment":["https://www.dropbox.com/s/77j9j8c0rt82uwh/Replacing_Batteries_with_WallTransformer%20v13.pdf?dl=0"],
-"options":["Continue power supply troubleshooting"],
-"next_question":["ps_continued.json"]
+"options":["Yes","No"],
+"next_question":[null, "no_5"]
 },
 {
 "id":"no_5",
@@ -77,15 +77,7 @@
 "details":"",
 "attachment":null,
 "options":["Yes", "No"],
-"next_question":[null,"no_6"]
-},
-{
-"id":"no_6",
-"question":"Would you like to access resources, contact another technician, or continue with power supply troubleshooting?",
-"details":"To access resources, click on the document links. To contact another technician, use the call button. Press 'continue...' for more guided troubleshooting.",
-"attachment":null,
-"options":["Continue power supply troubleshooting"],
-"next_question":[ "ps_continued.json"]
+"next_question":[null,"no_5"]
 },
 {
 "id":"no_2",
@@ -97,18 +89,10 @@
 },
 {
 "id":"show_me_how_walltransform",
-"question":"",
+"question":"Is the device properly working?",
 "details":"",
 "attachment":["https://www.dropbox.com/s/l731axs65j3ko36/PowerSupply_Adapting_Wall_Transformer.pdf?dl=0"],
-"options":["Continue troubleshooting"],
-"next_question":["continue_1"]
-},
-{
-"id":"continue_1",
-"question":"Is the device working properly?",
-"details":"",
-"attachment":null,
-"options":["Yes", "No"],
+"options":["Yes","No"],
 "next_question":[null,"no_5"]
 },
 {
@@ -117,7 +101,7 @@
 "details":"",
 "attachment":null,
 "options":["Yes", "No"],
-"next_question":[null,"no_7"]
+"next_question":["yes_6","no_7"]
 },
 {
 "id":"no_7",
@@ -125,11 +109,11 @@
 "details":"",
 "attachment":null,
 "options":["Yes", "No"],
-"next_question":[null,"no_8"]
+"next_question":["yes_6","no_8"]
 },
 {
 "id":"no_8",
-"question":"Would you like to access resources, contact another technician, replace batteries by creating a battery pack in series or in parallel to achieve the same total voltage and/or capacity ratings. Batteries in parallel: same voltage & add capacities. Batteries in series: Add voltages, same capacities, or continue with power supply troubleshooting?",
+"question":"Would you like to access resources, contact another technician, replace batteries by creating a battery pack in series or in parallel to achieve the same total voltage and/or capacity ratings (Batteries in parallel: same voltage & add capacities. Batteries in series: Add voltages, same capacities), or continue with power supply troubleshooting?",
 "details":"To access resources, click on the document links. To contact another technician, use the call button. Press 'continue...' for more guided troubleshooting.",
 "attachment":null,
 "options":["Build a battery pack","Continue power supply troubleshooting"],
@@ -137,18 +121,10 @@
 },
 {
 "id":"build_bat",
-"question":"",
+"question":"Is the device properly working?",
 "details":"",
 "attachment":["https://www.dropbox.com/s/cvek7thcw3n4yr8/BuildingCharger_with_Batteries%20v7.pdf?dl=0"],
-"options":["Continue"],
-"next_question":["finish"]
-},
-{
-"id":"finish",
-"question":"Is the device working properly?",
-"details":"",
-"attachment":null,
-"options":["Yes", "No"],
-"next_question":[null,"no_5"]
+"options":["Yes","No"],
+"next_question":[null, "no_5"]
 }
 ]
