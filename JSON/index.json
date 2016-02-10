@@ -39,11 +39,6 @@
     "description":"Troubleshooting the device powered by a battery",
     "chart":"battery.json"
   },
-  "autoclave":{
-    "name":"Autoclave",
-    "description":"Troubleshooting an autoclave",
-    "chart":"autoclave.json"
-  },
   "ps_overall":{
     "name":"Power Supply Troubleshooting",
     "description":"Troubleshooting the Power Supply",
@@ -53,5 +48,15 @@
   "name":"Continued Power Supply",
   "description":"Continue troubleshooting the Power Supply",
   "chart":"ps_continued.json"
+},
+"deviceids":["autoclave"],
+  "pulseox": {
+    "name":"Autoclave",
+    "problemids":["autoclave"],
+	"autoclave":{
+    "name":"Autoclave Troubleshooting",
+    "description":"",
+    "chart":"autoclave.json"
+}
 }
 }
