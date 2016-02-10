@@ -10,7 +10,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import org.centum.techconnect.R;
@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Phani on 1/27/2016.
  */
-public class SelfHelpFlowView extends RelativeLayout implements View.OnClickListener {
+public class SelfHelpFlowView extends ScrollView implements View.OnClickListener {
 
     @Bind(R.id.question_textView)
     TextView questionTextView;
@@ -91,6 +91,9 @@ public class SelfHelpFlowView extends RelativeLayout implements View.OnClickList
         for (int i = 0; i < attachments.length; i++) {
             final String att = attachments[i];
             String name = att.substring(att.lastIndexOf("/") + 1);
+            if (name.contains("?")) {
+                name = name.substring(0, name.indexOf('?'));
+            }
             Button button = new Button(getContext());
             button.setText(name);
             button.setOnClickListener(new OnClickListener() {
