@@ -50,13 +50,9 @@
   "chart":"ps_continued.json"
 },
 "deviceids":["autoclave"],
-  "pulseox": {
-    "name":"Autoclave",
-    "problemids":["autoclave"],
-	"autoclave":{
+  "autoclave": {
     "name":"Autoclave Troubleshooting",
     "description":"",
     "chart":"autoclave.json"
-}
 }
 }
