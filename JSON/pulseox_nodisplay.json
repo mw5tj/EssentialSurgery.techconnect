@@ -99,8 +99,24 @@
 	"id":"bat_help",
 	"question": "1) Remove battery. 2) Place multimeter probes on the +/- terminal of the battery and read the output voltage.",
 	"details":"",
-	"attachment":["https://www.dropbox.com/s/p2zvoft2soaqg7u/battery_troubleshooting.pdf?dl=0"],
+	"attachment":["https://www.dropbox.com/s/umxg23gvz9xct8q/building_charger_with_batteries.pdf?dl=0","https://www.dropbox.com/s/3wthaqzwa72epz3/replacing_batteries_with_wall_transformer.pdf?dl=0","https://www.dropbox.com/s/j30i86t44p3dk6e/substituting_primary_batteries.pdf?dl=0","https://www.dropbox.com/s/qnrgi48hnw3m6we/substituting_rechargeable_batteries.pdf?dl=0","https://www.dropbox.com/s/ht4r0uv4skg76tl/identifying_leaking_corroding_batteries.pdf?dl=0","https://www.dropbox.com/s/3d0pmv1u549db54/cleaning_lead_acid_batteries.pdf?dl=0"],
 	"options":["Ok"],
-	"next_question":[null]
-	}
+	"next_question":["ok_next"]
+},
+{
+"id":"ok_next",
+"question":"Is the device working properly?",
+"details":"",
+"attachment":null,
+"options":["Yes","No"],
+"next_question":[null,"no_3"]
+},
+{
+"id":"no_3",
+"question":"Would you like to access resources or contact another technician?",
+"details":"To access resources, click on the document links. To contact another technician, use the call button. Press 'continue...' for more guided troubleshooting.",
+"attachment":["https://www.dropbox.com/s/p2zvoft2soaqg7u/battery_troubleshooting.pdf?dl=0","https://www.dropbox.com/s/a63iw387eishp17/pulse_oximeter_troubleshooting.pdf?dl=0"],
+"options":["Exit"],
+"next_question":[null]
+},
   ]
