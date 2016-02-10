@@ -39,6 +39,11 @@
     "description":"Troubleshooting the device powered by a battery",
     "chart":"battery.json"
   },
+  "autoclave":{
+    "name":"Autoclave",
+    "description":"Troubleshooting an autoclave",
+    "chart":"autoclave.json"
+  },
   "ps_overall":{
     "name":"Power Supply Troubleshooting",
     "description":"Troubleshooting the Power Supply",
