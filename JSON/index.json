@@ -1,58 +1,36 @@
 {
-  "deviceids":["pulseox"],
+  "deviceids":["pulseox", "autoclave"],
   "pulseox": {
-    "name":"Pulse Oximeter",
-    "problemids":["pox_nodisplay", "pox_inaccurate", "pox_alarmno", "pox_alarmextra"],
+		"name":"Pulse Oximeter",
+		"problemids":["pox_nodisplay", "pox_inaccurate", "pox_alarmno", "pox_alarmextra"],
 	"pox_nodisplay":{
-    "name":"No Display",
-    "description":"",
-    "chart":"pulseox_nodisplay.json"
+		"name":"No Display",
+		"description":"",
+		"chart":"pulseox_nodisplay.json"
+	  },
+	  "pox_inaccurate":{
+		"name":"Inaccurate reading",
+		"description":"",
+		"chart":"pox_inaccurate.json"
+	  },
+	  "pox_alarmno":{
+		"name":"Alarm does not sound",
+		"description":"Alarm does not sound when probe is disconnected or when readings abnormal",
+		"chart":"pox_nosound.json"
+	  },
+	  "pox_alarmextra":{
+		"name":"Alarm sounds too much",
+		"description":"Alarm sounds when probe is connected and readings are normal",
+		"chart":"pox_alarmextra.json"
+	  }
   },
-  "pox_inaccurate":{
-    "name":"Inaccurate reading",
-    "description":"",
-    "chart":"pulseox_inaccuratereading.json"
-  },
-  "pox_alarmno":{
-    "name":"Alarm does not sound",
-    "description":"Alarm does not sound when probe is disconnected or when readings abnormal",
-    "chart":"pulseox_alarmno.json"
-  },
-  "pox_alarmextra":{
-    "name":"Alarm sounds too much",
-    "description":"Alarm sounds when probe is connected and readings are normal",
-    "chart":"pulseox_alarmextra.json"
-  }
-  },
-  "outlet_plug":{
-    "name":"Outlet and Plug",
-    "description":"Troubleshooting the device powered by an outlet and plug",
-    "chart":"outlet_plug.json"
-  },
-  "transformer":{
-    "name":"Transformer",
-    "description":"Troubleshooting the device powered by a transformer",
-    "chart":"transformer.json"
-  },
-  "battery":{
-    "name":"Battery",
-    "description":"Troubleshooting the device powered by a battery",
-    "chart":"battery.json"
-  },
-  "ps_overall":{
-    "name":"Power Supply Troubleshooting",
-    "description":"Troubleshooting the Power Supply",
-    "chart":"ps_overall.json"
-},
-"ps_continued":{
-  "name":"Continued Power Supply",
-  "description":"Continue troubleshooting the Power Supply",
-  "chart":"ps_continued.json"
-},
-"deviceids":["autoclave"],
   "autoclave": {
-    "name":"Autoclave Troubleshooting",
-    "description":"",
-    "chart":"autoclave.json"
-}
+    "name":"Autoclave",
+	"problemids":["general"],
+	"general":{
+		"name":"General",
+		"description":"",
+		"chart":"autoclave.json"
+	}
+	}
 }
