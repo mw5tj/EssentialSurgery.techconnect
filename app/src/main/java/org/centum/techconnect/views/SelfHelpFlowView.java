@@ -78,7 +78,7 @@ public class SelfHelpFlowView extends RelativeLayout {
         final String[] attachments = flow.getAttachments();
         if (attachments.length > 0) {
             TextView tv = new TextView(getContext());
-            tv.setText("Attachments");
+            tv.setText("Help Documents");
             tv.setTypeface(Typeface.DEFAULT_BOLD);
             tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
             tv.setGravity(Gravity.CENTER);
