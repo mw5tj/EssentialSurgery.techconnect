@@ -26,6 +26,7 @@
   {
   "id":"ok_1",
   "question":"Does the device work properly?",
+  "details":"",
   "attachment":null,
   "options":["Yes", "No"],
   "next_question":[null,"no_2"]
