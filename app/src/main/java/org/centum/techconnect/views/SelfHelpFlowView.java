@@ -68,6 +68,7 @@ public class SelfHelpFlowView extends ScrollView implements View.OnClickListener
         for (int i = 0; i < flow.getNumChildren(); i++) {
             final String option = options[i];
             Button button = new Button(getContext());
+            button.setTransformationMethod(null);
             button.setText(option);
             button.setOnClickListener(new OnClickListener() {
                 @Override
@@ -95,6 +96,7 @@ public class SelfHelpFlowView extends ScrollView implements View.OnClickListener
                 name = name.substring(0, name.indexOf('?'));
             }
             Button button = new Button(getContext());
+            button.setTransformationMethod(null);
             button.setText(name);
             button.setOnClickListener(new OnClickListener() {
                 @Override
