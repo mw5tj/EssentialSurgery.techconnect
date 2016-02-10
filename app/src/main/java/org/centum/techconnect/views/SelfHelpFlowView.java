@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Phani on 1/27/2016.
  */
-public class SelfHelpFlowView extends RelativeLayout {
+public class SelfHelpFlowView extends RelativeLayout implements View.OnClickListener {
 
     @Bind(R.id.question_textView)
     TextView questionTextView;
@@ -32,6 +32,8 @@ public class SelfHelpFlowView extends RelativeLayout {
     TextView detailsTextView;
     @Bind(R.id.options_linearLayout)
     LinearLayout optionsLinearLayout;
+    @Bind(R.id.back_button)
+    Button backButton;
 
     private Session session;
     private SessionCompleteListener listener;
@@ -99,6 +101,7 @@ public class SelfHelpFlowView extends RelativeLayout {
             });
             optionsLinearLayout.addView(button);
         }
+        backButton.setEnabled(session.hasPrevious());
     }
 
     private void openAttachment(String att) {
@@ -112,7 +115,7 @@ public class SelfHelpFlowView extends RelativeLayout {
                 listener.onSessionComplete();
             }
         } else {
-            session.setCurrentFlowchart(session.getCurrentFlowchart().getChild(option));
+            session.advanceTo(session.getCurrentFlowchart().getChild(option));
             updateViews();
         }
     }
@@ -121,5 +124,14 @@ public class SelfHelpFlowView extends RelativeLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
         ButterKnife.bind(this);
+        backButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.back_button) {
+            session.goBack();
+            updateViews();
+        }
     }
 }

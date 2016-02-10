@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<org.centum.techconnect.views.SelfHelpSlidingView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
     android:longClickable="false"
     android:orientation="vertical">
 
@@ -158,12 +159,12 @@
         android:text="End Session" />
 
     <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Call Help"
-        android:id="@+id/button"
         android:layout_alignBottom="@+id/end_session_button"
         android:layout_alignLeft="@+id/textView5"
-        android:layout_alignStart="@+id/textView5" />
+        android:layout_alignStart="@+id/textView5"
+        android:text="Call Help" />
 
-</RelativeLayout>
+</org.centum.techconnect.views.SelfHelpSlidingView>

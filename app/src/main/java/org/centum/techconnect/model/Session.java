@@ -1,5 +1,9 @@
 package org.centum.techconnect.model;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
+
 /**
  * Created by Phani on 1/26/2016.
  */
@@ -12,6 +16,9 @@ public class Session {
     private DeviceProblem deviceProblem;
     private String notes;
     private Flowchart currentFlowchart;
+    //Stack of previous flowcharts shown
+    private Stack<Flowchart> stack = new Stack<>();
+    private List<Flowchart> history = new LinkedList<>();
 
     public long getCreatedDate() {
         return createdDate;
@@ -66,8 +73,21 @@ public class Session {
         return currentFlowchart;
     }
 
-    public void setCurrentFlowchart(Flowchart currentFlowchart) {
-        this.currentFlowchart = currentFlowchart;
+    public void advanceTo(Flowchart newFlowchart) {
+        stack.push(this.currentFlowchart);
+        this.currentFlowchart = newFlowchart;
+        history.add(newFlowchart);
+    }
+
+    public void goBack() {
+        if (hasPrevious()) {
+            this.currentFlowchart = stack.pop();
+            history.add(this.currentFlowchart);
+        }
+    }
+
+    public boolean hasPrevious() {
+        return stack.size() > 0;
     }
 
     public enum Urgency {
