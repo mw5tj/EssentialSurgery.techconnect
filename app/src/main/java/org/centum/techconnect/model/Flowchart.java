@@ -12,18 +12,20 @@ import java.util.Map;
  */
 public class Flowchart {
 
+    private String key;
     private String question;
     private String details;
     private String[] attachments;
     private Map<String, Flowchart> children = new HashMap<>();
 
-    public Flowchart(String question, String details, String[] attachments) {
+    public Flowchart(String question, String details, String[] attachments, String key) {
         this.question = question;
         this.details = details;
         this.attachments = attachments;
+        this.key = key;
     }
 
-    public static Flowchart fromJSON(JSONObject object) throws JSONException {
+    public static Flowchart fromJSON(JSONObject object, String key) throws JSONException {
         String[] attachmentsStr;
         if (object.isNull("attachment")) {
             attachmentsStr = new String[0];
@@ -35,7 +37,7 @@ public class Flowchart {
             }
         }
         Flowchart flowchart = new Flowchart(object.getString("question"),
-                object.getString("details"), attachmentsStr);
+                object.getString("details"), attachmentsStr, key);
         return flowchart;
     }
 
@@ -65,5 +67,9 @@ public class Flowchart {
 
     public String[] getAttachments() {
         return attachments;
+    }
+
+    public String getKey() {
+        return key;
     }
 }

@@ -1,5 +1,6 @@
 package org.centum.techconnect.model;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
@@ -19,6 +20,21 @@ public class Session {
     //Stack of previous flowcharts shown
     private Stack<Flowchart> stack = new Stack<>();
     private List<Flowchart> history = new LinkedList<>();
+
+    public String getReport() {
+        StringBuilder report = new StringBuilder();
+        report.append("Date: ").append(new Date(createdDate).toString()).append('\n');
+        report.append("Department: ").append(department).append('\n');
+        report.append("Urgency: ").append(urgency.toString()).append('\n');
+        report.append("Notes: ").append(notes).append('\n');
+        report.append("Device: ").append(device.getName()).append('\n');
+        report.append("Problem: ").append(deviceProblem.getName()).append('\n');
+        report.append("Flow of Questions: ").append('\n');
+        for (Flowchart f : history) {
+            report.append('\t').append(f.getQuestion()).append(" (").append(f.getKey()).append(")\n");
+        }
+        return report.toString();
+    }
 
     public long getCreatedDate() {
         return createdDate;

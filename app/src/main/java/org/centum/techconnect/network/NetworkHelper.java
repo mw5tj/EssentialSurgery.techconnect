@@ -59,7 +59,7 @@ public class NetworkHelper {
         //Create maps
         for (String key : elements.keySet()) {
             JSONObject obj = elements.get(key);
-            Flowchart chart = Flowchart.fromJSON(obj);
+            Flowchart chart = Flowchart.fromJSON(obj, key);
             flowchartsByJSON.put(obj, chart);
             flowchartsByID.put(key, chart);
         }
