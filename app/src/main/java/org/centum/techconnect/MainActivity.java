@@ -12,8 +12,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
+import org.centum.techconnect.fragments.ReportsFragment;
 import org.centum.techconnect.fragments.SelfHelpFragment;
 import org.centum.techconnect.model.DeviceManager;
 import org.json.JSONException;
@@ -27,9 +27,10 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final int FRAGMENT_SELF_HELP = 0;
+    private static final int FRAGMENT_LOGS = 1;
     @Bind(R.id.nav_view)
     NavigationView navigationView;
-    private Fragment[] fragments = new Fragment[]{new SelfHelpFragment()};
+    private Fragment[] fragments = new Fragment[]{new SelfHelpFragment(), new ReportsFragment()};
     private String[] fragmentTitles;
     private int fragment = -1;
 
@@ -51,7 +52,6 @@ public class MainActivity extends AppCompatActivity
 
         fragmentTitles = getResources().getStringArray(R.array.fragment_titles);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setVisibility(View.GONE);
         if (savedInstanceState == null) {
             loadDevices(FRAGMENT_SELF_HELP);
         } else {
@@ -119,6 +119,8 @@ public class MainActivity extends AppCompatActivity
         int fragment = -1;
         if (id == R.id.nav_self_help) {
             fragment = FRAGMENT_SELF_HELP;
+        } else if (id == R.id.nav_reports) {
+            fragment = FRAGMENT_LOGS;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -135,7 +137,7 @@ public class MainActivity extends AppCompatActivity
                     .replace(R.id.main_fragment_container, fragments[frag])
                     .commit();
             setTitle(fragmentTitles[frag]);
-            navigationView.getMenu().getItem(FRAGMENT_SELF_HELP).setChecked(true);
+            navigationView.getMenu().getItem(frag).setChecked(true);
         }
     }
 }
