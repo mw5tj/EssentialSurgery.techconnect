@@ -19,7 +19,7 @@
   "id":"ok_1",
   "question":"Is the device working properly?",
   "details":"Hold your breath for 10-20 seconds. Sp02 levels should decrease to under 95%, or at least by 2%. Heart rate values should match those calculated using a stopwatch/neck artery technique within 5 beats per minute",
-  "attachment":["https://www.dropbox.com/s/yrpme8t4oarb2se/Pulse%20Oximeter%20Clinical%20Use%20and%20Principles%20of%20Operation.pdf?dl=0"],
+  "attachment":["https://www.dropbox.com/s/9uvmyflz5tdde64/pulse_oximeter_clinical_use_and_principles_of_operation.pdf?dl=0"],
   "options":["Yes","No"],
   "next_question":[null,"no_2"]
   },
@@ -35,7 +35,7 @@
   "id":"ok_2",
   "question":"Is the device properly working?",
   "details":"Hold your breath for 10-20 seconds. Sp02 levels should decrease to under 95%, or at least by 2%. Heart rate values should match those calculated using a stopwatch/neck artery technique within 5 beats per minute",
-	"attachment":["https://www.dropbox.com/s/yrpme8t4oarb2se/Pulse%20Oximeter%20Clinical%20Use%20and%20Principles%20of%20Operation.pdf?dl=0"],
+	"attachment":["https://www.dropbox.com/s/9uvmyflz5tdde64/pulse_oximeter_clinical_use_and_principles_of_operation.pdf?dl=0"],
   "options":["Yes", "No"],
   "next_question":[null,"no_3"]
   },
@@ -68,7 +68,7 @@
   "id":"yes_4",
   "question":"Is the device working properly?",
   "details":"",
-  "attachment":["https://www.dropbox.com/s/yrpme8t4oarb2se/Pulse%20Oximeter%20Clinical%20Use%20and%20Principles%20of%20Operation.pdf?dl=0"],
+  "attachment":["https://www.dropbox.com/s/9uvmyflz5tdde64/pulse_oximeter_clinical_use_and_principles_of_operation.pdf?dl=0"],
   "options":["Yes","No"],
   "next_question":[null,"yes_1"]
   }
