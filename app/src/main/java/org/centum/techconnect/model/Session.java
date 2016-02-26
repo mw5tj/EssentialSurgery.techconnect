@@ -13,25 +13,28 @@ public class Session {
     private long createdDate;
     private String department;
     private Device device;
-    private Urgency urgency;
-    private DeviceProblem deviceProblem;
+    private DeviceRole role;
     private String notes;
     private Flowchart currentFlowchart;
     //Stack of previous flowcharts shown
     private Stack<Flowchart> stack = new Stack<>();
     private List<Flowchart> history = new LinkedList<>();
+    private List<String> optionHistory = new LinkedList<>();
 
     public String getReport() {
         StringBuilder report = new StringBuilder();
         report.append("Date: ").append(new Date(createdDate).toString()).append('\n');
         report.append("Department: ").append(department).append('\n');
-        report.append("Urgency: ").append(urgency.toString()).append('\n');
         report.append("Notes: ").append(notes).append('\n');
         report.append("Device: ").append(device.getName()).append('\n');
-        report.append("Problem: ").append(deviceProblem.getName()).append('\n');
-        report.append("Flow of Questions: ").append('\n');
-        for (Flowchart f : history) {
-            report.append('\t').append(f.getQuestion()).append(" (").append(f.getKey()).append(")\n");
+        //report.append("Role: " + ((role == 0) ? "Technician" : "End User"));
+        report.append("History:\n------------------------").append("\n\n");
+        for(int i = 0; i < history.size(); i++){
+            String question = history.get(i).getQuestion();
+            if(question.length() > 26){
+                question = question.substring(0, 23)+"...";
+            }
+            report.append(question).append(": ").append(optionHistory.get(i)).append("\n\n");
         }
         return report.toString();
     }
@@ -60,23 +63,6 @@ public class Session {
         this.device = device;
     }
 
-    public Urgency getUrgency() {
-        return urgency;
-    }
-
-    public void setUrgency(Urgency urgency) {
-        this.urgency = urgency;
-    }
-
-    public DeviceProblem getDeviceProblem() {
-        return deviceProblem;
-    }
-
-    public void setDeviceProblem(DeviceProblem deviceProblem) {
-        this.deviceProblem = deviceProblem;
-        this.currentFlowchart = deviceProblem.getFlowchart();
-    }
-
     public String getNotes() {
         return notes;
     }
@@ -89,7 +75,12 @@ public class Session {
         return currentFlowchart;
     }
 
-    public void advanceTo(Flowchart newFlowchart) {
+    public void selectOption(String option){
+        advanceTo(getCurrentFlowchart().getChild(option));
+        optionHistory.add(option);
+    }
+
+    private void advanceTo(Flowchart newFlowchart) {
         stack.push(this.currentFlowchart);
         this.currentFlowchart = newFlowchart;
         history.add(newFlowchart);
@@ -99,11 +90,17 @@ public class Session {
         if (hasPrevious()) {
             this.currentFlowchart = stack.pop();
             history.add(this.currentFlowchart);
+            optionHistory.add("*Back*");
         }
     }
 
     public boolean hasPrevious() {
         return stack.size() > 0;
+    }
+
+    public void setRole(DeviceRole role) {
+        this.role = role;
+        this.currentFlowchart = role.getFlowchart();
     }
 
     public enum Urgency {

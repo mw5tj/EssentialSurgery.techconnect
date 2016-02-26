@@ -120,7 +120,7 @@ public class SelfHelpFlowView extends ScrollView implements View.OnClickListener
                 listener.onSessionComplete();
             }
         } else {
-            session.advanceTo(session.getCurrentFlowchart().getChild(option));
+            session.selectOption(option);
             updateViews();
         }
     }

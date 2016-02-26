@@ -50,7 +50,7 @@ public class ReportsFragment extends Fragment {
         final String reportsArr[] = reports.toArray(new String[reports.size()]);
         String abbreviatedArr[] = new String[reportsArr.length];
         for (int i = 0; i < reportsArr.length; i++) {
-            abbreviatedArr[i] = reportsArr[i].substring(0, reportsArr[i].indexOf("\nUrgency"));
+            abbreviatedArr[i] = reportsArr[i].substring(0, reportsArr[i].indexOf("\nNotes"));
         }
         listView.setVisibility(reports.size() > 0 ? View.VISIBLE : View.GONE);
         noreportsTextView.setVisibility(reports.size() == 0 ? View.VISIBLE : View.GONE);

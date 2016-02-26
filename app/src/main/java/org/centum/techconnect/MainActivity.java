@@ -1,5 +1,7 @@
 package org.centum.techconnect;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -68,13 +70,12 @@ public class MainActivity extends AppCompatActivity
     private void loadDevices(final int fragToOpen) {
         new AsyncTask<Void, Void, Void>() {
 
-            ProgressDialog dialog;
+            Dialog dialog;
 
             @Override
             protected void onPreExecute() {
-                dialog = new ProgressDialog(MainActivity.this);
-                dialog.setIndeterminate(true);
-                dialog.setTitle("Loading resources");
+                dialog = new Dialog(MainActivity.this,android.R.style.Theme_Material_Light_NoActionBar_Fullscreen);
+                dialog.setContentView(R.layout.loading_layout);
                 dialog.setCancelable(false);
                 dialog.show();
             }

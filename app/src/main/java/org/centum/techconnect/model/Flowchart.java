@@ -5,6 +5,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,7 +18,9 @@ public class Flowchart {
     private String question;
     private String details;
     private String[] attachments;
-    private Map<String, Flowchart> children = new HashMap<>();
+    private List<String> options = new LinkedList<>();
+    private List<Flowchart> children = new LinkedList<>();
+    //private Map<String, Flowchart> children = new HashMap<>();
 
     public Flowchart(String question, String details, String[] attachments, String key) {
         this.question = question;
@@ -42,7 +46,8 @@ public class Flowchart {
     }
 
     public void addChild(String option, Flowchart child) {
-        children.put(option, child);
+        options.add(option);
+        children.add(child);
     }
 
     public int getNumChildren() {
@@ -50,11 +55,11 @@ public class Flowchart {
     }
 
     public String[] getOptions() {
-        return children.keySet().toArray(new String[getNumChildren()]);
+        return options.toArray(new String[options.size()]);
     }
 
     public Flowchart getChild(String option) {
-        return children.get(option);
+        return children.get(options.indexOf(option));
     }
 
     public String getQuestion() {

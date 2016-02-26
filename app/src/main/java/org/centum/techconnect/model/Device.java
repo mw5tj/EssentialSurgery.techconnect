@@ -11,23 +11,35 @@ public class Device {
 
     private String name;
     private String imageURL;
-    private DeviceProblem problems[];
+    private DeviceRole techRole;
+    private DeviceRole endUserRole;
+    private String[] resources;
 
     public static Device fromJSON(JSONObject obj) throws JSONException {
         Device device = new Device();
         device.name = obj.getString("name");
         device.imageURL = obj.has("image") ? obj.getString("image") : null;
-        JSONArray problemids = obj.getJSONArray("problemids");
-        device.problems = new DeviceProblem[problemids.length()];
-        for (int i = 0; i < problemids.length(); i++) {
-            JSONObject problem = obj.getJSONObject(problemids.getString(i));
-            device.problems[i] = DeviceProblem.fromJSON(problem);
+        device.techRole = new DeviceRole(obj.getString("chart"));
+        device.endUserRole = new DeviceRole(obj.getString("clin_chart"));
+        JSONArray arr = obj.getJSONArray("resources");
+        String res[] = new String[arr.length()];
+        for (int i = 0; i < arr.length(); i++) {
+            res[i] = arr.getString(i);
         }
+        device.resources = res;
         return device;
     }
 
-    public DeviceProblem[] getProblems() {
-        return problems;
+    public DeviceRole getTechRole() {
+        return techRole;
+    }
+
+    public DeviceRole getEndUserRole() {
+        return endUserRole;
+    }
+
+    public String[] getResources() {
+        return resources;
     }
 
     public String getName() {

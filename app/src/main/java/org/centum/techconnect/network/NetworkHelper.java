@@ -3,7 +3,6 @@ package org.centum.techconnect.network;
 import android.support.annotation.NonNull;
 
 import org.centum.techconnect.model.Device;
-import org.centum.techconnect.model.DeviceProblem;
 import org.centum.techconnect.model.Flowchart;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,9 +44,8 @@ public class NetworkHelper {
         }
         //Now load all of the flowcharts for the device/deviceproblems
         for (Device device : deviceList) {
-            for (DeviceProblem deviceProblem : device.getProblems()) {
-                deviceProblem.setFlowchart(loadFlowchart(URL, deviceProblem.getJsonFile(), ENTRY_ID));
-            }
+            device.getEndUserRole().setFlowchart(loadFlowchart(URL, device.getEndUserRole().getJsonFile(), ENTRY_ID));
+            device.getTechRole().setFlowchart(loadFlowchart(URL, device.getTechRole().getJsonFile(), ENTRY_ID));
         }
         return deviceList.toArray(new Device[deviceList.size()]);
     }

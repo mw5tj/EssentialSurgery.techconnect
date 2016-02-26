@@ -61,12 +61,12 @@
             android:layout_alignStart="@+id/device_spinner"
             android:layout_below="@+id/device_spinner"
             android:layout_marginTop="8dp"
-            android:text="Problem"
+            android:text="Role"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <Spinner
-            android:id="@+id/problem_spinner"
+            android:id="@+id/role_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/device_spinner"
@@ -77,52 +77,12 @@
             android:layout_below="@+id/textView8"
             android:spinnerMode="dropdown" />
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/problem_spinner"
-            android:layout_alignStart="@+id/problem_spinner"
-            android:layout_below="@+id/problem_spinner"
-            android:layout_marginTop="8dp"
-            android:text="Urgency"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <Spinner
-            android:id="@+id/urgency_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/description_textView"
-            android:layout_alignLeft="@+id/problem_spinner"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/description_textView"
-            android:layout_below="@+id/textView9" />
-
-        <TextView
-            android:id="@+id/description_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/urgency_spinner"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="Alarm does not sound when probe is disconnected or when readings abnormal"
-            android:textSize="16sp"
-            android:textStyle="italic" />
-
         <Button
             android:id="@+id/start_session_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/description_textView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/description_textView"
             android:layout_below="@+id/notes_editText"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
@@ -134,21 +94,21 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/description_textView"
             android:layout_marginTop="8dp"
             android:text="Notes"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_below="@+id/role_spinner" />
 
         <EditText
             android:id="@+id/notes_editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/start_session_button"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/start_session_button"
             android:layout_below="@+id/textView10"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:layout_alignRight="@+id/role_spinner"
+            android:layout_alignEnd="@+id/role_spinner" />
     </RelativeLayout>
 </org.centum.techconnect.views.SelfHelpIntroView>
