@@ -1,0 +1,306 @@
+[
+	{
+	"id":"q1",
+	"question":"Provide appropriate power supply to the autoclave. Does the indicator lamp illuminate?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_1","no_1"]
+	},
+	{
+	"id":"yes_1",
+	"question":"Use a multimeter to test the wires leading to the heating element to determine if it is receiving the expected voltage (wall voltage). Is the voltage across the heating element equal to the expected value?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_2","no_2"]
+	},
+	{
+	"id":"no_1",
+	"question":"Troubleshoot the power supply. There is a problem with the power supply if the device is connected to power but does not turn on. This could be a problem with the wiring or connections within the device.",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["ps_overall.json"]
+	},
+	{
+	"id":"no_2",
+	"question":"Trouble shoot control circuitry. If the device is receiving power but improper voltage is reaching the heating element, there is likely a problem with the control circuit. Ensure that all settings are what they should be for normal autoclave function.",
+	"details":"",
+	"attachment":null,
+	"options":["Ok"],
+	"next_question":["ok_2"]
+	},
+	{
+	"id":"yes_2",
+	"question":"Attach the autoclave to power with the lid open and observe whether the heating element begins to get hotter. Does the heating element warm up?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_3","no_3"]
+	},
+	{
+	"id":"no_3",
+	"question":"Look for rusted or cracked connections. Examine connections involved with the heating element to determine whether they are adequate for proper functionality.",
+	"details":"",
+	"attachment":null,
+	"options":["Ok"],
+	"next_question":["ok_3"]
+	},
+	{
+	"id":"yes_3",
+	"question":"While the autoclave runs a cycle, observe motion of the temperature and pressure gauge(s). Do the temperature and pressure gauge needle(s) move? Ensure that there are displayed values for both parameters.",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_4","no_5"]
+	},
+	{
+	"id":"no_5",
+	"question":"With an increase in temperature, does the temperature gauge remain at zero?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_10","no_11"]
+	},
+	{
+	"id":"no_11",
+	"question":"When pressure is expected to have increased, does the pressure gauge remain at zero?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes"],
+	"next_question":["yes_11"]
+	},
+	{
+	"id":"ok_4",
+	"question":"Use a multimeter across the heating elemtnt to determine its total resistance. Is the resistance across the heating element less than 20 Ohms?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["q1","no_4"]
+	},
+	{
+	"id":"yes_4",
+	"question":"Verify that the autoclave interior reaches temperature and pressure values required to achieve sterilization. Do temperature and pressure reach the required values?",
+	"details":"Common temperature values: 121 degrees Celsius for 15 minutes, 134 degrees Celsius for 3 minutes",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_5","no_9"]
+	},
+	{
+	"id":"yes_5",
+	"question":"Are the temeprature and pressure values maintained for the required amount of time to achieve sterilization?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_6","no_6"]
+	},
+	{
+	"id":"no_9",
+	"question":"Are the measured values too low?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_8","no_10"]
+	},
+	{
+	"id":"no_10",
+	"question":"Are the measured values too high?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes"],
+	"next_question":["yes_9"]
+	},
+	{
+	"id":"yes_6",
+	"question":"Observe the decrease in the measured temperature and pressure values displayed on the device after completion of the sterilization cycle. Do the temperature and pressure decrease after the cycle?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_7","no_7"]
+	},
+	{
+	"id":"yes_7",
+	"question":"Run the test cycle with autoclave test tape to verify that sterilization is achieved. If tape is not available, biological indicators can also be used for sterilization. Is sterilization confirmed?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_12","no_8"]
+	},
+	{
+	"id":"yes_12",
+	"question":"The autoclave is functioning properly.",
+	"details":"",
+	"attachment":null,
+	"options":["Exit"],
+	"next_question":[null]
+	},
+	{
+	"id":"no_8",
+	"question":"The autoclave may be beyond repair. Discontinue autoclave use or refer to a specialist. If you would like to contact another technician, use the call button.",
+	"details":"",
+	"attachment":null,
+	"options":["Exit"],
+	"next_question":[null]
+	},
+	{
+	"id":"no_6",
+	"question":"Adjust the time controls to ensure that the time is on the correct setting.",
+	"details":"Common times: 121 degrees Celsius for 15 minutes, 134 degrees Celsius for 3 minutes",
+	"attachment":null,
+	"options":["Ok"],
+	"next_question":["ok_5"]
+	},
+	{
+	"id":"ok_12",
+	"question":"Inspect gauge components. If the cycle runs but the needle in the gauge doesn't move, there is a problem with the gauge. Remove the gauge from the autoclave and examine the interior. Gently manipulate the gauge to mimic the response to rising temperature and pressure within the device. If the needle can be made to move easily and smoothly, then the gauge components are functional.",
+	"details":"",
+	"attachment":null,
+	"options":["Ok"],
+	"next_question":["ok_15"]
+	},
+	{
+	"id":"ok_13",
+	"question":"Inspect gauge components. If the cycle runs but the needle in the gauge doesn't move, there is a problem with the gauge. Remove the gauge from the autoclave and examine the interior. Gently manipulate the gauge to mimic the response to rising temperature and pressure within the device. If the needle can be made to move easily and smoothly, then the gauge components are functional.",
+	"details":"",
+	"attachment":null,
+	"options":["Ok"],
+	"next_question":["ok_14"]
+	},
+	{
+	"id":"ok_15",
+	"question":"Replace the gauge(s) if necessary. If the gauge needle cannot be made to move as previously described, then the gauge is likely broken and may need to be replaced.",
+	"details":"",
+	"attachment":null,
+	"options":["Ok"],
+	"next_question":["yes_3"]
+	},
+	{
+	"id":"ok_7",
+	"question":"Check the functionality of valve components by ensuring that they are able to open and close smoothly.",
+	"details":"",
+	"attachment":null,
+	"options":["Ok"],
+	"next_question":["ok_8"]
+	},
+	{
+	"id":"ok_8",
+	"question":"Check valve connections and the lid/door seal for leaks. Examine points at which valves connect to the autoclave to ensure that they are adequately sealed. If the autoclave door/lid has a metal-to-metal seal, lubricate the seal. If the autoclave door/lid has a gasket seal, determine the adequacy of the gasket.  If the gasket is dry or cracked, it needs to be replaced.",
+	"details":"",
+	"attachment":["https://www.dropbox.com/s/t8w5ykyvc5beqau/sealing_autoclave_doors.pdf?dl=0","https://www.dropbox.com/s/v5nbbc4dewg21gd/gaskets.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":["ok_9"]
+	},
+	{
+	"id":"ok_9",
+	"question":"Visually examine the inlet/outlet autoclave tubing for leaks.",
+	"details":"",
+	"attachment":null,
+	"options":["Ok"],
+	"next_question":["yes_4"]
+	},
+	{
+	"id":"no_4",
+	"question":"Replace the heating element if necessary. If the resistance across the heating element is greater than 20 Ohms, it needs to be replaced. To replace the wire within the element, nichrome wire must be used.",
+	"details":"",
+	"attachment":["https://www.dropbox.com/s/isc4jhw2a3yjsyc/replacing_heating_elements.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":["q1"]
+	},
+	{
+	"id":"ok_3",
+	"question":"Clean/mend poor connections.",
+	"details":"",
+	"attachment":["https://www.dropbox.com/s/wwega9k0em0ujkr/lose_connectors.pdf?dl=0","https://www.dropbox.com/s/nedt93vlwxi4xuk/selecting_wire.pdf?dl=0","https://www.dropbox.com/s/abjvwem7hw1ke2b/cleaning_connectors.pdf?dl=0","https://www.dropbox.com/s/gir22dkw95emw8i/desoldering.pdf?dl=0","https://www.dropbox.com/s/cgh6we1saff8os2/heat_shrink_tubing.pdf?dl=0","https://www.dropbox.com/s/l9ltjvf2mqe90d5/electrical_tape.pdf?dl=0","https://www.dropbox.com/s/p5htu1m86q41j0v/pin_replacement.pdf?dl=0","https://www.dropbox.com/s/h7ptkp2jgvyh7jt/soldering.pdf?dl=0","https://www.dropbox.com/s/n751gjy4o39mzjt/strain_relief_in_cables.pdf?dl=0","https://www.dropbox.com/s/baps694eafr8yjw/wire_nuts.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":["ok_4"]
+	},
+	{
+	"id":"yes_10",
+	"question":"Clean the gauge vent. If the gauge works but does not move during the autoclave cycle, then the vent leading to the gauge input may be blocked. Flush the vent with distilled water to remove the blockage.",
+	"details":"Caution: Do not submerge the gauge in water.",
+	"attachment":["https://www.dropbox.com/s/ieft50zfifkrppl/cleaning_valves_and_tubes.pdf?dl=0","https://www.dropbox.com/s/9excnmcs2fr0o6x/routing_blockage.pdf?dl=0","https://www.dropbox.com/s/90ch06lh9ilwlgy/descaling_mineral_buildup.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":["ok_12"]
+	},
+	{
+	"id":"yes_11",
+	"question":"Clean the gauge vent. If the gauge works but does not move during the autoclave cycle, then the vent leading to the gauge input may be blocked. Flush the vent with distilled water to remove the blockage.",
+	"details":"Caution: Do not submerge the gauge in water.",
+	"attachment":["https://www.dropbox.com/s/ieft50zfifkrppl/cleaning_valves_and_tubes.pdf?dl=0","https://www.dropbox.com/s/9excnmcs2fr0o6x/routing_blockage.pdf?dl=0","https://www.dropbox.com/s/90ch06lh9ilwlgy/descaling_mineral_buildup.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":["ok_13"]
+	},
+	{
+	"id":"yes_9",
+	"question":"Check valves and exhaust tubing for blockages. Open valves and ensure that air can pass through them. Also verify that exhaust tubing is unobstructed.",
+	"details":"",
+	"attachment":["https://www.dropbox.com/s/ieft50zfifkrppl/cleaning_valves_and_tubes.pdf?dl=0","https://www.dropbox.com/s/9excnmcs2fr0o6x/routing_blockage.pdf?dl=0","https://www.dropbox.com/s/90ch06lh9ilwlgy/descaling_mineral_buildup.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":["ok_10"]
+	},
+	{
+	"id":"ok_10",
+	"question":"Clear blockages by flushing with water. If any blockages are found, flush the blocked components with distilled water to remove blockages.",
+	"details":"",
+	"attachment":["https://www.dropbox.com/s/ieft50zfifkrppl/cleaning_valves_and_tubes.pdf?dl=0","https://www.dropbox.com/s/9excnmcs2fr0o6x/routing_blockage.pdf?dl=0","https://www.dropbox.com/s/90ch06lh9ilwlgy/descaling_mineral_buildup.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":["ok_11"]
+	},
+	{
+	"id":"no_7",
+	"question":"Check valves and exhaust tubing for blockages. Note steam from open valves to ensure that they are not blocked. If temperature and pressure values do not decrease after the completion of the autoclave cycle, it could be due to a blocked exhaust tube.",
+	"details":"",
+	"attachment":["https://www.dropbox.com/s/ieft50zfifkrppl/cleaning_valves_and_tubes.pdf?dl=0","https://www.dropbox.com/s/9excnmcs2fr0o6x/routing_blockage.pdf?dl=0","https://www.dropbox.com/s/90ch06lh9ilwlgy/descaling_mineral_buildup.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":["ok_6"]
+	},
+	{
+	"id":"ok_11",
+	"question":"Check inlet/outlet filters for clogs. If clogs are found, clean or replace the filter(s).",
+	"details":"",
+	"attachment":["https://www.dropbox.com/s/ab7g6rp7ojt4wnp/cleaning_filters.pdf?dl=0","https://www.dropbox.com/s/riboqmqeyaapm72/filter_substitution.pdf?dl=0","https://www.dropbox.com/s/vqcf22gb3axxx8y/fabricating_disc_filter.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":["yes_4"]
+	},
+	{
+	"id":"yes_8",
+	"question":"Check valves for leaks. Visually inspect closed valves thorugh the cycle. If air escapes a closed valve, then there is a leak in the valve that must be mended.",
+	"details":"",
+	"attachment":["https://www.dropbox.com/s/feeax9q2omi3c8y/finding_holes_in_tubes.pdf?dl=0","https://www.dropbox.com/s/d7bqyxk8o8b5opx/cutting_tubes.pdf?dl=0","https://www.dropbox.com/s/vfqiaf18m9ha3w9/melting_to_repair_tubes.pdf?dl=0","https://www.dropbox.com/s/uam5n0wyz1hown2/rubber_patches_for_tube_repair.pdf?dl=0","https://www.dropbox.com/s/no4dnwti1sgtsnp/using_epoxy.pdf?dl=0","https://www.dropbox.com/s/c8aqi0y9up90w3f/using_superglue.pdf?dl=0","https://www.dropbox.com/s/m0jzbqkqfczsmpz/using_tape.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":["ok_7"]
+	},
+	{
+	"id":"ok_9",
+	"question":"Check inlet/outlet tubing for leaks.",
+	"details":"",
+	"attachment":["https://www.dropbox.com/s/feeax9q2omi3c8y/finding_holes_in_tubes.pdf?dl=0","https://www.dropbox.com/s/d7bqyxk8o8b5opx/cutting_tubes.pdf?dl=0","https://www.dropbox.com/s/vfqiaf18m9ha3w9/melting_to_repair_tubes.pdf?dl=0","https://www.dropbox.com/s/uam5n0wyz1hown2/rubber_patches_for_tube_repair.pdf?dl=0","https://www.dropbox.com/s/no4dnwti1sgtsnp/using_epoxy.pdf?dl=0","https://www.dropbox.com/s/c8aqi0y9up90w3f/using_superglue.pdf?dl=0","https://www.dropbox.com/s/m0jzbqkqfczsmpz/using_tape.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":["yes_4"]
+	},
+	{
+	"id":"ok_14",
+	"question":"Examine all parts of the autoclave to find any leaks. Visually inspect for steam escaping from the autoclave.",
+	"details":"",
+	"attachment":["https://www.dropbox.com/s/feeax9q2omi3c8y/finding_holes_in_tubes.pdf?dl=0","https://www.dropbox.com/s/d7bqyxk8o8b5opx/cutting_tubes.pdf?dl=0","https://www.dropbox.com/s/vfqiaf18m9ha3w9/melting_to_repair_tubes.pdf?dl=0","https://www.dropbox.com/s/uam5n0wyz1hown2/rubber_patches_for_tube_repair.pdf?dl=0","https://www.dropbox.com/s/no4dnwti1sgtsnp/using_epoxy.pdf?dl=0","https://www.dropbox.com/s/c8aqi0y9up90w3f/using_superglue.pdf?dl=0","https://www.dropbox.com/s/m0jzbqkqfczsmpz/using_tape.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":["ok_15"]
+	},
+	{
+	"id":"ok_6",
+	"question":"Troubleshoot the timing circuit. If the settings are correct, but the autoclave does not maintain the required temperature and pressure values for the proper duration, there is a problem with the circuit controlling the timing of the cycle. Examine this circuit for broken or damaged connections and components.",
+	"details":"",
+	"attachment":["https://www.dropbox.com/s/wwega9k0em0ujkr/lose_connectors.pdf?dl=0","https://www.dropbox.com/s/nedt93vlwxi4xuk/selecting_wire.pdf?dl=0","https://www.dropbox.com/s/abjvwem7hw1ke2b/cleaning_connectors.pdf?dl=0","https://www.dropbox.com/s/gir22dkw95emw8i/desoldering.pdf?dl=0","https://www.dropbox.com/s/cgh6we1saff8os2/heat_shrink_tubing.pdf?dl=0","https://www.dropbox.com/s/l9ltjvf2mqe90d5/electrical_tape.pdf?dl=0","https://www.dropbox.com/s/p5htu1m86q41j0v/pin_replacement.pdf?dl=0","https://www.dropbox.com/s/h7ptkp2jgvyh7jt/soldering.pdf?dl=0","https://www.dropbox.com/s/baps694eafr8yjw/wire_nuts.pdf?dl=0","https://www.dropbox.com/s/uy14ov30lh7acm9/continuity_tester.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":["yes_6"]
+	},
+	{
+	"id":"ok_5",
+	"question":"Troubleshoot the timing circuit. If the settings are correct, but the autoclave does not maintain the required temperature and pressure values for the proper duration, there is a problem with the circuit controlling the timing of the cycle. Examine this circuit for broken or damaged connections and components.",
+	"details":"",
+	"attachment":["https://www.dropbox.com/s/wwega9k0em0ujkr/lose_connectors.pdf?dl=0","https://www.dropbox.com/s/nedt93vlwxi4xuk/selecting_wire.pdf?dl=0","https://www.dropbox.com/s/abjvwem7hw1ke2b/cleaning_connectors.pdf?dl=0","https://www.dropbox.com/s/gir22dkw95emw8i/desoldering.pdf?dl=0","https://www.dropbox.com/s/cgh6we1saff8os2/heat_shrink_tubing.pdf?dl=0","https://www.dropbox.com/s/l9ltjvf2mqe90d5/electrical_tape.pdf?dl=0","https://www.dropbox.com/s/p5htu1m86q41j0v/pin_replacement.pdf?dl=0","https://www.dropbox.com/s/h7ptkp2jgvyh7jt/soldering.pdf?dl=0","https://www.dropbox.com/s/baps694eafr8yjw/wire_nuts.pdf?dl=0","https://www.dropbox.com/s/uy14ov30lh7acm9/continuity_tester.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":["yes_5"]
+	}
+]
