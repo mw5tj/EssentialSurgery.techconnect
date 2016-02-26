@@ -4,8 +4,8 @@
   "question":"What seems to be the problem?",
   "details":"",
   "attachment":null,
-  "options":["Equipment is not running", "SpO2 or pulse rate not displayed or unstable","PROBE OFF is displayed on the screen","ERROR is displayed on the screen","Continuous alarm sounds","Electrical shocks"],
-  "next_question":["not_running","no_unstable_display","probe_off","error","continuous_alarm","shocks"]
+  "options":["Equipment is not running", "SpO2 or pulse rate not displayed or unstable","PROBE OFF is displayed on the screen","ERROR is displayed on the screen","Continuous alarm sounds","Electrical shocks","Exit"],
+  "next_question":["not_running","no_unstable_display","probe_off","error","continuous_alarm","shocks",null]
   },
   {
     "id":"not_running",
@@ -164,8 +164,8 @@
     "question":"Listed below are possible causes for the device not working properly.",
     "details":"Click on each to learn more about the problem and simple fixes. For help in repairing the device, contact the biomedical technician at your hospital",
     "attachment":null,
-    "options":["Wiring fault"],
-    "next_question":["wiring_fault"]
+    "options":["Wiring fault", "Ok"],
+    "next_question":["wiring_fault","q1"]
     },
     {
     "id":"wiring_fault",
