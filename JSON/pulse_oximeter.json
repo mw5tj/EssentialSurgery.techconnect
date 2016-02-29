@@ -1,19 +1,19 @@
 [
 	{
 	"id":"q1",
-	"question":"Does the pulse oximeter power on when plugged in? The displays should appear when powered on.",
-	"details":"",
+	"question":"Do the screen displays appear when the device is plugged into the wall?",
+	"details":"If the device does not have a power cord, select 'Not applicable'.",
 	"attachment":null,
-	"options":["Yes","No"],
-	"next_question":["yes_1","no_1"]
+	"options":["Yes","No","Not applicable"],
+	"next_question":["yes_1","no_1","yes_1"]
 	},
 	{
 	"id":"yes_1",
-	"question":"Does the pulse oximeter power on with the battery only?",
-	"details":"Though the machine can still be used even if the battery circuit is faulty, the battery should be checked for functionality.",
+	"question":"Do the screen displays appear when you press the power button?",
+	"details":"In this case, the device is running off of battery power.",
 	"attachment":null,
-	"options":["Yes","No","Not applicable"],
-	"next_question":["yes_8","no_2","yes_8"]
+	"options":["Yes","No"],
+	"next_question":["yes_3","no_2"]
 	},
 	{
 	"id":"no_1",
@@ -26,7 +26,7 @@
 	{
 	"id":"yes_8",
 	"question":"If you would like to test the alarm for the device, remove the probe from the pulse oximeter.  If this is not applicable for your device, select 'Skip this step'.",
-	"details":"The alarm should sound when heart rate or SpO2 levels reach outside the acceptable ranges as well as when the probe is disconnected.",
+	"details":"",
 	"attachment":null,
 	"options":["Ok","Skip this step"],
 	"next_question":["ok_5","yes_3"]
@@ -81,8 +81,8 @@
 	},
 	{
 	"id":"yes_3",
-	"question":"Is one light sensor visible in the probe?",
-	"details":"There should be one red light being visibly emitted from inside the probe.",
+	"question":"Is the red light fully visible in the probe?  The light should appear a solid circle with nothing blocking it.",
+	"details":"",
 	"attachment":null,
 	"options":["Yes","No"],
 	"next_question":["yes_4","no_6"]
@@ -90,7 +90,7 @@
 	{
 	"id":"yes_4",
 	"question":"Place probe on finger. Ensure that ambient light cannot enter the sensor.",
-	"details":"When not in use, the probe should eb shielded from direct light. If any outside light enters the sensor, it can drastically affect readings, as they are calculated through photodetection sensors.",
+	"details":"When not in use, the probe should be shielded from direct light. If any outside light enters the sensor, it can drastically affect readings, as they are calculated through photodetection sensors.",
 	"attachment":null,
 	"options":["Ok"],
 	"next_question":["ok_9"]
@@ -129,8 +129,8 @@
 	},
 	{
 	"id":"no_8",
-	"question":"Replace the probe. Attempt again with a new probe.",
-	"details":"If the probe needs to be replaced but a replacement is not available, exit the session.",
+	"question":"Reposition the probe on your finger and try again until you get accurate readings.",
+	"details":"If readings remain inaccurate, replace the probe. If a replacement is not available, exit the session.",
 	"attachment":null,
 	"options":["Ok"],
 	"next_question":["ok_12"]
@@ -161,8 +161,8 @@
 	},
 	{
 	"id":"no_9",
-	"question":"Replace the probe.",
-	"details":"If the probe needs to be replaced but a replacement is not available, exit the session.",
+	"question":"Reposition the probe on your finger and try again until you get accurate readings.",
+	"details":"If readings remain inaccurate, replace the probe. If a replacement is not available, exit the session.",
 	"attachment":null,
 	"options":["Ok"],
 	"next_question":["ok_13"]

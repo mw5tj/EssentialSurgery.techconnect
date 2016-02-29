@@ -30,7 +30,7 @@ import java.util.Set;
 public class NetworkHelper {
 
     public static final String ENTRY_ID = "q1";
-    private static final String URL = "https://dl.dropboxusercontent.com/u/2767282/TechConnect/";
+    private static final String URL = "https://raw.githubusercontent.com/mw5tj/EssentialSurgery.techconnect/master/JSON//";
     private static final String INDEX_FILE = "index.json";
     private boolean useCached = false;
 
