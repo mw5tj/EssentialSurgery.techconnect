@@ -9,14 +9,18 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import org.centum.techconnect.R;
 import org.centum.techconnect.model.Flowchart;
 import org.centum.techconnect.model.Session;
 import org.centum.techconnect.model.SessionCompleteListener;
+import org.centum.techconnect.resources.ResourceHandler;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,6 +38,8 @@ public class SelfHelpFlowView extends ScrollView implements View.OnClickListener
     LinearLayout optionsLinearLayout;
     @Bind(R.id.back_button)
     Button backButton;
+    @Bind(R.id.flow_imageView)
+    ImageView imageView;
 
     private Session session;
     private SessionCompleteListener listener;
@@ -60,6 +66,15 @@ public class SelfHelpFlowView extends ScrollView implements View.OnClickListener
         Flowchart flow = session.getCurrentFlowchart();
         questionTextView.setText(flow.getQuestion());
         detailsTextView.setText(flow.getDetails());
+        if (flow.hasImage()) {
+            imageView.setVisibility(VISIBLE);
+            Picasso.with(getContext())
+                    .load(ResourceHandler.get().getImageFile(flow.getImageURL()))
+                    .into(imageView);
+        } else {
+            imageView.setVisibility(GONE);
+        }
+
         for (int i = 0; i < optionsLinearLayout.getChildCount(); i++) {
             optionsLinearLayout.getChildAt(i).setOnClickListener(null);
         }

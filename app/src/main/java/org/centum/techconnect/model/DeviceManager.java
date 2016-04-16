@@ -2,7 +2,7 @@ package org.centum.techconnect.model;
 
 import android.content.Context;
 
-import org.centum.techconnect.network.NetworkHelper;
+import org.centum.techconnect.resources.NetworkHelper;
 import org.json.JSONException;
 
 import java.io.IOException;

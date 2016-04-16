@@ -4,10 +4,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Phani on 1/23/2016.
@@ -18,15 +16,16 @@ public class Flowchart {
     private String question;
     private String details;
     private String[] attachments;
+    private String imageURL;
     private List<String> options = new LinkedList<>();
     private List<Flowchart> children = new LinkedList<>();
-    //private Map<String, Flowchart> children = new HashMap<>();
 
-    public Flowchart(String question, String details, String[] attachments, String key) {
+    public Flowchart(String question, String details, String[] attachments, String imageURL, String key) {
         this.question = question;
         this.details = details;
         this.attachments = attachments;
         this.key = key;
+        this.imageURL = imageURL;
     }
 
     public static Flowchart fromJSON(JSONObject object, String key) throws JSONException {
@@ -40,8 +39,12 @@ public class Flowchart {
                 attachmentsStr[i] = attachments.getString(i);
             }
         }
+        String imageURL = null;
+        if (object.has("image")) {
+            imageURL = object.getString("image");
+        }
         Flowchart flowchart = new Flowchart(object.getString("question"),
-                object.getString("details"), attachmentsStr, key);
+                object.getString("details"), attachmentsStr, imageURL, key);
         return flowchart;
     }
 
@@ -72,6 +75,14 @@ public class Flowchart {
 
     public String[] getAttachments() {
         return attachments;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public boolean hasImage() {
+        return imageURL != null;
     }
 
     public String getKey() {

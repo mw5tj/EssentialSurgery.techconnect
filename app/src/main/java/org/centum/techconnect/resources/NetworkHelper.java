@@ -1,4 +1,4 @@
-package org.centum.techconnect.network;
+package org.centum.techconnect.resources;
 
 import android.support.annotation.NonNull;
 
