@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import org.centum.techconnect.model.Device;
 import org.json.JSONException;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -39,22 +38,12 @@ public class ResourceHandler {
     }
 
     public Device[] getDevices() {
-        if (devices == null) {
-            try {
-                devices = new NetworkHelper().loadDevices(true);
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
         return devices;
     }
 
     public void loadResources() {
         try {
-            devices = new NetworkHelper().loadDevices(true);
-
+            devices = new NetworkHelper(context).loadDevices(true);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {
@@ -72,18 +61,6 @@ public class ResourceHandler {
 
     public void addStringResource(String tag, String s) {
         resourcePrefs.edit().putString(tag, s).apply();
-    }
-
-    public boolean hasFileResource(String imageURL) {
-        return false;
-    }
-
-    public File getFileResource(String imageURL) {
-        return null;
-    }
-
-    public void addFileResource(String tag, File file) {
-
     }
 
     public void clear() {

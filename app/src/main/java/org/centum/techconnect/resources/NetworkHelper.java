@@ -1,5 +1,8 @@
 package org.centum.techconnect.resources;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 
 import org.centum.techconnect.model.Device;
@@ -10,10 +13,13 @@ import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
@@ -34,6 +40,11 @@ public class NetworkHelper {
     public static final String ENTRY_ID = "q1";
     private static final String URL = "https://raw.githubusercontent.com/mw5tj/EssentialSurgery.techconnect/master/JSON//";
     private static final String INDEX_FILE = "index.json";
+    private Context context;
+
+    public NetworkHelper(Context context) {
+        this.context = context;
+    }
 
     public Device[] loadDevices(boolean useCached) throws IOException, JSONException {
         //Load the devices first
@@ -72,6 +83,13 @@ public class NetworkHelper {
                 if (!visited.contains(child) && child != null) {
                     toVisit.add(child);
                 }
+            }
+        }
+
+        for (String url : toLoadURLs) {
+            if (!ResourceHandler.get().hasStringResource(url)) {
+                String file = downloadImage(url);
+                ResourceHandler.get().addStringResource(url, file);
             }
         }
 
@@ -203,6 +221,34 @@ public class NetworkHelper {
             ResourceHandler.get().addStringResource(urlS, builder.toString());
             return builder.toString();
         }
+    }
+
+    private String downloadImage(String imageUrl) throws IOException {
+        Logger.getLogger(getClass().getName()).log(Level.INFO, "Loading image: " + imageUrl);
+        Bitmap bitmap = null;
+        HttpURLConnection connection = null;
+        InputStream is = null;
+        ByteArrayOutputStream out = null;
+
+        connection = (HttpURLConnection) new URL(imageUrl).openConnection();
+        is = connection.getInputStream();
+        bitmap = BitmapFactory.decodeStream(is);
+        if (connection != null)
+            connection.disconnect();
+        if (out != null) {
+            out.flush();
+            out.close();
+        }
+        if (is != null) {
+            is.close();
+        }
+
+        String fileName = "i" + ((int) (9999999999999999d * Math.random()));
+        FileOutputStream fos = context.openFileOutput(fileName, Context.MODE_PRIVATE);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+        fos.flush();
+        fos.close();
+        return fileName;
     }
 
 }

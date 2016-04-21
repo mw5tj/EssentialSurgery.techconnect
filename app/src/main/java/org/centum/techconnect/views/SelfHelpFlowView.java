@@ -66,10 +66,10 @@ public class SelfHelpFlowView extends ScrollView implements View.OnClickListener
         Flowchart flow = session.getCurrentFlowchart();
         questionTextView.setText(flow.getQuestion());
         detailsTextView.setText(flow.getDetails());
-        if (flow.hasImage() && ResourceHandler.get().hasFileResource(flow.getImageURL())) {
+        if (flow.hasImage() && ResourceHandler.get().hasStringResource(flow.getImageURL())) {
             imageView.setVisibility(VISIBLE);
             Picasso.with(getContext())
-                    .load(ResourceHandler.get().getFileResource(flow.getImageURL()))
+                    .load(getContext().getFileStreamPath(ResourceHandler.get().getStringResource(flow.getImageURL())))
                     .into(imageView);
         } else {
             imageView.setVisibility(GONE);
