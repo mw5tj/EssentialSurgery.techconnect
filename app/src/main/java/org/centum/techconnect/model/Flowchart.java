@@ -42,6 +42,8 @@ public class Flowchart {
         String imageURL = null;
         if (object.has("image")) {
             imageURL = object.getString("image");
+        } else {
+            imageURL = "https://i.vimeocdn.com/portrait/58832_300x300.jpg";
         }
         Flowchart flowchart = new Flowchart(object.getString("question"),
                 object.getString("details"), attachmentsStr, imageURL, key);

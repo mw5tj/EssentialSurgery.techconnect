@@ -25,7 +25,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.CallActivity"></activity>
+        <activity
+            android:name=".activities.CallActivity"
+            android:label="Call Directory" />
+        <activity
+            android:name=".activities.ImageViewActivity"
+            android:label="Image"
+            android:theme="@style/Theme.Transparent" />
     </application>
 
 </manifest>

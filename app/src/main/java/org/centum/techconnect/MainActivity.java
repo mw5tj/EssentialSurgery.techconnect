@@ -26,8 +26,10 @@ public class MainActivity extends AppCompatActivity
 
     private static final int FRAGMENT_SELF_HELP = 0;
     private static final int FRAGMENT_LOGS = 1;
+
     @Bind(R.id.nav_view)
     NavigationView navigationView;
+
     private Fragment[] fragments = new Fragment[]{new SelfHelpFragment(), new ReportsFragment()};
     private String[] fragmentTitles;
     private int fragment = -1;

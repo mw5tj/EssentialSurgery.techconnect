@@ -17,10 +17,13 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import org.centum.techconnect.R;
+import org.centum.techconnect.activities.ImageViewActivity;
 import org.centum.techconnect.model.Flowchart;
 import org.centum.techconnect.model.Session;
 import org.centum.techconnect.model.SessionCompleteListener;
 import org.centum.techconnect.resources.ResourceHandler;
+
+import java.io.File;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -67,14 +70,23 @@ public class SelfHelpFlowView extends ScrollView implements View.OnClickListener
         questionTextView.setText(flow.getQuestion());
         detailsTextView.setText(flow.getDetails());
         if (flow.hasImage() && ResourceHandler.get().hasStringResource(flow.getImageURL())) {
+            final File file = getContext().getFileStreamPath(ResourceHandler.get().getStringResource(flow.getImageURL()));
             imageView.setVisibility(VISIBLE);
             Picasso.with(getContext())
-                    .load(getContext().getFileStreamPath(ResourceHandler.get().getStringResource(flow.getImageURL())))
+                    .load(file)
                     .into(imageView);
+            imageView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getContext(), ImageViewActivity.class);
+                    intent.putExtra(ImageViewActivity.EXTRA_PATH, file.getAbsolutePath());
+                    getContext().startActivity(intent);
+                }
+            });
         } else {
             imageView.setVisibility(GONE);
+            imageView.setOnClickListener(null);
         }
-
         for (int i = 0; i < optionsLinearLayout.getChildCount(); i++) {
             optionsLinearLayout.getChildAt(i).setOnClickListener(null);
         }
