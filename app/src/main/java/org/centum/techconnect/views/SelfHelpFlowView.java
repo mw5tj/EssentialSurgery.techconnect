@@ -41,8 +41,8 @@ public class SelfHelpFlowView extends ScrollView implements View.OnClickListener
     LinearLayout optionsLinearLayout;
     @Bind(R.id.back_button)
     Button backButton;
-    @Bind(R.id.flow_imageView)
-    ImageView imageView;
+    @Bind(R.id.imageViewLinearLayout)
+    LinearLayout imageLinearLayout;
 
     private Session session;
     private SessionCompleteListener listener;
@@ -69,42 +69,14 @@ public class SelfHelpFlowView extends ScrollView implements View.OnClickListener
         Flowchart flow = session.getCurrentFlowchart();
         questionTextView.setText(flow.getQuestion());
         detailsTextView.setText(flow.getDetails());
-        if (flow.hasImage() && ResourceHandler.get().hasStringResource(flow.getImageURL())) {
-            final File file = getContext().getFileStreamPath(ResourceHandler.get().getStringResource(flow.getImageURL()));
-            imageView.setVisibility(VISIBLE);
-            Picasso.with(getContext())
-                    .load(file)
-                    .into(imageView);
-            imageView.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getContext(), ImageViewActivity.class);
-                    intent.putExtra(ImageViewActivity.EXTRA_PATH, file.getAbsolutePath());
-                    getContext().startActivity(intent);
-                }
-            });
-        } else {
-            imageView.setVisibility(GONE);
-            imageView.setOnClickListener(null);
-        }
-        for (int i = 0; i < optionsLinearLayout.getChildCount(); i++) {
-            optionsLinearLayout.getChildAt(i).setOnClickListener(null);
-        }
-        optionsLinearLayout.removeAllViews();
-        String options[] = flow.getOptions();
-        for (int i = 0; i < flow.getNumChildren(); i++) {
-            final String option = options[i];
-            Button button = new Button(getContext());
-            button.setTransformationMethod(null);
-            button.setText(option);
-            button.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    advanceFlow(option);
-                }
-            });
-            optionsLinearLayout.addView(button);
-        }
+
+        updateImageThumbnails(flow);
+        updateOptions(flow);
+        updateAttachments(flow);
+        backButton.setEnabled(session.hasPrevious());
+    }
+
+    private void updateAttachments(Flowchart flow) {
         final String[] attachments = flow.getAttachments();
         if (attachments.length > 0) {
             TextView tv = new TextView(getContext());
@@ -133,7 +105,64 @@ public class SelfHelpFlowView extends ScrollView implements View.OnClickListener
             });
             optionsLinearLayout.addView(button);
         }
-        backButton.setEnabled(session.hasPrevious());
+    }
+
+    private void updateOptions(Flowchart flow) {
+        for (int i = 0; i < optionsLinearLayout.getChildCount(); i++) {
+            optionsLinearLayout.getChildAt(i).setOnClickListener(null);
+        }
+        optionsLinearLayout.removeAllViews();
+        String options[] = flow.getOptions();
+        for (int i = 0; i < flow.getNumChildren(); i++) {
+            final String option = options[i];
+            Button button = new Button(getContext());
+            button.setTransformationMethod(null);
+            button.setText(option);
+            button.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    advanceFlow(option);
+                }
+            });
+            optionsLinearLayout.addView(button);
+        }
+    }
+
+    private void updateImageThumbnails(Flowchart flow) {
+        for (int i = 0; i < imageLinearLayout.getChildCount(); i++) {
+            imageLinearLayout.getChildAt(i).setOnClickListener(null);
+        }
+        imageLinearLayout.removeAllViews();
+        if (flow.hasImages()) {
+            String[] images = flow.getImageURLs();
+            for (String url : images) {
+                if (ResourceHandler.get().hasStringResource(url)) {
+                    final File file = getContext().getFileStreamPath(ResourceHandler.get().getStringResource(url));
+                    ImageView imageView = new ImageView(getContext());
+                    imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                    final float scale = getContext().getResources().getDisplayMetrics().density;
+                    int pixels = (int) (100 * scale + 0.5f);
+                    imageView.setMaxWidth(pixels);
+                    imageView.setAdjustViewBounds(true);
+                    imageLinearLayout.addView(imageView);
+                    imageView.setVisibility(VISIBLE);
+                    Picasso.with(getContext())
+                            .load(file)
+                            .into(imageView);
+                    imageView.setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(getContext(), ImageViewActivity.class);
+                            intent.putExtra(ImageViewActivity.EXTRA_PATH, file.getAbsolutePath());
+                            getContext().startActivity(intent);
+                        }
+                    });
+                }
+            }
+
+        } else {
+            imageLinearLayout.setVisibility(GONE);
+        }
     }
 
     private void openAttachment(String att) {

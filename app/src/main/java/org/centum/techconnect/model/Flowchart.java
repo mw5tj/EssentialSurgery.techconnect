@@ -16,16 +16,16 @@ public class Flowchart {
     private String question;
     private String details;
     private String[] attachments;
-    private String imageURL;
+    private String imageURLs[] = new String[0];
     private List<String> options = new LinkedList<>();
     private List<Flowchart> children = new LinkedList<>();
 
-    public Flowchart(String question, String details, String[] attachments, String imageURL, String key) {
+    public Flowchart(String question, String details, String[] attachments, String imageURLs[], String key) {
         this.question = question;
         this.details = details;
         this.attachments = attachments;
         this.key = key;
-        this.imageURL = imageURL;
+        this.imageURLs = imageURLs;
     }
 
     public static Flowchart fromJSON(JSONObject object, String key) throws JSONException {
@@ -39,12 +39,16 @@ public class Flowchart {
                 attachmentsStr[i] = attachments.getString(i);
             }
         }
-        String imageURL = null;
+        String imageURLs[] = new String[0];
         if (object.has("image")) {
-            imageURL = object.getString("image");
+            JSONArray arr = object.getJSONArray("image");
+            imageURLs = new String[arr.length()];
+            for (int i = 0; i < imageURLs.length; i++) {
+                imageURLs[i] = arr.getString(i);
+            }
         }
         Flowchart flowchart = new Flowchart(object.getString("question"),
-                object.getString("details"), attachmentsStr, imageURL, key);
+                object.getString("details"), attachmentsStr, imageURLs, key);
         return flowchart;
     }
 
@@ -81,12 +85,12 @@ public class Flowchart {
         return attachments;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public String[] getImageURLs() {
+        return imageURLs;
     }
 
-    public boolean hasImage() {
-        return imageURL != null;
+    public boolean hasImages() {
+        return imageURLs != null && imageURLs.length > 0;
     }
 
     public String getKey() {

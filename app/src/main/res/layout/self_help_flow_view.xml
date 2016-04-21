@@ -39,7 +39,7 @@
             android:id="@+id/options_linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/flow_imageView"
+            android:layout_below="@+id/flow_imageScrollView"
             android:gravity="center"
             android:minHeight="50dp"
             android:orientation="vertical">
@@ -57,9 +57,9 @@
             android:enabled="true"
             android:text="Back" />
 
-        <ImageView
-            android:id="@+id/flow_imageView"
-            android:layout_width="wrap_content"
+        <HorizontalScrollView
+            android:id="@+id/flow_imageScrollView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="true"
@@ -68,9 +68,18 @@
             android:layout_below="@+id/details_textView"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
-            android:maxHeight="200dp"
-            android:scaleType="fitCenter"
-            android:visibility="gone" />
+            android:maxHeight="100dp"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/imageViewLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxHeight="100dp"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+        </HorizontalScrollView>
 
     </RelativeLayout>
 </org.centum.techconnect.views.SelfHelpFlowView>

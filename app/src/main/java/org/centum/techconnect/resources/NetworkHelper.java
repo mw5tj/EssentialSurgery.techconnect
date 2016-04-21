@@ -22,6 +22,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -74,8 +75,8 @@ public class NetworkHelper {
         while (toVisit.size() > 0) {
             Flowchart flow = toVisit.remove();
             visited.add(flow);
-            if (flow.hasImage())
-                toLoadURLs.add(flow.getImageURL());
+            if (flow.hasImages())
+                toLoadURLs.addAll(Arrays.asList(flow.getImageURLs()));
 
             // Add unvisited children
             for (int i = 0; i < flow.getNumChildren(); i++) {
@@ -243,7 +244,7 @@ public class NetworkHelper {
             is.close();
         }
 
-        String fileName = "i" + ((int) (9999999999999999d * Math.random()));
+        String fileName = "i" + (int) Math.round(Integer.MAX_VALUE * Math.random());
         FileOutputStream fos = context.openFileOutput(fileName, Context.MODE_PRIVATE);
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
         fos.flush();
