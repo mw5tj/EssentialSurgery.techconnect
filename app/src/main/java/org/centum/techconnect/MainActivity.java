@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -109,6 +110,13 @@ public class MainActivity extends AppCompatActivity
             fragment = FRAGMENT_SELF_HELP;
         } else if (id == R.id.nav_reports) {
             fragment = FRAGMENT_LOGS;
+        } else if (id == R.id.nav_refresh) {
+            ResourceHandler.get().clear();
+            new AlertDialog.Builder(this).setTitle("Sync")
+                    .setMessage("Resources will be synced on next app start")
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show();
+            return true;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

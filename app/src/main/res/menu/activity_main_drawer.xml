@@ -12,4 +12,11 @@
             android:title="Reports" />
     </group>
 
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_refresh"
+            android:icon="@android:drawable/stat_notify_sync_noanim"
+            android:title="Sync Online Resources" />
+    </group>
+
 </menu>

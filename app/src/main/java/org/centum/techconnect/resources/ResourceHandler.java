@@ -17,12 +17,14 @@ public class ResourceHandler {
     private static ResourceHandler instance = null;
     private Context context;
     private SharedPreferences prefs;
+    private SharedPreferences resourcePrefs;
 
     private Device[] devices = null;
 
     public ResourceHandler(Context context) {
         this.context = context;
         prefs = context.getSharedPreferences("ResourceHandler", Context.MODE_PRIVATE);
+        resourcePrefs = context.getSharedPreferences("ResourceHandlerCached", Context.MODE_PRIVATE);
     }
 
     public static ResourceHandler get(Context context) {
@@ -61,14 +63,15 @@ public class ResourceHandler {
     }
 
     public boolean hasStringResource(String tag) {
-        return false;
+        return resourcePrefs.getString(tag, null) != null;
     }
 
     public String getStringResource(String tag) {
-        return null;
+        return resourcePrefs.getString(tag, null);
     }
 
     public void addStringResource(String tag, String s) {
+        resourcePrefs.edit().putString(tag, s).apply();
     }
 
     public boolean hasFileResource(String imageURL) {
@@ -81,5 +84,9 @@ public class ResourceHandler {
 
     public void addFileResource(String tag, File file) {
 
+    }
+
+    public void clear() {
+        resourcePrefs.edit().clear().apply();
     }
 }
