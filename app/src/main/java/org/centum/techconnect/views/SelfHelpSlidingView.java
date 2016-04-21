@@ -9,13 +9,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
 import org.centum.techconnect.R;
+import org.centum.techconnect.activities.CallActivity;
 import org.centum.techconnect.model.Session;
 
 import java.text.SimpleDateFormat;
@@ -45,6 +45,8 @@ public class SelfHelpSlidingView extends RelativeLayout implements View.OnClickL
     Button endSessionButton;
     @Bind(R.id.resourcesButton)
     Button resourcesButton;
+    @Bind(R.id.callDirBtn)
+    Button callDirBtn;
 
     private Session session;
     private OnClickListener endListener;
@@ -84,8 +86,10 @@ public class SelfHelpSlidingView extends RelativeLayout implements View.OnClickL
             deviceTextView.setText("");
             endSessionButton.setOnClickListener(null);
             resourcesButton.setOnClickListener(null);
+            callDirBtn.setOnClickListener(null);
         } else {
             resourcesButton.setOnClickListener(this);
+            callDirBtn.setOnClickListener(this);
             if (session.getDevice().getImageURL() == null) {
                 Picasso.with(getContext())
                         .load(R.drawable.ic_devices_black)
@@ -113,8 +117,10 @@ public class SelfHelpSlidingView extends RelativeLayout implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.resourcesButton){
+        if (view.getId() == R.id.resourcesButton) {
             showResources();
+        } else if (view.getId() == R.id.callDirBtn) {
+            getContext().startActivity(new Intent(getContext(), CallActivity.class));
         }
     }
 
@@ -122,7 +128,7 @@ public class SelfHelpSlidingView extends RelativeLayout implements View.OnClickL
         final String[] resources = session.getDevice().getResources();
         final String[] formattedResources = new String[resources.length];
         for (int i = 0; i < resources.length; i++) {
-            formattedResources[i] = resources[i].substring(resources[i].lastIndexOf("/") + 1).replace('_',' ');
+            formattedResources[i] = resources[i].substring(resources[i].lastIndexOf("/") + 1).replace('_', ' ');
             if (formattedResources[i].contains("?")) {
                 formattedResources[i] = formattedResources[i].substring(0, formattedResources[i].indexOf('?'));
             }

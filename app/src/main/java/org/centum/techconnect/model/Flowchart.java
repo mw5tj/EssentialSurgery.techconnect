@@ -65,6 +65,10 @@ public class Flowchart {
         return children.get(options.indexOf(option));
     }
 
+    public Flowchart getChildByIndex(int i) {
+        return children.get(i);
+    }
+
     public String getQuestion() {
         return question;
     }

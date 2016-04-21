@@ -1,8 +1,6 @@
 package org.centum.techconnect;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -17,10 +15,7 @@ import android.view.MenuItem;
 
 import org.centum.techconnect.fragments.ReportsFragment;
 import org.centum.techconnect.fragments.SelfHelpFragment;
-import org.centum.techconnect.model.DeviceManager;
-import org.json.JSONException;
-
-import java.io.IOException;
+import org.centum.techconnect.resources.ResourceHandler;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -41,7 +36,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DeviceManager.get(this);
+        ResourceHandler.get(this);
         ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -55,9 +50,9 @@ public class MainActivity extends AppCompatActivity
         fragmentTitles = getResources().getStringArray(R.array.fragment_titles);
         navigationView.setNavigationItemSelectedListener(this);
         if (savedInstanceState == null) {
-            loadDevices(FRAGMENT_SELF_HELP);
+            loadResources(FRAGMENT_SELF_HELP);
         } else {
-            loadDevices(savedInstanceState.getInt("frag", FRAGMENT_SELF_HELP));
+            loadResources(savedInstanceState.getInt("frag", FRAGMENT_SELF_HELP));
         }
     }
 
@@ -67,14 +62,14 @@ public class MainActivity extends AppCompatActivity
         outState.putInt("frag", fragment);
     }
 
-    private void loadDevices(final int fragToOpen) {
+    private void loadResources(final int fragToOpen) {
         new AsyncTask<Void, Void, Void>() {
 
             Dialog dialog;
 
             @Override
             protected void onPreExecute() {
-                dialog = new Dialog(MainActivity.this,android.R.style.Theme_Material_Light_NoActionBar_Fullscreen);
+                dialog = new Dialog(MainActivity.this, android.R.style.Theme_Material_Light_NoActionBar_Fullscreen);
                 dialog.setContentView(R.layout.loading_layout);
                 dialog.setCancelable(false);
                 dialog.show();
@@ -88,15 +83,7 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             protected Void doInBackground(Void... voids) {
-                try {
-                    if (DeviceManager.get().getDevices().length == 0) {
-                        DeviceManager.get().loadDevices();
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                ResourceHandler.get().loadResources();
                 return null;
             }
         }.execute();

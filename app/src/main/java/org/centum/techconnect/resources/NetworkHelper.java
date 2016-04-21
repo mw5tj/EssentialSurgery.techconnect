@@ -23,6 +23,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Phani on 1/14/2016.
@@ -32,26 +34,52 @@ public class NetworkHelper {
     public static final String ENTRY_ID = "q1";
     private static final String URL = "https://raw.githubusercontent.com/mw5tj/EssentialSurgery.techconnect/master/JSON//";
     private static final String INDEX_FILE = "index.json";
-    private boolean useCached = false;
 
-    public Device[] loadDevices() throws IOException, JSONException {
+    public Device[] loadDevices(boolean useCached) throws IOException, JSONException {
         //Load the devices first
         List<Device> deviceList = new LinkedList<>();
-        JSONObject index = new JSONObject(downloadFile(URL + INDEX_FILE));
+        JSONObject index = new JSONObject(downloadFileAsStr(URL + INDEX_FILE, useCached));
         JSONArray devicesids = index.getJSONArray("deviceids");
         for (int i = 0; i < devicesids.length(); i++) {
             deviceList.add(Device.fromJSON(index.getJSONObject(devicesids.getString(i))));
         }
         //Now load all of the flowcharts for the device/deviceproblems
         for (Device device : deviceList) {
-            device.getEndUserRole().setFlowchart(loadFlowchart(URL, device.getEndUserRole().getJsonFile(), ENTRY_ID));
-            device.getTechRole().setFlowchart(loadFlowchart(URL, device.getTechRole().getJsonFile(), ENTRY_ID));
+            device.getEndUserRole().setFlowchart(loadFlowchart(URL, device.getEndUserRole().getJsonFile(), ENTRY_ID, useCached));
+            device.getTechRole().setFlowchart(loadFlowchart(URL, device.getTechRole().getJsonFile(), ENTRY_ID, useCached));
         }
+
+        //Load images
+        Set<String> toLoadURLs = new HashSet<>();
+        Set<Flowchart> visited = new HashSet<>();
+        Queue<Flowchart> toVisit = new LinkedList<>();
+        for (Device device : deviceList) {
+            if (device.getEndUserRole().getFlowchart() != null)
+                toVisit.add(device.getEndUserRole().getFlowchart());
+            if (device.getTechRole().getFlowchart() != null)
+                toVisit.add(device.getTechRole().getFlowchart());
+        }
+
+        while (toVisit.size() > 0) {
+            Flowchart flow = toVisit.remove();
+            visited.add(flow);
+            if (flow.hasImage())
+                toLoadURLs.add(flow.getImageURL());
+
+            // Add unvisited children
+            for (int i = 0; i < flow.getNumChildren(); i++) {
+                Flowchart child = flow.getChildByIndex(i);
+                if (!visited.contains(child) && child != null) {
+                    toVisit.add(child);
+                }
+            }
+        }
+
         return deviceList.toArray(new Device[deviceList.size()]);
     }
 
-    private Flowchart loadFlowchart(String path, String filename, String entry) throws JSONException {
-        Map<String, JSONObject> elements = deepLoadElements(path, filename);
+    private Flowchart loadFlowchart(String path, String filename, String entry, boolean useCached) throws JSONException {
+        Map<String, JSONObject> elements = deepLoadElements(path, filename, useCached);
         Map<JSONObject, Flowchart> flowchartsByJSON = new HashMap<>();
         Map<String, Flowchart> flowchartsByID = new HashMap<>();
         //Create maps
@@ -78,7 +106,7 @@ public class NetworkHelper {
     }
 
     @NonNull
-    private Map<String, JSONObject> deepLoadElements(String path, String filename) throws JSONException {
+    private Map<String, JSONObject> deepLoadElements(String path, String filename, boolean useCached) throws JSONException {
         //Map of jsonname/id to JSONObject
         Map<String, JSONObject> loadedElements = new HashMap<>();
         Set<String> loadedJSONs = new HashSet<>();
@@ -87,7 +115,7 @@ public class NetworkHelper {
 
         while (toLoadJSON.size() > 0) {
             String jsonFile = toLoadJSON.poll();
-            Map<String, JSONObject> elements = loadElements(path, jsonFile);
+            Map<String, JSONObject> elements = loadElements(path, jsonFile, useCached);
             extendIDs(jsonFile, elements);
             Set<String> referencedJSONs = getReferencedJSONs(elements);
             loadedJSONs.add(jsonFile);
@@ -137,12 +165,12 @@ public class NetworkHelper {
         }
     }
 
-    private Map<String, JSONObject> loadElements(String path, String jsonName) throws JSONException {
+    private Map<String, JSONObject> loadElements(String path, String jsonName, boolean useCached) throws JSONException {
         Map<String, JSONObject> elements = new HashMap<>();
         String abspath = path + File.separator + jsonName;
         String json = null;
         try {
-            json = downloadFile(abspath);
+            json = downloadFileAsStr(abspath, useCached);
         } catch (IOException e) {
             e.printStackTrace();
             return elements;
@@ -155,10 +183,12 @@ public class NetworkHelper {
         return elements;
     }
 
-    private String downloadFile(String urlS) throws IOException {
-        if (useCached) {
-            return getCachedFile(urlS);
+    private String downloadFileAsStr(String urlS, boolean useCached) throws IOException {
+        if (useCached && ResourceHandler.get().hasStringResource(urlS)) {
+            Logger.getLogger("NetworkHelper").log(Level.INFO, "Loading from cache: " + urlS);
+            return ResourceHandler.get().getStringResource(urlS);
         } else {
+            Logger.getLogger("NetworkHelper").log(Level.INFO, "Downloading: " + urlS);
             java.net.URL url = new URL(urlS);
             URLConnection conection = url.openConnection();
             conection.connect();
@@ -170,12 +200,9 @@ public class NetworkHelper {
                 builder.append(line).append('\n');
             }
             input.close();
+            ResourceHandler.get().addStringResource(urlS, builder.toString());
             return builder.toString();
         }
-    }
-
-    private String getCachedFile(String urlS) {
-        return null;
     }
 
 }

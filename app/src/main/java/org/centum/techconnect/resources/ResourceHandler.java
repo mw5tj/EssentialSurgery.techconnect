@@ -1,8 +1,13 @@
 package org.centum.techconnect.resources;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+
+import org.centum.techconnect.model.Device;
+import org.json.JSONException;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Phani on 4/16/2016.
@@ -11,9 +16,13 @@ public class ResourceHandler {
 
     private static ResourceHandler instance = null;
     private Context context;
+    private SharedPreferences prefs;
+
+    private Device[] devices = null;
 
     public ResourceHandler(Context context) {
         this.context = context;
+        prefs = context.getSharedPreferences("ResourceHandler", Context.MODE_PRIVATE);
     }
 
     public static ResourceHandler get(Context context) {
@@ -27,8 +36,50 @@ public class ResourceHandler {
         return instance;
     }
 
-    public File getImageFile(String url) {
+    public Device[] getDevices() {
+        if (devices == null) {
+            try {
+                devices = new NetworkHelper().loadDevices(true);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return devices;
+    }
+
+    public void loadResources() {
+        try {
+            devices = new NetworkHelper().loadDevices(true);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean hasStringResource(String tag) {
+        return false;
+    }
+
+    public String getStringResource(String tag) {
         return null;
     }
 
+    public void addStringResource(String tag, String s) {
+    }
+
+    public boolean hasFileResource(String imageURL) {
+        return false;
+    }
+
+    public File getFileResource(String imageURL) {
+        return null;
+    }
+
+    public void addFileResource(String tag, File file) {
+
+    }
 }

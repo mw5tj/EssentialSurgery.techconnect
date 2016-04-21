@@ -16,9 +16,9 @@ import android.widget.FrameLayout;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import org.centum.techconnect.R;
-import org.centum.techconnect.model.DeviceManager;
 import org.centum.techconnect.model.Session;
 import org.centum.techconnect.model.SessionCompleteListener;
+import org.centum.techconnect.resources.ResourceHandler;
 import org.centum.techconnect.views.SelfHelpFlowView;
 import org.centum.techconnect.views.SelfHelpIntroView;
 import org.centum.techconnect.views.SelfHelpSlidingView;
@@ -93,7 +93,7 @@ public class SelfHelpFragment extends Fragment implements View.OnClickListener {
         if (currentSession == null) {
             slidingUpPanelLayout.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN);
             introView = (SelfHelpIntroView) getLayoutInflater(null).inflate(R.layout.self_help_intro_view, mainContainer, false);
-            introView.setDevices(DeviceManager.get().getDevices());
+            introView.setDevices(ResourceHandler.get().getDevices());
             introView.setSessionCreatedListener(this);
             mainContainer.removeAllViews();
             mainContainer.addView(introView);
