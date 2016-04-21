@@ -86,7 +86,15 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             protected Void doInBackground(Void... voids) {
+                long time = System.currentTimeMillis();
                 ResourceHandler.get().loadResources();
+                if ((System.currentTimeMillis() - time) < 2000) {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
                 return null;
             }
         }.execute();
