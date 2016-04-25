@@ -1,8 +1,8 @@
 [
 	{
 	"id":"q1",
-	"question":"Carefully take off the outlet faceplate and inspect circuitry for any damage. Disconnect the main power while dismantling.",
-	"details":"",
+	"question":"Disconnect the main power. Carefully take off the outlet faceplate and look for circuitry damage.",
+	"details":"Warning: Wear insulated globes and use insulated equipment when handling high voltage outputs.",
 	"attachment":null,
 	"options":["Ok"],
 	"next_question":["ok_1"]
@@ -25,15 +25,23 @@
 	},
 	{
 	"id":"no_1",
-	"question":"Is the outlet wired properly and grounded? Use a voltmeter to check for the output voltage and current. Ensure that the live, neutral, and ground wires are appropriate. Check the device plug.",
+	"question":"Use a voltmeter to check output voltage and current.  Check that the live, neutral, and ground wires are correct.",
 	"details":"",
 	"attachment":["https://www.dropbox.com/s/21eiio30p4kdd77/adding_proper_grounding.pdf?dl=0","https://www.dropbox.com/s/75l1zkhzmopl8cy/outlet_and_plug_variations.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":["no_1a"]
+	},
+	{
+	"id":"no_1a",
+	"question":"Is the outlet wired properly and grounded?",
+	"details":"",
+	"attachment":null,
 	"options":["Yes","No"],
 	"next_question":["yes_2","no_2"]
 	},
 	{
 	"id":"yes_2",
-	"question":"Is the machine set to accept the proper power?",
+	"question":"Is the device set to accept the appropriate wall power?",
 	"details":"",
 	"attachment":null,
 	"options":["Yes","No"],
@@ -41,7 +49,7 @@
 	},
 	{
 	"id":"yes_3",
-	"question":"Is the plug of the appropriate pin type? The plug pin configuration should fit into the wall socket.",
+	"question":"Does the plug pin configuration fit into the wall socket?",
 	"details":"",
 	"attachment":null,
 	"options":["Yes","No"],
@@ -57,50 +65,58 @@
 	},
 	{
 	"id":"yes_5",
-	"question":"Is the device working properly?",
+	"question":"The outlet and plug are working.",
 	"details":"",
 	"attachment":null,
-	"options":["Yes","No"],
-	"next_question":[null,"no_6"]
+	"options":["Back to pulse oximeter troubleshooting","Back to autoclave troubleshooting","Back to power supply troubleshooting"],
+	"next_question":["pulse_oximeter.json","autoclave.json","ps_continued.json"]
 	},
 	{
 	"id":"no_5",
 	"question":"Fix or replace the plug and cable. Tighten pins that wiggle. Straighten any bent pins with pliers. Remove rust with sandpaper.",
 	"details":"",
-	"attachment":["https://www.dropbox.com/s/efayw6du3lhtkon/fabricating_power_cords.pdf?dl=0"],
-	"options":["Ok"],
-	"next_question":["yes_5"]
-	},
-	{
-	"id":"no_4",
-	"question":"Obtain appropriate plug type and replace, or obtain a pin type adapter.",
-	"details":"",
-	"attachment":["https://www.dropbox.com/s/75l1zkhzmopl8cy/outlet_and_plug_variations.pdf?dl=0"],
+	"attachment":["https://www.dropbox.com/s/efayw6du3lhtkon/fabricating_power_cords.pdf?dl=0","https://www.dropbox.com/s/wwega9k0em0ujkr/lose_connectors.pdf?dl=0","https://www.dropbox.com/s/p5htu1m86q41j0v/pin_replacement.pdf?dl=0","https://www.dropbox.com/s/ms3txbp2vtwnh1y/cleaning_connectors.pdf?dl=0","https://www.dropbox.com/s/10n4wy8c9lo7pb1/broken_wires_within_cables.pdf?dl=0","https://www.dropbox.com/s/l9ltjvf2mqe90d5/electrical_tape.pdf?dl=0","https://www.dropbox.com/s/uy14ov30lh7acm9/continuity_tester.pdf?dl=0","https://www.dropbox.com/s/gir22dkw95emw8i/desoldering.pdf?dl=0","https://www.dropbox.com/s/h7ptkp2jgvyh7jt/soldering.pdf?dl=0"],
 	"options":["Ok"],
 	"next_question":["yes_4"]
 	},
 	{
+	"id":"no_4",
+	"question":"Replace the plug type, or use a pin type adapter.",
+	"details":"",
+	"attachment":["https://www.dropbox.com/s/75l1zkhzmopl8cy/outlet_and_plug_variations.pdf?dl=0"],
+	"options":["Ok"],
+	"next_question":["yes_3"]
+	},
+	{
 	"id":"no_3",
-	"question":"Alter the power of the device if possible. Otherwise, obtain the transformer of the appropriate input and output voltage.",
+	"question":"Can you change the set input power of the device?",
+	"details":"",
+	"attachment":null,
+	"options":["Yes","No"],
+	"next_question":["yes_2","no_3b"]
+	},
+	{
+	"id":"no_3b",
+	"question":"Use a transformer of the correct input and output voltages.",
 	"details":"",
 	"attachment":null,
 	"options":["Ok"],
 	"next_question":["ok_6"]
 	},
 	{
+	"id":"ok_6",
+	"question":"Troubleshoot the transformer to make sure it's working properly.",
+	"details":"",
+	"attachment":null,
+	"options":["Ok"],
+	"next_question":["transformer.json"]
+	},
+	{
 	"id":"no_2",
-	"question":"Carefully the rewire the outlet and add a ground connection if necessary. Disconnect the main power.",
+	"question":"Disconnect the main power. Carefully rewire the outlet. Add a ground connection if necessary.",
 	"details":"",
 	"attachment":["https://www.dropbox.com/s/21eiio30p4kdd77/adding_proper_grounding.pdf?dl=0"],
 	"options":["Ok"],
 	"next_question":["yes_2"]
-	},
-	{
-	"id":"no_6",
-	"question":"Would you like to access resources, contact another technician, or continue with power supply troubleshooting?",
-	"details":"To access resources, click on the document links. To contact another technician, use the call button. Press 'continue...' for more guided troubleshooting.",
-	"attachment":["https://www.dropbox.com/s/qqdzt6nkrjkeucs/outlet_plug_troubleshooting.pdf?dl=0","https://www.dropbox.com/s/0qmrlbyv6e8cq6a/power_supply_troubleshooting.pdf?dl=0"],
-	"options":["Continue power supply troubleshooting"],
-	"next_question":["ps_continued.json"]
 	}
 ]

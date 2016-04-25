@@ -1,8 +1,9 @@
 [
 {
   "id":"q1",
-  "question":"What is the power source",
+  "question":"What is the power source?",
   "details":"",
+  "image":["https://www.dropbox.com/s/sk3vq33k5mfm246/9V%20battery.png?dl=0","https://www.dropbox.com/s/7q4u5t51yx76j4q/Outlet.png?dl=0"],
   "attachment":null,
   "options":["Battery", "Outlet and plug"],
   "next_question":["bat","outlet_and_plug"]
@@ -43,6 +44,7 @@
 	"id":"ok2",
 	"question":"Does the display light up?",
 	"details":"",
+  "image":["https://www.dropbox.com/s/ybwlkrlhb22779w/Pulse_ox_display.jpg?dl=0"],
 	"attachment":null,
 	"options":["Yes", "No"],
 	"next_question":["yes3","outlet_plug.json"]
@@ -51,6 +53,7 @@
   "id":"ok1",
   "question":"Does the display light up?",
   "details":"",
+  "image":["https://www.dropbox.com/s/ybwlkrlhb22779w/Pulse_ox_display.jpg?dl=0"],
   "attachment":null,
   "options":["Yes","No"],
   "next_question":["yes3","no2"]
@@ -75,6 +78,7 @@
   "id":"ok3",
   "question":"Does the display light up?",
   "details":"",
+  "image":["https://www.dropbox.com/s/ybwlkrlhb22779w/Pulse_ox_display.jpg?dl=0"],
   "attachment":null,
   "options":["Yes","No"],
   "next_question":["yes3","battery.json"]
@@ -99,6 +103,7 @@
   "id":"ok5",
   "question":"Does the display light up?",
   "details":"",
+  "image":["https://www.dropbox.com/s/ybwlkrlhb22779w/Pulse_ox_display.jpg?dl=0"],
   "attachment":null,
   "options":["Yes","No"],
   "next_question":["yes3","no3"]
@@ -107,6 +112,7 @@
   "id":"yes3",
   "question":"Is the red light sensor fully visible?",
   "details":"",
+  "image":["https://www.dropbox.com/s/46q91qee6e3h2qt/Pulse_ox_light_visible.jpg?dl=0","https://www.dropbox.com/s/4jt8zdtux4ayha6/Pulse_ox_emitter.jpg?dl=0"],
   "attachment":null,
   "options":["Yes","No"],
   "next_question":["yes5","no3"]
@@ -123,6 +129,7 @@
   "id":"ok6",
   "question":"Is the red light sensor now fully visible?",
   "details":"",
+  "image":["https://www.dropbox.com/s/46q91qee6e3h2qt/Pulse_ox_light_visible.jpg?dl=0","https://www.dropbox.com/s/4jt8zdtux4ayha6/Pulse_ox_emitter.jpg?dl=0"],
   "attachment":null,
   "options":["Yes","No"],
   "next_question":["yes5","no5"]
@@ -139,14 +146,16 @@
   "id":"yes5",
   "question":"Place probe on finger. Make sure no outside light gets inside the probe.",
   "details":"",
+  "image":["https://www.dropbox.com/s/8b61t0nh50a7x0d/pulse_ox_probe_loose.jpg?dl=0","https://www.dropbox.com/s/5df8tkytuen53cu/pulse_ox_probe_right.jpg?dl=0"],
   "attachment":null,
   "options":["Ok"],
   "next_question":["ok7"]
   },
   {
   "id":"ok7",
-  "question":"Do SpO2 (and heart raite, if applicable) numbers appear?",
+  "question":"Do SpO2 (and heart rate, if applicable) numbers appear?",
   "details":"",
+  "image":["https://www.dropbox.com/s/ybwlkrlhb22779w/Pulse_ox_display.jpg?dl=0"],
   "attachment":null,
   "options":["Yes","No"],
   "next_question":["yes6","no6"]
@@ -163,6 +172,7 @@
   "id":"yes7",
   "question":"If applicable, calculate your heartrate - find your pulse on your neck and using a stopwatch, count the number of beats per minute.",
   "details":"",
+  "image":["https://www.dropbox.com/s/c56ffbdrch0wetl/Pulse_ox_feel_pulse.jpg?dl=0"],
   "attachment":null,
   "options":["Ok"],
   "next_question":["ok8"]
@@ -203,6 +213,7 @@
   "id":"ok9",
   "question":"Is there a cable attached to the probe?",
   "details":"",
+  "image":["https://www.dropbox.com/s/mo982t22gmmwsgt/Pulse_ox_cord.jpg?dl=0"],
   "attachment":null,
   "options":["Yes","No"],
   "next_question":["yes9","no9"]
@@ -211,6 +222,7 @@
   "id":"yes9",
   "question":"Make sure the probe is completely connected to the monitor",
   "details":"",
+  "image":["https://www.dropbox.com/s/6awa5ov8q9641g7/Pulse_ox_monitor_connection.jpg?dl=0"],
   "attachment":null,
   "options":["Ok"],
   "next_question":["ok10"]
@@ -219,6 +231,7 @@
   "id":"ok10",
   "question":"Are the pins in the cable plug bent?",
   "details":"",
+  "image":["https://www.dropbox.com/s/k9gserxzjdzgfed/Pulse_ox_straight_pins.jpg?dl=0"],
   "attachment":null,
   "options":["Yes","No"],
   "next_question":["yes10","no10"]
@@ -251,6 +264,7 @@
   "id":"no10",
   "question":"Are the cable wires broken?",
   "details":"",
+  "image":["https://www.dropbox.com/s/5uursvoo2tt1gnb/Pulse_ox_frayed_wire.jpg?dl=0"],
   "attachment":null,
   "options":["Yes","No"],
   "next_question":["yes11","no11"]
@@ -259,14 +273,16 @@
   "id":"yes11",
   "question":"Solder the broken wires back together. If this is not possible, cut out the broken section and connect the ends of the wires.",
   "details":"",
+  "image":["https://www.dropbox.com/s/7qcav4prd1oiwmz/soldering.jpg?dl=0"],
   "attachment":null,
   "options":["Ok"],
   "next_question":["ok12"]
   },
   {
   "id":"ok12",
-  "question":"Do SpO2 (and heart raite, if applicable) numbers appear?",
+  "question":"Do SpO2 (and heart rate, if applicable) numbers appear?",
   "details":"",
+  "image":["https://www.dropbox.com/s/ybwlkrlhb22779w/Pulse_ox_display.jpg?dl=0"],
   "attachment":null,
   "options":["Yes","No"],
   "next_question":["yes6","no11"]
