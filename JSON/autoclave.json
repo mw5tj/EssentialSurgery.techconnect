@@ -22,7 +22,7 @@
   "details":"",
   "attachment":null,
   "options":["Ok"],
-  "next_question":["power.json"]
+  "next_question":["ps_overall.json"]
   },
   {
     "id":"multimeter",
@@ -56,7 +56,7 @@
   "image":["https://www.dropbox.com/s/rtoqakasixrayqp/autoclave_voltage.jpg?dl=0"],
   "attachment":null,
   "options":["Ok"],
-  "next_question":["power.json"]
+  "next_question":["ps_overall.json"]
   },
   {
   "id":"no1",
