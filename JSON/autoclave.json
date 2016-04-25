@@ -22,7 +22,7 @@
   "details":"",
   "attachment":null,
   "options":["Ok"],
-  "next_question":["power.json"],
+  "next_question":["power.json"]
   },
   {
     "id":"multimeter",
@@ -56,7 +56,7 @@
   "image":["https://www.dropbox.com/s/rtoqakasixrayqp/autoclave_voltage.jpg?dl=0"],
   "attachment":null,
   "options":["Ok"],
-  "next_question":["power.json"],
+  "next_question":["power.json"]
   },
   {
   "id":"no1",
@@ -64,7 +64,7 @@
   "details":"",
   "attachment":["https://www.dropbox.com/s/ms3txbp2vtwnh1y/cleaning_connectors.pdf?dl=0"],
   "options":["Ok"],
-  "next_question":["multimeter2"],
+  "next_question":["multimeter2"]
   },
   {
   "id":"multimeter2",
@@ -73,7 +73,7 @@
   "image":["https://www.dropbox.com/s/8sdsz2k8dglt8qg/autoclave_heating_element.jpg?dl=0"],
   "attachment":null,
   "options":["Next step"],
-  "next_question":["next3"],
+  "next_question":["next3"]
   },
   {
   "id":"next3",
@@ -81,7 +81,7 @@
   "details":"",
   "attachment":null,
   "options":["Yes","No"],
-  "next_question":["q1","replace"],
+  "next_question":["q1","replace"]
   },
   {
   "id":"replace",
@@ -98,7 +98,7 @@
   "details":"",
   "attachment":null,
   "options":["Yes","No - pressure gauge stays at zero","No - temperature gauge stays at zero"],
-  "next_question":["yes2","nop","nop"],
+  "next_question":["yes2","nop","nop"]
   },
   {
   "id":"not",
@@ -106,7 +106,7 @@
   "details":"",
   "attachment":["https://www.dropbox.com/s/qm55t0787k7w1jt/cleaning_filters.pdf?dl=0"],
   "options":["Next step"],
-  "next_question":["next4"],
+  "next_question":["next4"]
   },
   {
   "id":"next4",
@@ -114,7 +114,7 @@
   "details":"",
   "attachment":null,
   "options":["Next step"],
-  "next_question":["next5"],
+  "next_question":["next5"]
   },
   {
   "id":"next5",
@@ -122,7 +122,7 @@
   "details":"",
   "attachment":null,
   "options":["Next step"],
-  "next_question":["yes1"],
+  "next_question":["yes1"]
   },
   {
   "id":"nop",
@@ -130,7 +130,7 @@
   "details":"",
   "attachment":["https://www.dropbox.com/s/qm55t0787k7w1jt/cleaning_filters.pdf?dl=0"],
   "options":["Next step"],
-  "next_question":["next45"],
+  "next_question":["next45"]
   },
   {
   "id":"next45",
@@ -138,7 +138,7 @@
   "details":"",
   "attachment":null,
   "options":["Next step"],
-  "next_question":["next545"],
+  "next_question":["next545"]
   },
   {
   "id":"next545",
@@ -146,7 +146,7 @@
   "details":"",
   "attachment":null,
   "options":["Next step"],
-  "next_question":["next54"],
+  "next_question":["next54"]
   },
   {
   "id":"next54",
@@ -154,7 +154,7 @@
   "details":"",
   "attachment":null,
   "options":["Next step"],
-  "next_question":["yes1"],
+  "next_question":["yes1"]
   },
   {
   "id":"yes2",
@@ -163,7 +163,7 @@
   "image":["https://www.dropbox.com/s/kbfzhhu5gtlnt3q/autoclave_pressure_temp_vs_time_chart.jpg?dl=0"],
   "attachment":null,
   "options":["Yes","No, values are too low","No, values are too high"],
-  "next_question":["yes3","low","high"],
+  "next_question":["yes3","low","high"]
   },
   {
   "id":"high",
@@ -172,7 +172,7 @@
   "image":["https://www.dropbox.com/s/n242mtte2a76g96/autoclave_safety_valve.jpg?dl=0"],
   "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?dl=0"],
   "options":["Next step"],
-  "next_question":["next6"],
+  "next_question":["next6"]
   },
   {
   "id":"next6",
@@ -180,7 +180,7 @@
   "details":"",
   "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?dl=0","https://www.dropbox.com/s/o6lm6jquu2jdstd/routing_blockage.pdf?dl=0"],
   "options":["Next step"],
-  "next_question":["next7"],
+  "next_question":["next7"]
   },
   {
   "id":"next7",
@@ -188,7 +188,7 @@
   "details":"",
   "attachment":["https://www.dropbox.com/s/qm55t0787k7w1jt/cleaning_filters.pdf?dl=0","https://www.dropbox.com/s/wgc7pt5mtexfq7c/filter_substitution.pdf?dl=0"],
   "options":["Ok"],
-  "next_question":["yes2"],
+  "next_question":["yes2"]
   },
   {
   "id":"low",
@@ -196,7 +196,7 @@
   "details":"",
   "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?dl=0","https://www.dropbox.com/s/wsatfy95cg2ega6/finding_holes_in_tubes.pdf?dl=0","https://www.dropbox.com/s/ka07mokrlhbd55o/rubber_patches_for_tube_repair.pdf?dl=0","https://www.dropbox.com/s/svgqnbz024lkszt/melting_to_repair_tubes.pdf?dl=0"],
   "options":["Next step"],
-  "next_question":["next8"],
+  "next_question":["next8"]
   },
   {
   "id":"next8",
@@ -205,7 +205,7 @@
   "image":["https://www.dropbox.com/s/dg3cx9zrensfnid/autoclave_valve.jpg?dl=0"],
   "attachment":null,
   "options":["Next step"],
-  "next_question":["next9"],
+  "next_question":["next9"]
   },
   {
   "id":"next9",
@@ -214,7 +214,7 @@
   "image":["https://www.dropbox.com/s/dg3cx9zrensfnid/autoclave_valve.jpg?dl=0"],
   "attachment":["https://www.dropbox.com/s/eg8bynfex76c95m/sealing_autoclave_doors.pdf?dl=0"],
   "options":["Next step"],
-  "next_question":["next10"],
+  "next_question":["next10"]
   },
   {
   "id":"next10",
@@ -222,7 +222,7 @@
   "details":"",
   "attachment":null,
   "options":["Metal-to-metal seal","Gasket seal"],
-  "next_question":["metal","gasket"],
+  "next_question":["metal","gasket"]
   },
   {
   "id":"metal",
@@ -230,7 +230,7 @@
   "details":"",
   "attachment":["https://www.dropbox.com/s/eg8bynfex76c95m/sealing_autoclave_doors.pdf?dl=0"],
   "options":["Next step"],
-  "next_question":["next11"],
+  "next_question":["next11"]
   },
   {
   "id":"metal",
@@ -238,7 +238,7 @@
   "details":"",
   "attachment":["https://www.dropbox.com/s/ftj1ltyfpxh414v/gaskets.pdf?dl=0"],
   "options":["Next step"],
-  "next_question":["next11"],
+  "next_question":["next11"]
   },
   {
   "id":"next11",
@@ -246,7 +246,7 @@
   "details":"",
   "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?dl=0","https://www.dropbox.com/s/wsatfy95cg2ega6/finding_holes_in_tubes.pdf?dl=0","https://www.dropbox.com/s/ka07mokrlhbd55o/rubber_patches_for_tube_repair.pdf?dl=0","https://www.dropbox.com/s/svgqnbz024lkszt/melting_to_repair_tubes.pdf?dl=0"],
   "options":["Ok"],
-  "next_question":["yes2"],
+  "next_question":["yes2"]
   },
   {
   "id":"yes3",
@@ -254,7 +254,7 @@
   "details":"",
   "attachment":null,
   "options":["Yes","No"],
-  "next_question":["yes4","no2"],
+  "next_question":["yes4","no2"]
   },
   {
   "id":"yes4",
@@ -262,7 +262,7 @@
   "details":"",
   "attachment":null,
   "options":["Yes","No"],
-  "next_question":["yes5","no3"],
+  "next_question":["yes5","no3"]
   },
   {
   "id":"yes5",
@@ -270,7 +270,7 @@
   "details":"",
   "attachment":null,
   "options":["Next step"],
-  "next_question":["next12"],
+  "next_question":["next12"]
   },
   {
   "id":"next12",
@@ -278,7 +278,7 @@
   "details":"",
   "attachment":null,
   "options":["Yes","No"],
-  "next_question":["yes6","no4"],
+  "next_question":["yes6","no4"]
   },
   {
   "id":"yes6",
@@ -286,7 +286,7 @@
   "details":"",
   "attachment":null,
   "options":["Ok"],
-  "next_question":[null],
+  "next_question":[null]
   },
   {
   "id":"no6",
@@ -294,7 +294,7 @@
   "details":"",
   "attachment":null,
   "options":["Ok"],
-  "next_question":[null],
+  "next_question":[null]
   },
   {
   "id":"no3",
@@ -302,7 +302,7 @@
   "details":"",
   "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?dl=0"],
   "options":["Next step"],
-  "next_question":["next13"],
+  "next_question":["next13"]
   },
   {
   "id":"next13",
@@ -310,7 +310,7 @@
   "details":"",
   "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?dl=0","https://www.dropbox.com/s/o6lm6jquu2jdstd/routing_blockage.pdf?dl=0"],
   "options":["Next step"],
-  "next_question":["next14"],
+  "next_question":["next14"]
   },
   {
   "id":"next14",
@@ -318,7 +318,7 @@
   "details":"",
   "attachment":["https://www.dropbox.com/s/wwega9k0em0ujkr/lose_connectors.pdf?dl=0","https://www.dropbox.com/s/nedt93vlwxi4xuk/selecting_wire.pdf?dl=0","https://www.dropbox.com/s/abjvwem7hw1ke2b/cleaning_connectors.pdf?dl=0","https://www.dropbox.com/s/gir22dkw95emw8i/desoldering.pdf?dl=0","https://www.dropbox.com/s/cgh6we1saff8os2/heat_shrink_tubing.pdf?dl=0","https://www.dropbox.com/s/l9ltjvf2mqe90d5/electrical_tape.pdf?dl=0","https://www.dropbox.com/s/p5htu1m86q41j0v/pin_replacement.pdf?dl=0","https://www.dropbox.com/s/h7ptkp2jgvyh7jt/soldering.pdf?dl=0","https://www.dropbox.com/s/baps694eafr8yjw/wire_nuts.pdf?dl=0","https://www.dropbox.com/s/uy14ov30lh7acm9/continuity_tester.pdf?dl=0"],
   "options":["Ok"],
-  "next_question":["yes4"],
+  "next_question":["yes4"]
   },
   {
   "id":"no2",
@@ -326,7 +326,7 @@
   "details":"",
   "attachment":null,
   "options":["Next step"],
-  "next_question":["next15"],
+  "next_question":["next15"]
   },
   {
   "id":"next15",
@@ -334,5 +334,6 @@
   "details":"",
   "attachment":["https://www.dropbox.com/s/wwega9k0em0ujkr/lose_connectors.pdf?dl=0","https://www.dropbox.com/s/nedt93vlwxi4xuk/selecting_wire.pdf?dl=0","https://www.dropbox.com/s/abjvwem7hw1ke2b/cleaning_connectors.pdf?dl=0","https://www.dropbox.com/s/gir22dkw95emw8i/desoldering.pdf?dl=0","https://www.dropbox.com/s/cgh6we1saff8os2/heat_shrink_tubing.pdf?dl=0","https://www.dropbox.com/s/l9ltjvf2mqe90d5/electrical_tape.pdf?dl=0","https://www.dropbox.com/s/p5htu1m86q41j0v/pin_replacement.pdf?dl=0","https://www.dropbox.com/s/h7ptkp2jgvyh7jt/soldering.pdf?dl=0","https://www.dropbox.com/s/baps694eafr8yjw/wire_nuts.pdf?dl=0","https://www.dropbox.com/s/uy14ov30lh7acm9/continuity_tester.pdf?dl=0"],
   "options":["Ok"],
-  "next_question":["yes3"],
-  },
+  "next_question":["yes3"]
+  }
+  ]
