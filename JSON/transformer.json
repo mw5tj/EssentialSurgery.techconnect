@@ -75,7 +75,7 @@
 	"id":"yes_4",
 	"question":"Troubleshoot the transformer fuse. Use a voltmeter to check if the fuse shorts.",
 	"details":"",
-	"attachment":["https://www.dropbox.com/s/sxgr40jfyvxrryi/identifying_blown_fuse.pdf?dl=0"],
+	"attachment":["https://www.dropbox.com/s/sxgr40jfyvxrryi/identifying_blown_fuse.pdf?raw=1"],
 	"options":["Ok"],
 	"next_question":["yes_4a"]
 	},
@@ -83,7 +83,7 @@
 	"id":"yes_4a",
 	"question":"Does the transformer fuse short?",
 	"details":"",
-	"attachment":["https://www.dropbox.com/s/sxgr40jfyvxrryi/identifying_blown_fuse.pdf?dl=0"],
+	"attachment":["https://www.dropbox.com/s/sxgr40jfyvxrryi/identifying_blown_fuse.pdf?raw=1"],
 	"options":["Yes","No"],
 	"next_question":["yes_5","no_6"]
 	},
@@ -91,7 +91,7 @@
 	"id":"no_5",
 	"question":"If recoiling is possible, check the resistance of coils, between coils, and between coils and frames.",
 	"details":"",
-	"attachment":["https://www.dropbox.com/s/fo90ysqykibnt6v/diagnosing_transformer_that_needs_rewinding.pdf?dl=0"],
+	"attachment":["https://www.dropbox.com/s/fo90ysqykibnt6v/diagnosing_transformer_that_needs_rewinding.pdf?raw=1"],
 	"options":["Ok"],
 	"next_question":["no_5a"]
 	},
@@ -99,7 +99,7 @@
 	"id":"no_5a",
 	"question":"Rewind expose coils if necessary. Otherwise, replace the transformer.",
 	"details":"",
-	"attachment":["https://www.dropbox.com/s/fo90ysqykibnt6v/diagnosing_transformer_that_needs_rewinding.pdf?dl=0"],
+	"attachment":["https://www.dropbox.com/s/fo90ysqykibnt6v/diagnosing_transformer_that_needs_rewinding.pdf?raw=1"],
 	"options":["Ok"],
 	"next_question":["no_1"]
 	},
@@ -115,7 +115,7 @@
 	"id":"no_6",
 	"question":"Identify the fuse amperage, voltage, and type (should be printed on the fuse or device). If not, make an educated guess by comparing with fuses of known specifications, and use knowledge of the device.",
 	"details":"",
-	"attachment":["https://www.dropbox.com/s/01dw870fa1ryeba/fuse_substitution.pdf?dl=0"],
+	"attachment":["https://www.dropbox.com/s/01dw870fa1ryeba/fuse_substitution.pdf?raw=1"],
 	"options":["Ok"],
 	"next_question":["no_6a"]
 	},
@@ -139,7 +139,7 @@
 	"id":"no_6c",
 	"question":"Replace the fuse with one of as many specifcation matches as possible. If not, make a temporary replacement fuse.",
 	"details":"Amperage: Replace with lower amperage NOT higher amperage. Voltage: A higher voltage can replace a lower voltage fuse. A lower voltage fuse CANNOT replace a higher voltage fuse. Type: Fast acting can replace a slow acting fuse. Slow acting CANNOT replace fast acting.",
-	"attachment":["https://www.dropbox.com/s/01dw870fa1ryeba/fuse_substitution.pdf?dl=0"],
+	"attachment":["https://www.dropbox.com/s/01dw870fa1ryeba/fuse_substitution.pdf?raw=1"],
 	"options":["Back to start of transformer troubleshooting"],
 	"next_question":["q1"]
 	},

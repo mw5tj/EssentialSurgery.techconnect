@@ -59,7 +59,7 @@
 	"id":"no_4",
 	"question":"Replace batteries with a wall transformer if they cannot be replaced.",
 	"details":"Additional substitutions: 1) NiCd for NiMH of the same voltage and capacity, 2) NiMH for NiCd of the same voltage and capacity. Matching voltage takes priority.",
-	"attachment":["https://www.dropbox.com/s/ywh1k85cbmcarrx/replacing_batteries_with_wall_transformer.pdf?dl=0","https://www.dropbox.com/s/ymqzalyt8lu0z4e/substituting_rechargeable_batteries.pdf?dl=0"],
+	"attachment":["https://www.dropbox.com/s/ywh1k85cbmcarrx/replacing_batteries_with_wall_transformer.pdf?raw=1","https://www.dropbox.com/s/ymqzalyt8lu0z4e/substituting_rechargeable_batteries.pdf?raw=1"],
 	"options":["Ok"],
 	"next_question":["yes_6"]
 	},
@@ -91,7 +91,7 @@
 	"id":"no_2",
 	"question":"You can make a charger using a power supply and resistor.",
 	"details":"",
-	"attachment":["https://www.dropbox.com/s/crocykwqkizo18i/battery_charger.pdf?dl=0"],
+	"attachment":["https://www.dropbox.com/s/crocykwqkizo18i/battery_charger.pdf?raw=1"],
 	"options":["Ok"],
 	"next_question":["yes_2"]
 	},
@@ -131,7 +131,7 @@
 	"id":"no_8",
 	"question":"Replace the batteries with a 'battery pack' by adding batteries in series or in parallel to equal the wanted total voltage and/or capacity ratings.",
 	"details":"Parallel: equal voltage, capacities add. Series: voltages add, equal capacities.",
-	"attachment":["https://www.dropbox.com/s/la21rj8aopg24sd/substituting_primary_batteries.pdf?dl=0"],
+	"attachment":["https://www.dropbox.com/s/la21rj8aopg24sd/substituting_primary_batteries.pdf?raw=1"],
 	"options":["Ok"],
 	"next_question":["yes_6"]
 	},

@@ -27,7 +27,7 @@
 	"id":"no_1",
 	"question":"Use a voltmeter to check output voltage and current.  Check that the live, neutral, and ground wires are correct.",
 	"details":"",
-	"attachment":["https://www.dropbox.com/s/21eiio30p4kdd77/adding_proper_grounding.pdf?dl=0","https://www.dropbox.com/s/75l1zkhzmopl8cy/outlet_and_plug_variations.pdf?dl=0"],
+	"attachment":["https://www.dropbox.com/s/21eiio30p4kdd77/adding_proper_grounding.pdf?raw=1","https://www.dropbox.com/s/75l1zkhzmopl8cy/outlet_and_plug_variations.pdf?raw=1"],
 	"options":["Ok"],
 	"next_question":["no_1a"]
 	},
@@ -75,7 +75,7 @@
 	"id":"no_5",
 	"question":"Fix or replace the plug and cable. Tighten pins that wiggle. Straighten any bent pins with pliers. Remove rust with sandpaper.",
 	"details":"",
-	"attachment":["https://www.dropbox.com/s/efayw6du3lhtkon/fabricating_power_cords.pdf?dl=0","https://www.dropbox.com/s/wwega9k0em0ujkr/lose_connectors.pdf?dl=0","https://www.dropbox.com/s/p5htu1m86q41j0v/pin_replacement.pdf?dl=0","https://www.dropbox.com/s/ms3txbp2vtwnh1y/cleaning_connectors.pdf?dl=0","https://www.dropbox.com/s/10n4wy8c9lo7pb1/broken_wires_within_cables.pdf?dl=0","https://www.dropbox.com/s/l9ltjvf2mqe90d5/electrical_tape.pdf?dl=0","https://www.dropbox.com/s/uy14ov30lh7acm9/continuity_tester.pdf?dl=0","https://www.dropbox.com/s/gir22dkw95emw8i/desoldering.pdf?dl=0","https://www.dropbox.com/s/h7ptkp2jgvyh7jt/soldering.pdf?dl=0"],
+	"attachment":["https://www.dropbox.com/s/efayw6du3lhtkon/fabricating_power_cords.pdf?raw=1","https://www.dropbox.com/s/wwega9k0em0ujkr/lose_connectors.pdf?raw=1","https://www.dropbox.com/s/p5htu1m86q41j0v/pin_replacement.pdf?raw=1","https://www.dropbox.com/s/ms3txbp2vtwnh1y/cleaning_connectors.pdf?raw=1","https://www.dropbox.com/s/10n4wy8c9lo7pb1/broken_wires_within_cables.pdf?raw=1","https://www.dropbox.com/s/l9ltjvf2mqe90d5/electrical_tape.pdf?raw=1","https://www.dropbox.com/s/uy14ov30lh7acm9/continuity_tester.pdf?raw=1","https://www.dropbox.com/s/gir22dkw95emw8i/desoldering.pdf?raw=1","https://www.dropbox.com/s/h7ptkp2jgvyh7jt/soldering.pdf?raw=1"],
 	"options":["Ok"],
 	"next_question":["yes_4"]
 	},
@@ -83,7 +83,7 @@
 	"id":"no_4",
 	"question":"Replace the plug type, or use a pin type adapter.",
 	"details":"",
-	"attachment":["https://www.dropbox.com/s/75l1zkhzmopl8cy/outlet_and_plug_variations.pdf?dl=0"],
+	"attachment":["https://www.dropbox.com/s/75l1zkhzmopl8cy/outlet_and_plug_variations.pdf?raw=1"],
 	"options":["Ok"],
 	"next_question":["yes_3"]
 	},
@@ -115,7 +115,7 @@
 	"id":"no_2",
 	"question":"Disconnect the main power. Carefully rewire the outlet. Add a ground connection if necessary.",
 	"details":"",
-	"attachment":["https://www.dropbox.com/s/21eiio30p4kdd77/adding_proper_grounding.pdf?dl=0"],
+	"attachment":["https://www.dropbox.com/s/21eiio30p4kdd77/adding_proper_grounding.pdf?raw=1"],
 	"options":["Ok"],
 	"next_question":["yes_2"]
 	}

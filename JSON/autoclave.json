@@ -3,7 +3,7 @@
   "id":"q1",
   "question":"Is there an indicator lamp?",
   "details":"",
-  "image":["https://www.dropbox.com/s/4njlngedy2l10nx/autoclave_display_on.jpg?dl=0"],
+  "image":["https://www.dropbox.com/s/4njlngedy2l10nx/autoclave_display_on.jpg?raw=1"],
   "attachment":null,
   "options":["Yes", "No"],
   "next_question":["lamp","multimeter"]
@@ -28,7 +28,7 @@
     "id":"multimeter",
     "question":"Use a multimeter to test the voltage across the wires leading to the heating element.",
     "details":"",
-    "image":["https://www.dropbox.com/s/8sdsz2k8dglt8qg/autoclave_heating_element.jpg?dl=0"],
+    "image":["https://www.dropbox.com/s/8sdsz2k8dglt8qg/autoclave_heating_element.jpg?raw=1"],
     "attachment":null,
     "options":["Next step"],
     "next_question":["next"]
@@ -53,7 +53,7 @@
   "id":"circuit",
   "question":"Check the control circuit settings",
   "details":"",
-  "image":["https://www.dropbox.com/s/rtoqakasixrayqp/autoclave_voltage.jpg?dl=0"],
+  "image":["https://www.dropbox.com/s/rtoqakasixrayqp/autoclave_voltage.jpg?raw=1"],
   "attachment":null,
   "options":["Ok"],
   "next_question":["ps_overall.json"]
@@ -62,7 +62,7 @@
   "id":"no1",
   "question":"Look at the heating element connections. Clean/mend any rusted or cracked connections",
   "details":"",
-  "attachment":["https://www.dropbox.com/s/ms3txbp2vtwnh1y/cleaning_connectors.pdf?dl=0"],
+  "attachment":["https://www.dropbox.com/s/ms3txbp2vtwnh1y/cleaning_connectors.pdf?raw=1"],
   "options":["Ok"],
   "next_question":["multimeter2"]
   },
@@ -70,7 +70,7 @@
   "id":"multimeter2",
   "question":"Use a multimeter to test the voltage across the heating element.",
   "details":"",
-  "image":["https://www.dropbox.com/s/8sdsz2k8dglt8qg/autoclave_heating_element.jpg?dl=0"],
+  "image":["https://www.dropbox.com/s/8sdsz2k8dglt8qg/autoclave_heating_element.jpg?raw=1"],
   "attachment":null,
   "options":["Next step"],
   "next_question":["next3"]
@@ -87,7 +87,7 @@
   "id":"replace",
   "question":"Replace the heating element",
   "details":"",
-  "attachment":["https://www.dropbox.com/s/qh01gxrvtnux62v/replacing_heating_elements.pdf?dl=0"],
+  "attachment":["https://www.dropbox.com/s/qh01gxrvtnux62v/replacing_heating_elements.pdf?raw=1"],
   "options":["Ok"],
 
   "next_question":["q1"]
@@ -104,7 +104,7 @@
   "id":"not",
   "question":"Clean the gauge vent. Rinse vent with distilled water. Keep gauge dry.",
   "details":"",
-  "attachment":["https://www.dropbox.com/s/qm55t0787k7w1jt/cleaning_filters.pdf?dl=0"],
+  "attachment":["https://www.dropbox.com/s/qm55t0787k7w1jt/cleaning_filters.pdf?raw=1"],
   "options":["Next step"],
   "next_question":["next4"]
   },
@@ -128,7 +128,7 @@
   "id":"nop",
   "question":"Clean the gauge vent. Rinse vent with distilled water. Keep gauge dry.",
   "details":"",
-  "attachment":["https://www.dropbox.com/s/qm55t0787k7w1jt/cleaning_filters.pdf?dl=0"],
+  "attachment":["https://www.dropbox.com/s/qm55t0787k7w1jt/cleaning_filters.pdf?raw=1"],
   "options":["Next step"],
   "next_question":["next45"]
   },
@@ -160,7 +160,7 @@
   "id":"yes2",
   "question":"Do temperature and pressure reach required values?",
   "details":"",
-  "image":["https://www.dropbox.com/s/kbfzhhu5gtlnt3q/autoclave_pressure_temp_vs_time_chart.jpg?dl=0"],
+  "image":["https://www.dropbox.com/s/kbfzhhu5gtlnt3q/autoclave_pressure_temp_vs_time_chart.jpg?raw=1"],
   "attachment":null,
   "options":["Yes","No, values are too low","No, values are too high"],
   "next_question":["yes3","low","high"]
@@ -169,8 +169,8 @@
   "id":"high",
   "question":"Remove any blocks in valves by running distilled water through them",
   "details":"",
-  "image":["https://www.dropbox.com/s/n242mtte2a76g96/autoclave_safety_valve.jpg?dl=0"],
-  "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?dl=0"],
+  "image":["https://www.dropbox.com/s/n242mtte2a76g96/autoclave_safety_valve.jpg?raw=1"],
+  "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?raw=1"],
   "options":["Next step"],
   "next_question":["next6"]
   },
@@ -178,7 +178,7 @@
   "id":"next6",
   "question":"Remove any blocks in exhaust by running distilled water through the tube",
   "details":"",
-  "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?dl=0","https://www.dropbox.com/s/o6lm6jquu2jdstd/routing_blockage.pdf?dl=0"],
+  "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?raw=1","https://www.dropbox.com/s/o6lm6jquu2jdstd/routing_blockage.pdf?raw=1"],
   "options":["Next step"],
   "next_question":["next7"]
   },
@@ -186,7 +186,7 @@
   "id":"next7",
   "question":"Look for blocks/clogs in inlet and outlet filters. Clean or replace filters if necessary",
   "details":"",
-  "attachment":["https://www.dropbox.com/s/qm55t0787k7w1jt/cleaning_filters.pdf?dl=0","https://www.dropbox.com/s/wgc7pt5mtexfq7c/filter_substitution.pdf?dl=0"],
+  "attachment":["https://www.dropbox.com/s/qm55t0787k7w1jt/cleaning_filters.pdf?raw=1","https://www.dropbox.com/s/wgc7pt5mtexfq7c/filter_substitution.pdf?raw=1"],
   "options":["Ok"],
   "next_question":["yes2"]
   },
@@ -194,7 +194,7 @@
   "id":"low",
   "question":"Check closed valves for leaks and fix if necessary",
   "details":"",
-  "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?dl=0","https://www.dropbox.com/s/wsatfy95cg2ega6/finding_holes_in_tubes.pdf?dl=0","https://www.dropbox.com/s/ka07mokrlhbd55o/rubber_patches_for_tube_repair.pdf?dl=0","https://www.dropbox.com/s/svgqnbz024lkszt/melting_to_repair_tubes.pdf?dl=0"],
+  "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?raw=1","https://www.dropbox.com/s/wsatfy95cg2ega6/finding_holes_in_tubes.pdf?raw=1","https://www.dropbox.com/s/ka07mokrlhbd55o/rubber_patches_for_tube_repair.pdf?raw=1","https://www.dropbox.com/s/svgqnbz024lkszt/melting_to_repair_tubes.pdf?raw=1"],
   "options":["Next step"],
   "next_question":["next8"]
   },
@@ -202,7 +202,7 @@
   "id":"next8",
   "question":"Check that the valves open and close smoothly. Clean if necessary",
   "details":"",
-  "image":["https://www.dropbox.com/s/dg3cx9zrensfnid/autoclave_valve.jpg?dl=0"],
+  "image":["https://www.dropbox.com/s/dg3cx9zrensfnid/autoclave_valve.jpg?raw=1"],
   "attachment":null,
   "options":["Next step"],
   "next_question":["next9"]
@@ -211,8 +211,8 @@
   "id":"next9",
   "question":"Check the seals where valves connect to autoclave and fix if necessary",
   "details":"",
-  "image":["https://www.dropbox.com/s/dg3cx9zrensfnid/autoclave_valve.jpg?dl=0"],
-  "attachment":["https://www.dropbox.com/s/eg8bynfex76c95m/sealing_autoclave_doors.pdf?dl=0"],
+  "image":["https://www.dropbox.com/s/dg3cx9zrensfnid/autoclave_valve.jpg?raw=1"],
+  "attachment":["https://www.dropbox.com/s/eg8bynfex76c95m/sealing_autoclave_doors.pdf?raw=1"],
   "options":["Next step"],
   "next_question":["next10"]
   },
@@ -228,7 +228,7 @@
   "id":"metal",
   "question":"Lubricate seal",
   "details":"",
-  "attachment":["https://www.dropbox.com/s/eg8bynfex76c95m/sealing_autoclave_doors.pdf?dl=0"],
+  "attachment":["https://www.dropbox.com/s/eg8bynfex76c95m/sealing_autoclave_doors.pdf?raw=1"],
   "options":["Next step"],
   "next_question":["next11"]
   },
@@ -236,7 +236,7 @@
   "id":"metal",
   "question":"Replace the gasket if it is dry or cracked.",
   "details":"",
-  "attachment":["https://www.dropbox.com/s/ftj1ltyfpxh414v/gaskets.pdf?dl=0"],
+  "attachment":["https://www.dropbox.com/s/ftj1ltyfpxh414v/gaskets.pdf?raw=1"],
   "options":["Next step"],
   "next_question":["next11"]
   },
@@ -244,7 +244,7 @@
   "id":"next11",
   "question":"Check the inlet/outlet tubing for leaks and fix if necessary",
   "details":"",
-  "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?dl=0","https://www.dropbox.com/s/wsatfy95cg2ega6/finding_holes_in_tubes.pdf?dl=0","https://www.dropbox.com/s/ka07mokrlhbd55o/rubber_patches_for_tube_repair.pdf?dl=0","https://www.dropbox.com/s/svgqnbz024lkszt/melting_to_repair_tubes.pdf?dl=0"],
+  "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?raw=1","https://www.dropbox.com/s/wsatfy95cg2ega6/finding_holes_in_tubes.pdf?raw=1","https://www.dropbox.com/s/ka07mokrlhbd55o/rubber_patches_for_tube_repair.pdf?raw=1","https://www.dropbox.com/s/svgqnbz024lkszt/melting_to_repair_tubes.pdf?raw=1"],
   "options":["Ok"],
   "next_question":["yes2"]
   },
@@ -300,7 +300,7 @@
   "id":"no3",
   "question":"Steam should come out of the open valves. If not, remove any blocks in the valves by running distilled water through them",
   "details":"",
-  "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?dl=0"],
+  "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?raw=1"],
   "options":["Next step"],
   "next_question":["next13"]
   },
@@ -308,7 +308,7 @@
   "id":"next13",
   "question":"Remove any blocks in exhaust by running distilled water through the tube",
   "details":"",
-  "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?dl=0","https://www.dropbox.com/s/o6lm6jquu2jdstd/routing_blockage.pdf?dl=0"],
+  "attachment":["https://www.dropbox.com/s/pu1cyad1cu2fdsk/cleaning_valves_and_tubes.pdf?raw=1","https://www.dropbox.com/s/o6lm6jquu2jdstd/routing_blockage.pdf?raw=1"],
   "options":["Next step"],
   "next_question":["next14"]
   },
@@ -316,7 +316,7 @@
   "id":"next14",
   "question":"Check the timing circuit for broken or damaged connections and components",
   "details":"",
-  "attachment":["https://www.dropbox.com/s/wwega9k0em0ujkr/lose_connectors.pdf?dl=0","https://www.dropbox.com/s/nedt93vlwxi4xuk/selecting_wire.pdf?dl=0","https://www.dropbox.com/s/abjvwem7hw1ke2b/cleaning_connectors.pdf?dl=0","https://www.dropbox.com/s/gir22dkw95emw8i/desoldering.pdf?dl=0","https://www.dropbox.com/s/cgh6we1saff8os2/heat_shrink_tubing.pdf?dl=0","https://www.dropbox.com/s/l9ltjvf2mqe90d5/electrical_tape.pdf?dl=0","https://www.dropbox.com/s/p5htu1m86q41j0v/pin_replacement.pdf?dl=0","https://www.dropbox.com/s/h7ptkp2jgvyh7jt/soldering.pdf?dl=0","https://www.dropbox.com/s/baps694eafr8yjw/wire_nuts.pdf?dl=0","https://www.dropbox.com/s/uy14ov30lh7acm9/continuity_tester.pdf?dl=0"],
+  "attachment":["https://www.dropbox.com/s/wwega9k0em0ujkr/lose_connectors.pdf?raw=1","https://www.dropbox.com/s/nedt93vlwxi4xuk/selecting_wire.pdf?raw=1","https://www.dropbox.com/s/abjvwem7hw1ke2b/cleaning_connectors.pdf?raw=1","https://www.dropbox.com/s/gir22dkw95emw8i/desoldering.pdf?raw=1","https://www.dropbox.com/s/cgh6we1saff8os2/heat_shrink_tubing.pdf?raw=1","https://www.dropbox.com/s/l9ltjvf2mqe90d5/electrical_tape.pdf?raw=1","https://www.dropbox.com/s/p5htu1m86q41j0v/pin_replacement.pdf?raw=1","https://www.dropbox.com/s/h7ptkp2jgvyh7jt/soldering.pdf?raw=1","https://www.dropbox.com/s/baps694eafr8yjw/wire_nuts.pdf?raw=1","https://www.dropbox.com/s/uy14ov30lh7acm9/continuity_tester.pdf?raw=1"],
   "options":["Ok"],
   "next_question":["yes4"]
   },
@@ -332,7 +332,7 @@
   "id":"next15",
   "question":"Check the timing circuit for broken or damaged connections and components",
   "details":"",
-  "attachment":["https://www.dropbox.com/s/wwega9k0em0ujkr/lose_connectors.pdf?dl=0","https://www.dropbox.com/s/nedt93vlwxi4xuk/selecting_wire.pdf?dl=0","https://www.dropbox.com/s/abjvwem7hw1ke2b/cleaning_connectors.pdf?dl=0","https://www.dropbox.com/s/gir22dkw95emw8i/desoldering.pdf?dl=0","https://www.dropbox.com/s/cgh6we1saff8os2/heat_shrink_tubing.pdf?dl=0","https://www.dropbox.com/s/l9ltjvf2mqe90d5/electrical_tape.pdf?dl=0","https://www.dropbox.com/s/p5htu1m86q41j0v/pin_replacement.pdf?dl=0","https://www.dropbox.com/s/h7ptkp2jgvyh7jt/soldering.pdf?dl=0","https://www.dropbox.com/s/baps694eafr8yjw/wire_nuts.pdf?dl=0","https://www.dropbox.com/s/uy14ov30lh7acm9/continuity_tester.pdf?dl=0"],
+  "attachment":["https://www.dropbox.com/s/wwega9k0em0ujkr/lose_connectors.pdf?raw=1","https://www.dropbox.com/s/nedt93vlwxi4xuk/selecting_wire.pdf?raw=1","https://www.dropbox.com/s/abjvwem7hw1ke2b/cleaning_connectors.pdf?raw=1","https://www.dropbox.com/s/gir22dkw95emw8i/desoldering.pdf?raw=1","https://www.dropbox.com/s/cgh6we1saff8os2/heat_shrink_tubing.pdf?raw=1","https://www.dropbox.com/s/l9ltjvf2mqe90d5/electrical_tape.pdf?raw=1","https://www.dropbox.com/s/p5htu1m86q41j0v/pin_replacement.pdf?raw=1","https://www.dropbox.com/s/h7ptkp2jgvyh7jt/soldering.pdf?raw=1","https://www.dropbox.com/s/baps694eafr8yjw/wire_nuts.pdf?raw=1","https://www.dropbox.com/s/uy14ov30lh7acm9/continuity_tester.pdf?raw=1"],
   "options":["Ok"],
   "next_question":["yes3"]
   }
