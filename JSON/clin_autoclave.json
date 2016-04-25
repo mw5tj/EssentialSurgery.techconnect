@@ -4,13 +4,8 @@
   "question":"What seems to be the problem?",
   "details":"",
   "attachment":null,
-<<<<<<< HEAD
-  "options":["Equipment is not heating", "Pressure rises above the marked level","Steam is constantly escaping","Electrical shocks"],
-  "next_question":["not_heating","pressure_high","steam_escape","shocks"]
-=======
   "options":["Equipment is not heating", "Pressure rises above the marked level","Steam is constantly escaping","Electrical shocks", "Exit"],
   "next_question":["not_heating","pressure_high","steam_escape","shocks", null]
->>>>>>> power_supply
   },
   {
     "id":"not_heating",
@@ -92,8 +87,4 @@
     "options":["Ok"],
     "next_question":["shocks"]
     }
-<<<<<<< HEAD
   ]
-=======
-  ]
->>>>>>> power_supply
