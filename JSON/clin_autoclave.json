@@ -4,8 +4,8 @@
   "question":"What seems to be the problem?",
   "details":"",
   "attachment":null,
-  "options":["Equipment is not heating", "Pressure rises above the marked level","Steam is constantly escaping","Electrical shocks", "Exit"],
-  "next_question":["not_heating","pressure_high","steam_escape","shocks", null]
+  "options":["Equipment is not heating", "Pressure rises above the marked level","Steam is constantly escaping","Electrical shocks"],
+  "next_question":["not_heating","pressure_high","steam_escape","shocks"]
   },
   {
     "id":"not_heating",
