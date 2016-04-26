@@ -225,7 +225,6 @@ public class NetworkHelper {
     }
 
     private String downloadImage(String imageUrl) throws IOException {
-        Logger.getLogger(getClass().getName()).log(Level.INFO, "Loading image: " + imageUrl);
         Bitmap bitmap = null;
         HttpURLConnection connection = null;
         InputStream is = null;
@@ -249,6 +248,7 @@ public class NetworkHelper {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
         fos.flush();
         fos.close();
+        Logger.getLogger(getClass().getName()).log(Level.INFO, "Loaded image: " + imageUrl + " --> " + fileName);
         return fileName;
     }
 

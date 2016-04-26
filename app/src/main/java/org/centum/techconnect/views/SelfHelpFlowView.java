@@ -134,6 +134,7 @@ public class SelfHelpFlowView extends ScrollView implements View.OnClickListener
         }
         imageLinearLayout.removeAllViews();
         if (flow.hasImages()) {
+            imageLinearLayout.setVisibility(VISIBLE);
             String[] images = flow.getImageURLs();
             for (String url : images) {
                 if (ResourceHandler.get().hasStringResource(url)) {
