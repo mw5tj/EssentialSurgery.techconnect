@@ -26,6 +26,8 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Phani on 1/26/2016.
+ *
+ * The pull-up menu always visisble.
  */
 public class SelfHelpSlidingView extends RelativeLayout implements View.OnClickListener {
 

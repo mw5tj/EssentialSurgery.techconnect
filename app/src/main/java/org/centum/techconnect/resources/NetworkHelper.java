@@ -35,6 +35,9 @@ import java.util.logging.Logger;
 
 /**
  * Created by Phani on 1/14/2016.
+ *
+ * Responsible for downloading the resources from the defined URL.
+ * The flowchart is also assembled from the JSON definitions here.
  */
 public class NetworkHelper {
 
@@ -47,6 +50,14 @@ public class NetworkHelper {
         this.context = context;
     }
 
+    /**
+     * Loads all of the devices, which loads the flowcharts, and resources.
+     *
+     * @param useCached
+     * @return
+     * @throws IOException
+     * @throws JSONException
+     */
     public Device[] loadDevices(boolean useCached) throws IOException, JSONException {
         //Load the devices first
         List<Device> deviceList = new LinkedList<>();
@@ -97,6 +108,15 @@ public class NetworkHelper {
         return deviceList.toArray(new Device[deviceList.size()]);
     }
 
+    /**
+     * Loads a particular flowchart by filename.
+     * @param path
+     * @param filename
+     * @param entry
+     * @param useCached
+     * @return
+     * @throws JSONException
+     */
     private Flowchart loadFlowchart(String path, String filename, String entry, boolean useCached) throws JSONException {
         Map<String, JSONObject> elements = deepLoadElements(path, filename, useCached);
         Map<JSONObject, Flowchart> flowchartsByJSON = new HashMap<>();
@@ -124,6 +144,14 @@ public class NetworkHelper {
         return flowchartsByID.get(filename + "/" + entry);
     }
 
+    /**
+     * Loads all json objects referenced by the given file, traversing the entire tree.
+     * @param path
+     * @param filename
+     * @param useCached
+     * @return
+     * @throws JSONException
+     */
     @NonNull
     private Map<String, JSONObject> deepLoadElements(String path, String filename, boolean useCached) throws JSONException {
         //Map of jsonname/id to JSONObject
@@ -149,6 +177,12 @@ public class NetworkHelper {
         return loadedElements;
     }
 
+    /**
+     * Finds all json files referenced.
+     * @param elements
+     * @return
+     * @throws JSONException
+     */
     private Set<String> getReferencedJSONs(Map<String, JSONObject> elements) throws JSONException {
         Set<String> jsons = new HashSet<>();
         for (String id : elements.keySet()) {
@@ -162,6 +196,15 @@ public class NetworkHelper {
         return jsons;
     }
 
+    /**
+     * Extends any question ids to include the file name. E.G
+     * if an id "q1" is in "someJSON.json", the id will be changed to
+     * "someJSON.json/q1"
+     *
+     * @param jsonFile
+     * @param elements
+     * @throws JSONException
+     */
     private void extendIDs(String jsonFile, Map<String, JSONObject> elements) throws JSONException {
         //convert next_question into extended id
         for (String id : elements.keySet()) {
@@ -184,6 +227,15 @@ public class NetworkHelper {
         }
     }
 
+    /**
+     * Loads the objects of just the given file.
+     *
+     * @param path
+     * @param jsonName
+     * @param useCached
+     * @return
+     * @throws JSONException
+     */
     private Map<String, JSONObject> loadElements(String path, String jsonName, boolean useCached) throws JSONException {
         Map<String, JSONObject> elements = new HashMap<>();
         String abspath = path + File.separator + jsonName;
@@ -202,6 +254,13 @@ public class NetworkHelper {
         return elements;
     }
 
+    /**
+     * Downloads a file into a single string.
+     * @param urlS
+     * @param useCached
+     * @return
+     * @throws IOException
+     */
     private String downloadFileAsStr(String urlS, boolean useCached) throws IOException {
         if (useCached && ResourceHandler.get().hasStringResource(urlS)) {
             Logger.getLogger("NetworkHelper").log(Level.INFO, "Loading from cache: " + urlS);
@@ -224,6 +283,12 @@ public class NetworkHelper {
         }
     }
 
+    /**
+     * Downloads an image.
+     * @param imageUrl
+     * @return
+     * @throws IOException
+     */
     private String downloadImage(String imageUrl) throws IOException {
         Bitmap bitmap = null;
         HttpURLConnection connection = null;

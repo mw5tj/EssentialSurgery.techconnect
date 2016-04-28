@@ -9,6 +9,10 @@ import java.util.List;
 
 /**
  * Created by Phani on 1/23/2016.
+ *
+ * The core flowchart object. Each object has the properties
+ * loaded from the json files. The children are also stored,
+ * creating a n-way tree.
  */
 public class Flowchart {
 

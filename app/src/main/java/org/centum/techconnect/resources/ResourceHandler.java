@@ -10,6 +10,8 @@ import java.io.IOException;
 
 /**
  * Created by Phani on 4/16/2016.
+ *
+ * Manages downloaded resources for offline capability.
  */
 public class ResourceHandler {
 

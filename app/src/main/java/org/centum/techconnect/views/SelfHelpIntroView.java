@@ -19,6 +19,8 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Phani on 1/26/2016.
+ *
+ * The view to start a session, after getting input from the user.
  */
 public class SelfHelpIntroView extends ScrollView implements View.OnClickListener {
 

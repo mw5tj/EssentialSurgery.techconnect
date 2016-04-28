@@ -21,6 +21,9 @@ import org.centum.techconnect.resources.ResourceHandler;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * Entry activity.
+ */
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -65,6 +68,15 @@ public class MainActivity extends AppCompatActivity
         outState.putInt("frag", fragment);
     }
 
+    /**
+     * Loads the resources in the background, while the splash is showing.
+     * All missing resources are downloaded only, so subsequent runs should
+     * just use the cached stuff.
+     * <p/>
+     * Splash shown for a min of 2000ms
+     *
+     * @param fragToOpen
+     */
     private void loadResources(final int fragToOpen) {
         new AsyncTask<Void, Void, Void>() {
 

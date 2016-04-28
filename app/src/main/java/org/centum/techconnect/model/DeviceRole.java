@@ -1,10 +1,10 @@
 package org.centum.techconnect.model;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 /**
  * Created by Phani on 1/23/2016.
+ *
+ * A particular role references a particular flowchart.
+ * Really just a wrapper, but can be extended.
  */
 public class DeviceRole {
 

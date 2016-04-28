@@ -30,6 +30,9 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Phani on 1/27/2016.
+ *
+ * The primary flowchart view. This view shows the question, details, attachments, etc.
+ * This flow view updates its content based on the Flowchart object given.
  */
 public class SelfHelpFlowView extends ScrollView implements View.OnClickListener {
 
@@ -171,6 +174,11 @@ public class SelfHelpFlowView extends ScrollView implements View.OnClickListener
         getContext().startActivity(browserIntent);
     }
 
+    /**
+     * Proceed to the next question, or end session if none.
+     *
+     * @param option
+     */
     private void advanceFlow(String option) {
         if (session.getCurrentFlowchart().getChild(option) == null) {
             if (listener != null) {

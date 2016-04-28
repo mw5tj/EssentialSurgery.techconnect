@@ -7,6 +7,9 @@ import java.util.Stack;
 
 /**
  * Created by Phani on 1/26/2016.
+ *
+ * A particular "session" is a flowchart traversal. This logs the flow
+ * of the session and generates the report.
  */
 public class Session {
 
