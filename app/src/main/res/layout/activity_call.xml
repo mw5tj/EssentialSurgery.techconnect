@@ -9,46 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="org.centum.techconnect.activities.CallActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView11"
-        android:layout_marginTop="16dp">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="Madeline Wilson"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/callBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:text="Call" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView4"
-            android:layout_marginTop="4dp"
-            android:text="Technical Help" />
-
-    </RelativeLayout>
-
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
@@ -60,4 +20,15 @@
         android:layout_alignParentTop="true"
         android:text="Available Techs"
         android:textSize="22sp" />
+
+    <ListView
+        android:id="@+id/contactListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView11"
+        android:layout_marginTop="8dp"
+        android:divider="@null"
+        android:dividerHeight="0dp" />
 </RelativeLayout>

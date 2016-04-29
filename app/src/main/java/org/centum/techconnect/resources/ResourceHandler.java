@@ -3,6 +3,7 @@ package org.centum.techconnect.resources;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import org.centum.techconnect.model.Contact;
 import org.centum.techconnect.model.Device;
 import org.json.JSONException;
 
@@ -20,7 +21,8 @@ public class ResourceHandler {
     private SharedPreferences prefs;
     private SharedPreferences resourcePrefs;
 
-    private Device[] devices = null;
+    private Device[] devices = new Device[0];
+    private Contact[] contacts = new Contact[0];
 
     public ResourceHandler(Context context) {
         this.context = context;
@@ -43,9 +45,15 @@ public class ResourceHandler {
         return devices;
     }
 
+    public Contact[] getContacts() {
+        return contacts;
+    }
+
     public void loadResources() {
         try {
-            devices = new NetworkHelper(context).loadDevices(true);
+            NetworkHelper helper = new NetworkHelper(context);
+            devices = helper.loadDevices(true);
+            contacts = helper.loadCallDirectoryContacts(true);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 
+import org.centum.techconnect.model.Contact;
 import org.centum.techconnect.model.Device;
 import org.centum.techconnect.model.Flowchart;
 import org.json.JSONArray;
@@ -35,19 +36,31 @@ import java.util.logging.Logger;
 
 /**
  * Created by Phani on 1/14/2016.
- *
+ * <p/>
  * Responsible for downloading the resources from the defined URL.
  * The flowchart is also assembled from the JSON definitions here.
  */
 public class NetworkHelper {
 
     public static final String ENTRY_ID = "q1";
-    private static final String URL = "https://raw.githubusercontent.com/mw5tj/EssentialSurgery.techconnect/master/JSON//";
+    private static final String URL = "https://raw.githubusercontent.com/mw5tj/EssentialSurgery.techconnect/master/JSON/";
     private static final String INDEX_FILE = "index.json";
     private Context context;
 
     public NetworkHelper(Context context) {
         this.context = context;
+    }
+
+
+    public Contact[] loadCallDirectoryContacts(boolean useCached) throws IOException, JSONException {
+        List<Contact> contacts = new LinkedList<>();
+        JSONObject index = new JSONObject(downloadFileAsStr(URL + INDEX_FILE, useCached));
+        String dirFile = index.getString("callDir");
+        JSONArray jsonContacts = new JSONArray(downloadFileAsStr(URL + dirFile, useCached));
+        for (int i = 0; i < jsonContacts.length(); i++) {
+            contacts.add(Contact.fromJSON(jsonContacts.getJSONObject(i)));
+        }
+        return contacts.toArray(new Contact[contacts.size()]);
     }
 
     /**
@@ -110,6 +123,7 @@ public class NetworkHelper {
 
     /**
      * Loads a particular flowchart by filename.
+     *
      * @param path
      * @param filename
      * @param entry
@@ -146,6 +160,7 @@ public class NetworkHelper {
 
     /**
      * Loads all json objects referenced by the given file, traversing the entire tree.
+     *
      * @param path
      * @param filename
      * @param useCached
@@ -179,6 +194,7 @@ public class NetworkHelper {
 
     /**
      * Finds all json files referenced.
+     *
      * @param elements
      * @return
      * @throws JSONException
@@ -256,6 +272,7 @@ public class NetworkHelper {
 
     /**
      * Downloads a file into a single string.
+     *
      * @param urlS
      * @param useCached
      * @return
@@ -285,6 +302,7 @@ public class NetworkHelper {
 
     /**
      * Downloads an image.
+     *
      * @param imageUrl
      * @return
      * @throws IOException
