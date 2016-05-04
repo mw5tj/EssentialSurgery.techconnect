@@ -3,6 +3,7 @@
 	"id":"q1",
 	"question":"Discard and replace batteries if they are leaking, rusted, or corroding.",
 	"details":"",
+	"image":["https://www.dropbox.com/s/lp7mko5mia5ejm1/battery_corroded.jpg?raw=1"],
 	"attachment":null,
 	"options":["Ok"],
 	"next_question":["ok_1"]
@@ -27,6 +28,7 @@
 	"id":"yes_2",
 	"question":"Charge batteries, then use a voltmeter to test battery output voltage.",
 	"details":"",
+	"image":["https://www.dropbox.com/s/4vwbgqkt60ivv3e/battery_voltmeter.jpg?raw=1"],
 	"attachment":null,
 	"options":["Ok"],
 	"next_question":["yes_2a"]
@@ -59,7 +61,7 @@
 	"id":"no_4",
 	"question":"Replace batteries with a wall transformer if they cannot be replaced.",
 	"details":"Additional substitutions: 1) NiCd for NiMH of the same voltage and capacity, 2) NiMH for NiCd of the same voltage and capacity. Matching voltage takes priority.",
-	"attachment":["https://www.dropbox.com/s/ywh1k85cbmcarrx/replacing_batteries_with_wall_transformer.pdf?raw=1","https://www.dropbox.com/s/ymqzalyt8lu0z4e/substituting_rechargeable_batteries.pdf?raw=1"],
+	"attachment":["https://www.dropbox.com/s/ywh1k85cbmcarrx/replacing_batteries_with_wall_transformer.pdf?dl=0","https://www.dropbox.com/s/ymqzalyt8lu0z4e/substituting_rechargeable_batteries.pdf?dl=0"],
 	"options":["Ok"],
 	"next_question":["yes_6"]
 	},
@@ -91,7 +93,8 @@
 	"id":"no_2",
 	"question":"You can make a charger using a power supply and resistor.",
 	"details":"",
-	"attachment":["https://www.dropbox.com/s/crocykwqkizo18i/battery_charger.pdf?raw=1"],
+	"image":["https://www.dropbox.com/s/tqedyteadql9cr9/battery_charging_circuit_diagram.jpg?raw=1"],
+	"attachment":["https://www.dropbox.com/s/crocykwqkizo18i/battery_charger.pdf?dl=0"],
 	"options":["Ok"],
 	"next_question":["yes_2"]
 	},
@@ -99,6 +102,7 @@
 	"id":"no_1",
 	"question":"Use a voltmeter to measure battery output voltage.",
 	"details":"",
+	"image":["https://www.dropbox.com/s/4vwbgqkt60ivv3e/battery_voltmeter.jpg?raw=1"],
 	"attachment":null,
 	"options":["Ok"],
 	"next_question":["no_1a"]
@@ -131,7 +135,8 @@
 	"id":"no_8",
 	"question":"Replace the batteries with a 'battery pack' by adding batteries in series or in parallel to equal the wanted total voltage and/or capacity ratings.",
 	"details":"Parallel: equal voltage, capacities add. Series: voltages add, equal capacities.",
-	"attachment":["https://www.dropbox.com/s/la21rj8aopg24sd/substituting_primary_batteries.pdf?raw=1"],
+	"image":["https://www.dropbox.com/s/u5495lv39bvk5bl/battery_series_parallel.jpg?raw=1"],
+	"attachment":["https://www.dropbox.com/s/la21rj8aopg24sd/substituting_primary_batteries.pdf?dl=0"],
 	"options":["Ok"],
 	"next_question":["yes_6"]
 	},

@@ -3,6 +3,7 @@
 	"id":"q1",
 	"question":"Look at the AC input cable feeding power into the device. Check for damage or exposed wires.",
 	"details":"",
+  "image":["https://www.dropbox.com/s/kv0r3clqvse9zri/transformer_outlet_voltmeter.jpg?raw=1"],
 	"attachment":null,
 	"options":["Ok"],
 	"next_question":["q1a"]
@@ -27,6 +28,7 @@
 	"id":"yes_1a",
 	"question":"Follow the power cord into the device. Use a voltmeter to check the voltage in the device before any circuit components.",
 	"details":"",
+  "image":["https://www.dropbox.com/s/h8u5qkhe2by2cf3/power_supply_voltage_check.JPG?raw=1"],
 	"attachment":null,
 	"options":["Ok"],
 	"next_question":["yes_1b"]
@@ -123,6 +125,7 @@
 	"id":"no_4",
 	"question":"Does the device use a bulky internal transformer?",
 	"details":"",
+  "image":["https://www.dropbox.com/s/y4iy3w406k9uh6j/power_internal_transformer.jpg?raw=1"],
 	"attachment":null,
 	"options":["Yes","No"],
 	"next_question":["yes_7","no_6"]
@@ -227,6 +230,7 @@
 	"id":"yes_10",
 	"question":"Pull out the 3-pin voltage regulator.",
 	"details":"",
+  "image":["https://www.dropbox.com/s/oyqp6a7xueito88/power_supply_3pin_V_reg.jpg?raw=1"],
 	"attachment":null,
 	"options":["Ok"],
 	"next_question":["yes_10a"]
@@ -281,7 +285,7 @@
 	},
 	{
 	"id":"yes_7",
-	"question":"Troubleshoot the transformer to make sure it is working properly.", 
+	"question":"Troubleshoot the transformer to make sure it is working properly.",
 	"details":"",
 	"attachment":null,
 	"options":["Transformer troubleshooting"],
