@@ -2,5 +2,6 @@
 <resources>
     <string-array name="fragment_titles">
         <item>Self Help</item>
+        <item>Reports</item>
     </string-array>
 </resources>

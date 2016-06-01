@@ -4,26 +4,35 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by Phani on 1/23/2016.
+ *
+ * The core flowchart object. Each object has the properties
+ * loaded from the json files. The children are also stored,
+ * creating a n-way tree.
  */
 public class Flowchart {
 
+    private String key;
     private String question;
     private String details;
     private String[] attachments;
-    private Map<String, Flowchart> children = new HashMap<>();
+    private String imageURLs[] = new String[0];
+    private List<String> options = new LinkedList<>();
+    private List<Flowchart> children = new LinkedList<>();
 
-    public Flowchart(String question, String details, String[] attachments) {
+    public Flowchart(String question, String details, String[] attachments, String imageURLs[], String key) {
         this.question = question;
         this.details = details;
         this.attachments = attachments;
+        this.key = key;
+        this.imageURLs = imageURLs;
     }
 
-    public static Flowchart fromJSON(JSONObject object) throws JSONException {
+    public static Flowchart fromJSON(JSONObject object, String key) throws JSONException {
         String[] attachmentsStr;
         if (object.isNull("attachment")) {
             attachmentsStr = new String[0];
@@ -34,13 +43,22 @@ public class Flowchart {
                 attachmentsStr[i] = attachments.getString(i);
             }
         }
+        String imageURLs[] = new String[0];
+        if (object.has("image")) {
+            JSONArray arr = object.getJSONArray("image");
+            imageURLs = new String[arr.length()];
+            for (int i = 0; i < imageURLs.length; i++) {
+                imageURLs[i] = arr.getString(i);
+            }
+        }
         Flowchart flowchart = new Flowchart(object.getString("question"),
-                object.getString("details"), attachmentsStr);
+                object.getString("details"), attachmentsStr, imageURLs, key);
         return flowchart;
     }
 
     public void addChild(String option, Flowchart child) {
-        children.put(option, child);
+        options.add(option);
+        children.add(child);
     }
 
     public int getNumChildren() {
@@ -48,11 +66,15 @@ public class Flowchart {
     }
 
     public String[] getOptions() {
-        return children.keySet().toArray(new String[getNumChildren()]);
+        return options.toArray(new String[options.size()]);
     }
 
     public Flowchart getChild(String option) {
-        return children.get(option);
+        return children.get(options.indexOf(option));
+    }
+
+    public Flowchart getChildByIndex(int i) {
+        return children.get(i);
     }
 
     public String getQuestion() {
@@ -65,5 +87,17 @@ public class Flowchart {
 
     public String[] getAttachments() {
         return attachments;
+    }
+
+    public String[] getImageURLs() {
+        return imageURLs;
+    }
+
+    public boolean hasImages() {
+        return imageURLs != null && imageURLs.length > 0;
+    }
+
+    public String getKey() {
+        return key;
     }
 }

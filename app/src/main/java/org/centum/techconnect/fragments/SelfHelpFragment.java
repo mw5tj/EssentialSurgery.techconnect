@@ -1,7 +1,9 @@
 package org.centum.techconnect.fragments;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,12 +16,15 @@ import android.widget.FrameLayout;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import org.centum.techconnect.R;
-import org.centum.techconnect.model.DeviceManager;
 import org.centum.techconnect.model.Session;
 import org.centum.techconnect.model.SessionCompleteListener;
+import org.centum.techconnect.resources.ResourceHandler;
 import org.centum.techconnect.views.SelfHelpFlowView;
 import org.centum.techconnect.views.SelfHelpIntroView;
 import org.centum.techconnect.views.SelfHelpSlidingView;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -87,11 +92,9 @@ public class SelfHelpFragment extends Fragment implements View.OnClickListener {
     private void updateViews() {
         if (currentSession == null) {
             slidingUpPanelLayout.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN);
-            if (introView == null) {
-                introView = (SelfHelpIntroView) getLayoutInflater(null).inflate(R.layout.self_help_intro_view, mainContainer, false);
-                introView.setDevices(DeviceManager.get().getDevices());
-                introView.setSessionCreatedListener(this);
-            }
+            introView = (SelfHelpIntroView) getLayoutInflater(null).inflate(R.layout.self_help_intro_view, mainContainer, false);
+            introView.setDevices(ResourceHandler.get().getDevices());
+            introView.setSessionCreatedListener(this);
             mainContainer.removeAllViews();
             mainContainer.addView(introView);
         } else {
@@ -102,8 +105,7 @@ public class SelfHelpFragment extends Fragment implements View.OnClickListener {
             flowView.setSession(currentSession, new SessionCompleteListener() {
                 @Override
                 public void onSessionComplete() {
-                    currentSession = null;
-                    updateViews();
+                    terminateSession();
                 }
             });
             mainContainer.addView(flowView);
@@ -123,8 +125,7 @@ public class SelfHelpFragment extends Fragment implements View.OnClickListener {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.dismiss();
-                            currentSession = null;
-                            updateViews();
+                            terminateSession();
                         }
                     })
                     .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -134,5 +135,15 @@ public class SelfHelpFragment extends Fragment implements View.OnClickListener {
                         }
                     }).show();
         }
+    }
+
+    private void terminateSession() {
+        SharedPreferences prefs = getContext().getSharedPreferences("sessions", Context.MODE_PRIVATE);
+        Set<String> seshs = prefs.getStringSet("sessions", new HashSet<String>());
+        Set<String> cpy = new HashSet<>(seshs);
+        cpy.add(currentSession.getReport());
+        prefs.edit().putStringSet("sessions", cpy).commit();
+        currentSession = null;
+        updateViews();
     }
 }

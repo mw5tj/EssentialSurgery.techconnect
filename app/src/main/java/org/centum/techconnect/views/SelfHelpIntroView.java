@@ -9,11 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import org.centum.techconnect.R;
 import org.centum.techconnect.model.Device;
-import org.centum.techconnect.model.DeviceProblem;
 import org.centum.techconnect.model.Session;
 
 import butterknife.Bind;
@@ -21,19 +19,20 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Phani on 1/26/2016.
+ *
+ * The view to start a session, after getting input from the user.
  */
 public class SelfHelpIntroView extends ScrollView implements View.OnClickListener {
+
+    private static final int ROLE_TECH = 0;
+    private static final int ROLE_END = 1;
 
     @Bind(R.id.department_editText)
     EditText departmentEditText;
     @Bind(R.id.device_spinner)
     Spinner deviceSpinner;
-    @Bind(R.id.problem_spinner)
-    Spinner problemSpinner;
-    @Bind(R.id.urgency_spinner)
-    Spinner urgencySpinner;
-    @Bind(R.id.description_textView)
-    TextView descriptionTextView;
+    @Bind(R.id.role_spinner)
+    Spinner roleSpinner;
     @Bind(R.id.notes_editText)
     EditText notesEditText;
     @Bind(R.id.start_session_button)
@@ -42,8 +41,7 @@ public class SelfHelpIntroView extends ScrollView implements View.OnClickListene
     private Device[] devices;
     private OnClickListener clickListener;
     private Device selectedDevice;
-    private DeviceProblem selectedDeviceProblem;
-    private Session.Urgency selectedUrgency;
+    private int selectedRole;
     private Session session;
 
 
@@ -91,32 +89,26 @@ public class SelfHelpIntroView extends ScrollView implements View.OnClickListene
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 selectedDevice = null;
-                selectedDeviceProblem = null;
-                problemSpinner.setAdapter(null);
+                selectedRole = -1;
+                roleSpinner.setAdapter(null);
             }
         });
     }
 
     private void updateProblemSpinner() {
-        final DeviceProblem problems[] = selectedDevice.getProblems();
-        String problemNames[] = new String[problems.length];
-        for (int i = 0; i < problems.length; i++) {
-            problemNames[i] = problems[i].getName();
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, problemNames);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, new String[]{"Biomedical Technician", "Clinician/End User"});
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        problemSpinner.setAdapter(adapter);
-        problemSpinner.setSelection(0);
-        problemSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        roleSpinner.setAdapter(adapter);
+        roleSpinner.setSelection(0);
+        roleSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                selectedDeviceProblem = problems[i];
-                descriptionTextView.setText(selectedDeviceProblem.getDescription());
+                selectedRole = i;
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                selectedDeviceProblem = null;
+                selectedRole = -1;
             }
         });
     }
@@ -133,18 +125,6 @@ public class SelfHelpIntroView extends ScrollView implements View.OnClickListene
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, levels);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        urgencySpinner.setAdapter(adapter);
-        urgencySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                selectedUrgency = Session.Urgency.valueOf(levels[i]);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                selectedUrgency = null;
-            }
-        });
     }
 
     @Override
@@ -155,9 +135,8 @@ public class SelfHelpIntroView extends ScrollView implements View.OnClickListene
             session.setCreatedDate(System.currentTimeMillis());
             session.setDepartment(departmentEditText.getText().toString());
             session.setDevice(selectedDevice);
-            session.setDeviceProblem(selectedDeviceProblem);
-            session.setUrgency(selectedUrgency);
             session.setNotes(notesEditText.getText().toString());
+            session.setRole(selectedRole == ROLE_TECH ? selectedDevice.getTechRole() : selectedDevice.getEndUserRole());
             clickListener.onClick(this);
         }
     }

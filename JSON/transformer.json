@@ -19,6 +19,7 @@
 	"id":"yes_1",
 	"question":"Using a voltmeter, make sure that the wall outlet is outputting the proper voltage.",
 	"details":"",
+	"image":["https://www.dropbox.com/s/kv0r3clqvse9zri/transformer_outlet_voltmeter.jpg?raw=1"],
 	"attachment":null,
 	"options":["Ok"],
 	"next_question":["yes_1a"]
@@ -91,6 +92,7 @@
 	"id":"no_5",
 	"question":"If recoiling is possible, check the resistance of coils, between coils, and between coils and frames.",
 	"details":"",
+	"image":["https://www.dropbox.com/s/hlppluezopyvp26/transformer_primary_coil.jpg?raw=1, https://www.dropbox.com/s/oqhs60mzugzu8p3/transformer_secondary_coil.jpg?raw=1, https://www.dropbox.com/s/e6dvetzgdbzi2g8/transformer_between_primary_secondary_coil.jpg?raw=1, https://www.dropbox.com/s/oqhs60mzugzu8p3/transformer_secondary_coil.jpg?raw=1"],
 	"attachment":["https://www.dropbox.com/s/fo90ysqykibnt6v/diagnosing_transformer_that_needs_rewinding.pdf?dl=0"],
 	"options":["Ok"],
 	"next_question":["no_5a"]

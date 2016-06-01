@@ -27,6 +27,7 @@
 	"id":"no_1",
 	"question":"Use a voltmeter to check output voltage and current.  Check that the live, neutral, and ground wires are correct.",
 	"details":"",
+	"image":["https://www.dropbox.com/s/kv0r3clqvse9zri/transformer_outlet_voltmeter.jpg?raw=1"],
 	"attachment":["https://www.dropbox.com/s/21eiio30p4kdd77/adding_proper_grounding.pdf?dl=0","https://www.dropbox.com/s/75l1zkhzmopl8cy/outlet_and_plug_variations.pdf?dl=0"],
 	"options":["Ok"],
 	"next_question":["no_1a"]
@@ -51,6 +52,7 @@
 	"id":"yes_3",
 	"question":"Does the plug pin configuration fit into the wall socket?",
 	"details":"",
+	"image":["https://www.dropbox.com/s/1kuvi68etpaxfbj/outlet_types.jpg?raw=1"],
 	"attachment":null,
 	"options":["Yes","No"],
 	"next_question":["yes_4","no_4"]
